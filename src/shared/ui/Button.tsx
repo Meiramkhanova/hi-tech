@@ -21,7 +21,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "flex items-center justify-center tracking-wide cursor-pointer text-white transition-all ease-in duration-300 rounded-2xl";
+    "flex items-center justify-center tracking-wide cursor-pointer text-white transition-all ease-in-out duration-300 rounded-2xl";
 
   const variants: Record<Variant, string> = {
     primary: "bg-thesecondary hover:brightness-110 border border-thesecondary",
