@@ -7,7 +7,7 @@ function MainInfoNews() {
     <section className="main-info-news">
       <div className="wrapper py-6 md:py-8">
         <Container>
-          <div className="info-news-wrapper w-full grid grid-cols-2 gap-6 md:gap-8">
+          <div className="info-news-wrapper w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <MainInfo />
 
             <MainNews />

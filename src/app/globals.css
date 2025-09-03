@@ -124,8 +124,12 @@
   }
 }
 
+.swiper-wrapper{
+  @apply relative z-30
+}
+
 .custom-pagination .swiper-pagination-bullet {
-  @apply bg-gray-800 w-2.5 h-2.5 rounded-full;
+  @apply bg-gray-800 w-2 h-2 rounded-full;
 }
 .custom-pagination .swiper-pagination-bullet-active {
   @apply bg-white;

@@ -1,58 +1,113 @@
 "use client";
 
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
+const slides = [
+  {
+    id: 1,
+    title: "новости",
+    subtitle:
+      "В октябре стартует студенческий хакатон HTI: программирование, аналитика и решения для реального бизнеса",
+    image: "/assets/slide1.png",
+  },
+  {
+    id: 2,
+    title: "новости",
+    subtitle:
+      "В октябре стартует студенческий хакатон HTI: программирование, аналитика и решения для реального бизнеса",
+    image: "/assets/slide1.png",
+  },
+  {
+    id: 3,
+    title: "новости",
+    subtitle:
+      "В октябре стартует студенческий хакатон HTI: программирование, аналитика и решения для реального бизнеса",
+    image: "/assets/slide1.png",
+  },
+  {
+    id: 4,
+    title: "новости",
+    subtitle:
+      "В октябре стартует студенческий хакатон HTI: программирование, аналитика и решения для реального бизнеса",
+    image: "/assets/slide1.png",
+  },
+  {
+    id: 5,
+    title: "новости",
+    subtitle:
+      "В октябре стартует студенческий хакатон HTI: программирование, аналитика и решения для реального бизнеса",
+    image: "/assets/slide1.png",
+  },
+];
+
 function MainNews() {
   return (
-    <div className="main-news h-[21rem] md:h-[34rem] rounded-2xl relative w-full">
+    <div className="main-news h-[21rem] md:h-[34rem] rounded-2xl relative overflow-hidden">
       <Swiper
-        modules={[Pagination]}
-        pagination={{ clickable: true, el: ".custom-pagination" }}
-        spaceBetween={50}
+        modules={[Pagination, Autoplay]}
+        pagination={{
+          clickable: true,
+          el: ".custom-pagination",
+          dynamicMainBullets: 5,
+        }}
+        spaceBetween={20}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         slidesPerView={1}
-        className="h-full rounded-2xl">
-        <SwiperSlide>
-          <Image
-            src="/assets/slide1.png"
-            alt="slide1"
-            className="size-full object-cover"
-            width={500}
-            height={500}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/assets/slide1.png"
-            alt="slide1"
-            className="size-full object-cover"
-            width={500}
-            height={500}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/assets/slide1.png"
-            alt="slide1"
-            className="size-full object-cover"
-            width={500}
-            height={500}
-          />
-        </SwiperSlide>
+        speed={1200}
+        className="size-full rounded-2xl relative z-20">
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id} className="overflow-hidden rounded-2xl">
+            <div className="slide-image relative overflow-hidden">
+              <Image
+                src={slide.image}
+                alt="slide1"
+                className="size-full object-cover"
+                width={500}
+                height={500}
+              />
+
+              <div
+                className={cn(
+                  "overlay absolute bg-gradient-to-b from-black/40 via-transparent to-black/50",
+                  "inset-0 z-10 pointer-events-none rounded-2xl"
+                )}
+              />
+            </div>
+
+            <div
+              className={cn(
+                "news-title uppercase absolute left-6 top-6 md:left-8 md:top-8",
+                "z-20 font-light text-white text-3xl"
+              )}>
+              {slide.title}
+            </div>
+
+            <div
+              className={cn(
+                "news-info-text absolute left-6 bottom-6 text-white z-20",
+                "max-w-[60%]"
+              )}>
+              {slide.subtitle}
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div
         className={cn(
-          "custom-pagination absolute flex gap-2 z-20 bg-white/60 backdrop-blur-xs",
-          "bottom-8 right-4 px-2 py-4 rounded-2xl !w-fit justify-end"
+          "custom-pagination !absolute !w-fit flex gap-2 z-20 bg-white/60 backdrop-blur-xs",
+          "!bottom-8 !left-[calc(100%-160px)] px-2 py-4 rounded-2xl"
         )}
       />
-
-      <div className="overlay absolute bg-black/20 inset-0 z-10 pointer-events-none rounded-2xl" />
     </div>
   );
 }
