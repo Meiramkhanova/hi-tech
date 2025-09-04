@@ -11,13 +11,13 @@ function MainInfo() {
         "bg-theprimary text-white p-6 md:p-8",
         "flex flex-col justify-between"
       )}>
-      <div className="top-info flex gap-16">
+      <div className="top-info flex gap-6 2xl:gap-16">
         <Image
           src="/assets/narxozLogo.png"
           alt="narxoz-logo"
           width={214}
           height={62}
-          className="h-16 object-cover"
+          className="h-9 w-24 2xl:w-52 2xl:h-16 object-cover"
         />
 
         <div className="logo-hi-tech flex items-center gap-2">
@@ -26,10 +26,10 @@ function MainInfo() {
             alt="logo"
             width={57}
             height={57}
-            className="size-14"
+            className="size-7 2xl:size-14"
           />
 
-          <div className="hi-tech-text uppercase text-3xl">
+          <div className="hi-tech-text uppercase text-sm 2xl:text-3xl">
             Hi tech <br /> institute
           </div>
         </div>
@@ -41,10 +41,14 @@ function MainInfo() {
         </Headline>
       </div>
 
-      <div className="bottom-info-btns flex items-center gap-2">
-        <Button>Поступить</Button>
+      <div className="bottom-info-btns flex flex-col 2xl:flex-row 2xl:items-center gap-2">
+        <Button className="w-full 2xl:w-fit">Поступить</Button>
 
-        <Button variant="secondary">Программы и направления</Button>
+        <Button
+          className="w-full 2xl:w-fit text-nowrap 2xl:text-wrap"
+          variant="secondary">
+          Программы и направления
+        </Button>
       </div>
     </div>
   );

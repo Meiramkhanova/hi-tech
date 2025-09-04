@@ -8,12 +8,12 @@ function Header() {
   return (
     <header>
       <Container>
-        <div className="header-wrapper pt-6 flex items-center gap-2">
+        <div className="header-wrapper pt-6 flex justify-between items-center gap-2">
           <Logo />
 
           <HeaderLinks />
 
-          <LanguageSelector />
+          <LanguageSelector className="hidden 2xl:flex" />
 
           <TheMenu />
         </div>

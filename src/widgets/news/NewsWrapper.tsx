@@ -21,7 +21,7 @@ const news = [
 
 function NewsWrapper() {
   return (
-    <div className="news-info-wrapper w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+    <div className="news-info-wrapper w-full grid grid-cols-1 2xl:grid-cols-2 gap-6 2xl:gap-8">
       {news.map((newsItem) => (
         <div
           key={newsItem.id}

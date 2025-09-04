@@ -102,13 +102,17 @@ function Carousel() {
 
   return (
     <div className="carousel-wrapper flex flex-col gap-6 md:gap-8">
-      <div className="carousel-header w-full flex items-center justify-between">
-        <div className="tab-btns flex items-center gap-2">
+      <div
+        className={cn(
+          "carousel-header w-full flex flex-col gap-6 2xl:gap-0",
+          "2xl:flex-row 2xl:items-center justify-between"
+        )}>
+        <div className="tab-btns flex flex-col sm:flex-row sm:items-center gap-2">
           <Button
             onClick={() => setActiveTab("department")}
             size="sm"
             className={cn(
-              "rounded-full",
+              "rounded-full w-full sm:w-fit",
               activeTab !== "department" &&
                 "bg-thesecondary/50 border-thesecondary/0"
             )}>
@@ -119,7 +123,7 @@ function Carousel() {
             onClick={() => setActiveTab("activity")}
             size="sm"
             className={cn(
-              "rounded-full",
+              "rounded-full w-full sm:w-fit",
               activeTab !== "activity" &&
                 "bg-thesecondary/50 border-thesecondary/0"
             )}>
@@ -127,7 +131,7 @@ function Carousel() {
           </Button>
         </div>
 
-        <div className="nav-arrows flex items-center gap-2">
+        <div className="nav-arrows flex items-center justify-end 2xl:justify-start gap-2">
           <CircleChevronLeft
             size={32}
             className="prev-btn size-8 stroke-thesecondary cursor-pointer"
@@ -147,9 +151,14 @@ function Carousel() {
           spaceBetween={32}
           slidesPerView="auto"
           slidesPerGroup={1}
-          speed={800}>
+          speed={800}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}>
           {data.map((item) => (
-            <SwiperSlide key={item.id} className="!w-[24.5rem] !h-auto">
+            <SwiperSlide key={item.id} className="2xl:!w-[24.5rem] !h-auto">
               <div className="carousel-item border rounded-2xl p-6 flex flex-col gap-9 h-full">
                 <div className="item-icon rounded-2xl size-20 flex items-center justify-center bg-theprimary/10">
                   {item.icon}

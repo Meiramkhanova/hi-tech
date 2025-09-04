@@ -13,7 +13,7 @@ function AboutSection() {
             О нас
           </Headline>
 
-          <div className="about-info grid grid-cols-1 md:grid-cols-2 w-full">
+          <div className="about-info grid grid-cols-1 md:grid-cols-2 w-full gap-6 md:gap-8">
             <Headline>
               Подготавливаем специалистов и создаём экосистему технологий
             </Headline>

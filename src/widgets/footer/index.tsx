@@ -41,7 +41,7 @@ const socials = [
 function Footer() {
   return (
     <footer>
-      <div className="footer-wrapper bg-theprimary text-white py-12 rounded-t-2xl">
+      <div className="footer-wrapper bg-theprimary text-white py-12 rounded-t-2xl hidden 2xl:flex">
         <Container>
           <div className="wrapper flex flex-col gap-28">
             <div className="footer-top-wrapper w-full flex gap-32">

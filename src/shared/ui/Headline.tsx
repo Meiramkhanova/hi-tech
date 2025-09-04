@@ -10,7 +10,7 @@ type HeadlineSizes = "sm" | "md" | "lg" | "xl";
 
 const HeadlineSizeClasses: Record<HeadlineSizes, string> = {
   sm: "text-base",
-  md: "text-3xl",
+  md: "text-2xl 2xl:text-3xl",
   lg: "text-4xl",
   xl: "text-5xl",
 };
