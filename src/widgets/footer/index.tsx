@@ -123,7 +123,7 @@ function Footer() {
                 alt="narxoz-logo"
                 width={400}
                 height={116}
-                className="w-[25rem] h-28 object-cover"
+                className="w-[25rem] h-28 object-cover -ml-6"
               />
 
               <div className="logo-hi-tech flex items-center gap-2">

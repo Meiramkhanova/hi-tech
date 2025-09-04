@@ -1,7 +1,7 @@
-import AboutSection from "@/widgets/about/AboutSection";
-import DirectionActivity from "@/widgets/direction-activity/DirectionActivity";
-import MainInfoNews from "@/widgets/info-news/MainInfoNews";
-import News from "@/widgets/news/News";
+import AboutSection from "@/widgets/home/about/AboutSection";
+import DirectionActivity from "@/widgets/home/direction-activity/DirectionActivity";
+import MainInfoNews from "@/widgets/home/info-news/MainInfoNews";
+import News from "@/widgets/home/news/News";
 
 export default async function Home() {
   return (
