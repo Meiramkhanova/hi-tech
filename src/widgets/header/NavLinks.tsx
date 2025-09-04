@@ -1,32 +1,5 @@
+import { navlinks } from "@/shared/config/navigation";
 import Link from "next/link";
-
-const navlinks = [
-  {
-    id: 1,
-    link: "#",
-    name: "Главная",
-  },
-  {
-    id: 2,
-    link: "#",
-    name: "Об институте",
-  },
-  {
-    id: 3,
-    link: "#",
-    name: "Аналитика",
-  },
-  {
-    id: 4,
-    link: "#",
-    name: "Образование",
-  },
-  {
-    id: 5,
-    link: "#",
-    name: "Эксперты",
-  },
-];
 
 function NavLinks() {
   return (

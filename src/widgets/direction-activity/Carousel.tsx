@@ -65,31 +65,31 @@ const activities = [
     id: 1,
     title: "Курсы и программы",
     desc: "Современные образовательные модули в областях AI, FinTech, Data Science, биотеха и других перспективных направлений.",
-    icon: <Icon size-9 stroke-theprimary />,
+    icon: <Icon className="size-9 stroke-theprimary" />,
   },
   {
     id: 2,
     title: "Хакатоны",
     desc: "Практические соревнования для студентов: программирование, аналитика и разработка решений для бизнеса.",
-    icon: <Icon size-9 stroke-theprimary />,
+    icon: <Icon className="size-9 stroke-theprimary" />,
   },
   {
     id: 3,
     title: "Лаборатории",
     desc: "Пространства для исследований и практики, где студенты работают над кейсами и реальными проектами.",
-    icon: <Icon size-9 stroke-theprimary />,
+    icon: <Icon className="size-9 stroke-theprimary" />,
   },
   {
     id: 4,
     title: "Проектная работа",
     desc: "Участие в совместных проектах с компаниями и запуск собственных инициатив, меняющих индустрию.",
-    icon: <Icon size-9 stroke-theprimary />,
+    icon: <Icon className="size-9 stroke-theprimary" />,
   },
   {
     id: 5,
     title: "Воркшопы и мастер-классы",
     desc: "Интенсивные занятия с экспертами индустрии и международными специалистами.",
-    icon: <Icon size-9 stroke-theprimary />,
+    icon: <Icon className="size-9 stroke-theprimary" />,
   },
 ];
 
