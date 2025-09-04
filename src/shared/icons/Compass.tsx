@@ -1,8 +1,6 @@
 import { SVGAttributes } from "react";
 
-interface SvgProps extends SVGAttributes<HTMLOrSVGElement> {}
-
-function Compass({ className, ...props }: SvgProps) {
+function Compass({ className, ...props }: SVGAttributes<SVGSVGElement>) {
   return (
     <svg
       {...props}

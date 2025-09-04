@@ -1,4 +1,3 @@
-import Button from "@/shared/ui/Button";
 import { Headline } from "@/shared/ui/Headline";
 import Image from "next/image";
 

@@ -1,8 +1,6 @@
 import { SVGAttributes } from "react";
 
-interface SvgProps extends SVGAttributes<HTMLOrSVGElement> {}
-
-function Settings({ className, ...props }: SvgProps) {
+function Settings({ className, ...props }: SVGAttributes<SVGSVGElement>) {
   return (
     <svg
       {...props}
