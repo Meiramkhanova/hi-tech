@@ -41,11 +41,11 @@ const socials = [
 function Footer() {
   return (
     <footer>
-      <div className="footer-wrapper bg-theprimary text-white py-12 rounded-t-2xl hidden 2xl:flex">
+      <div className="footer-wrapper bg-theprimary text-white py-12 rounded-t-2xl">
         <Container>
-          <div className="wrapper flex flex-col gap-28">
-            <div className="footer-top-wrapper w-full flex gap-32">
-              <div className="footer-nav-item flex flex-col gap-6">
+          <div className="wrapper flex flex-col gap-14 2xl:gap-28">
+            <div className="footer-top-wrapper w-full flex flex-col lg:flex-row gap-16 lg:gap-32">
+              <div className="footer-nav-item flex-col gap-6 hidden 2xl:flex">
                 <div className="footer-item-name uppercase">Навигация</div>
 
                 <div className="footer-item-info flex flex-col gap-6 md:gap-8">
@@ -117,7 +117,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="footer-bottom flex items-center gap-24">
+            <div className="footer-bottom flex flex-col lg:flex-row lg:items-center gap-12 2xl:gap-24">
               <Image
                 src="/assets/narxozLogo.png"
                 alt="narxoz-logo"

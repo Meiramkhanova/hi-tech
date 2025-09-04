@@ -22,7 +22,7 @@ function TheMenu() {
 
       <div
         className={cn(
-          "fixed top-0 left-0 size-full z-30 bg-black/85 transition-opacity pointer-events-none",
+          "fixed top-0 left-0 size-full z-30 bg-black/85 transition-opacity pointer-events-none 2xl:hidden",
           open ? "opacity-50" : "opacity-0"
         )}
       />
@@ -30,7 +30,7 @@ function TheMenu() {
       <div
         className={cn(
           "open-menu fixed w-[80%] bg-white p-8 h-full top-0 z-30",
-          " overflow-y-auto ease-in duration-500 transition-all",
+          " overflow-y-auto ease-in duration-500 transition-all 2xl:hidden",
           open ? "left-0" : "left-[-100%]"
         )}>
         <div className="menu-top-bottom flex flex-col gap-6">
