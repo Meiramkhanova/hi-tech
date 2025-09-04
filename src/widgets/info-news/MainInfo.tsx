@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Button from "@/shared/ui/Button";
+import { Headline } from "@/shared/ui/Headline";
 import Image from "next/image";
 
 function MainInfo() {
@@ -34,8 +35,10 @@ function MainInfo() {
         </div>
       </div>
 
-      <div className="middle-info-text uppercase text-3xl">
-        Образование, технологии и проекты будущего
+      <div className="middle-info-text">
+        <Headline className="text-white">
+          Образование, технологии и проекты будущего
+        </Headline>
       </div>
 
       <div className="bottom-info-btns flex items-center gap-2">

@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Headline } from "@/shared/ui/Headline";
 
 const slides = [
   {
@@ -71,8 +72,8 @@ function MainNews() {
                 src={slide.image}
                 alt="slide1"
                 className="size-full object-cover"
-                width={500}
-                height={500}
+                width={672}
+                height={672}
               />
 
               <div
@@ -83,12 +84,10 @@ function MainNews() {
               />
             </div>
 
-            <div
-              className={cn(
-                "news-title uppercase absolute left-6 top-6 md:left-8 md:top-8",
-                "z-20 font-light text-white text-3xl"
-              )}>
-              {slide.title}
+            <div className="news-title absolute left-6 top-6 md:left-8 md:top-8 z-20">
+              <Headline className="font-light text-white">
+                {slide.title}
+              </Headline>
             </div>
 
             <div

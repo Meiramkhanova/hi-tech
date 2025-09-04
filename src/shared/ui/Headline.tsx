@@ -1,0 +1,48 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import { forwardRef, ReactNode } from "react";
+
+// только заголовки h1–h6
+type HeadlineTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+type HeadlineSizes = "sm" | "md" | "lg" | "xl";
+
+const HeadlineSizeClasses: Record<HeadlineSizes, string> = {
+  sm: "text-base",
+  md: "text-3xl",
+  lg: "text-4xl",
+  xl: "text-5xl",
+};
+
+export interface HeadlineProps {
+  as?: HeadlineTag;
+  children?: ReactNode;
+  size?: HeadlineSizes;
+  className?: string;
+}
+
+/**
+ * Headline component
+ *
+ * @param size - размер заголовка (по умолчанию "md")
+ * @param as - HTML-тег (по умолчанию "h2")
+ *
+ * ⚠️ Используй осознанно: выбор тега важен для SEO
+ */
+const Headline = forwardRef<HTMLHeadingElement, HeadlineProps>(
+  ({ as: Tag = "h2", size = "md", className, children, ...props }, ref) => {
+    return (
+      <Tag
+        ref={ref}
+        className={cn("uppercase", HeadlineSizeClasses[size], className)}
+        {...props}>
+        {children}
+      </Tag>
+    );
+  }
+);
+
+Headline.displayName = "Headline";
+
+export { Headline };
