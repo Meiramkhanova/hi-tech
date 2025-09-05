@@ -3,11 +3,13 @@
 import { cn } from "@/lib/utils";
 import Icon from "@/shared/icons/Icon";
 import Button from "@/shared/ui/Button";
-import { Headline } from "@/shared/ui/Headline";
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
 import { useState } from "react";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import InfoItem from "@/shared/ui/InfoItem";
 
 const departments = [
   {
@@ -147,7 +149,10 @@ function Carousel() {
       <div className="carousel w-full">
         <Swiper
           modules={[Navigation]}
-          navigation={{ prevEl: ".prev-btn", nextEl: ".next-btn" }}
+          navigation={{
+            prevEl: ".prev-btn",
+            nextEl: ".next-btn",
+          }}
           spaceBetween={32}
           slidesPerView="auto"
           slidesPerGroup={1}
@@ -159,21 +164,12 @@ function Carousel() {
           }}>
           {data.map((item) => (
             <SwiperSlide key={item.id} className="2xl:!w-[24.5rem] !h-auto">
-              <div className="carousel-item border rounded-2xl p-6 flex flex-col gap-9 h-full">
-                <div className="item-icon rounded-2xl size-20 flex items-center justify-center bg-theprimary/10">
-                  {item.icon}
-                </div>
-
-                <div className="item-info flex flex-col gap-6 mt-auto">
-                  <Headline className="normal-case">{item.title}</Headline>
-
-                  <div className="item-description text-gray-400 text-sm">
-                    {item.desc}
-                  </div>
-
-                  <Button variant="outlined">Подробнее</Button>
-                </div>
-              </div>
+              <InfoItem
+                title={item.title}
+                desc={item.desc}
+                icon={item.icon}
+                hasButton
+              />
             </SwiperSlide>
           ))}
         </Swiper>

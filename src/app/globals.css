@@ -134,3 +134,26 @@
 .custom-pagination .swiper-pagination-bullet-active {
   @apply bg-white;
 }
+
+.the-prev-btn.swiper-button-disabled,
+.the-next-btn.swiper-button-disabled {
+  @apply stroke-thesecondary/40 cursor-not-allowed 
+}
+
+.prev-btn.swiper-button-disabled,
+.next-btn.swiper-button-disabled {
+  @apply stroke-thesecondary/40 cursor-not-allowed 
+}
+
+.ai-prev-btn.swiper-button-disabled,
+.ai-next-btn.swiper-button-disabled {
+  @apply stroke-thesecondary/40 cursor-not-allowed 
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
