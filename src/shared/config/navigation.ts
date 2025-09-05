@@ -7,12 +7,12 @@ export interface NavItem {
 export const navlinks: NavItem[] = [
   {
     id: 1,
-    link: "#",
+    link: "/",
     name: "Главная",
   },
   {
     id: 2,
-    link: "#",
+    link: "/about",
     name: "Об институте",
   },
   {
