@@ -11,14 +11,14 @@ function Methods() {
             ПРАКТИКИ И МЕТОДЫ
           </Headline>
 
-          <Headline className="md:w-1/2">
+          <Headline className="lg:w-1/2">
             Обучение в Hi-Tech Institute строится на современных практиках
             которые делают процесс динамичным и прикладным
           </Headline>
 
           <MethodsWrapper />
 
-          <div className="learning-desc text-gray-400 md:w-1/2 pt-2">
+          <div className="learning-desc text-gray-400 lg:w-1/2 pt-2">
             Эти практики помогают студентам не просто усваивать знания, а
             накапливать опыт и готовиться к работе в индустрии ещё во время
             учёбы.

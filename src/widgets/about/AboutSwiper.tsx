@@ -75,7 +75,8 @@ const historyInfos = [
 ];
 
 function AboutSwiper() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div className="about-swiper flex flex-col gap-2">
@@ -100,25 +101,33 @@ function AboutSwiper() {
         slidesPerGroup={1}
         className="w-full flex"
         speed={800}
-        slidesPerView="auto"
-        centeredSlides={false}
-        slidesPerGroupAuto={false}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         breakpoints={{
           0: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+          768: { slidesPerView: 1 },
+          1280: { slidesPerView: 2 },
           1536: { slidesPerView: "auto" },
         }}>
         {historyInfos.map((historyInfo, index) => {
           return (
-            <SwiperSlide key={historyInfo.id} className="!w-fit">
+            <SwiperSlide key={historyInfo.id} className="2xl:!w-fit">
               <div
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className={cn(
-                  "history-info text-9xl whitespace-nowrap",
+                  "history-info text-6xl md:text-9xl xl:text-8xl 2xl:text-9xl whitespace-nowrap",
                   index === activeIndex ? "text-black" : "text-gray-400"
                 )}>
                 {historyInfo.year}
+              </div>
+
+              <div
+                className={cn(
+                  "transition-all first-letter:uppercase max-w-64 break-words duration-700 ease-in-out overflow-hidden text-lg text-gray-400",
+                  openIndex === index
+                    ? "max-h-96 mt-4 opacity-100"
+                    : "max-h-0 opacity-0"
+                )}>
+                {historyInfo.event}
               </div>
             </SwiperSlide>
           );

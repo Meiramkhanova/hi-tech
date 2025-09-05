@@ -11,13 +11,13 @@ function LearnDirections() {
             ПОДХОД
           </Headline>
 
-          <Headline className="md:w-1/2">
+          <Headline className="lg:w-1/2">
             В основе обучения Hi-Tech Institute баланс трёх направлений
           </Headline>
 
           <DirectionsWrapper />
 
-          <div className="learning-desc text-gray-400 md:w-1/2 pt-2">
+          <div className="learning-desc text-gray-400 lg:w-1/2 pt-2">
             Такой подход превращает процесс обучения в полноценный опыт:
             студенты не просто получают знания, а учатся применять их сразу на
             практике и строить карьеру ещё во время учёбы.

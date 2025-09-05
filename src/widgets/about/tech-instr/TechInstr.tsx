@@ -11,7 +11,7 @@ function TechInstr() {
             ТЕХНИЧЕСКИЕ ИНСТРУМЕНТЫ
           </Headline>
 
-          <Headline>
+          <Headline className="lg:w-1/2">
             Мы используем современные цифровые решения для анализа данных,
             командной работы и разработки
           </Headline>

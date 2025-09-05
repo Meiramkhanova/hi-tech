@@ -11,7 +11,7 @@ function UsingAI() {
             история и концепция
           </Headline>
 
-          <Headline className="md:w-1/2">
+          <Headline className="lg:w-1/2">
             Мы применяем ИИ, чтобы сделать образование персонализированным,
             гибким и эффективным
           </Headline>
