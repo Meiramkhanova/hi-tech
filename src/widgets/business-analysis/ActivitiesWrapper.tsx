@@ -1,6 +1,4 @@
-import Container from "@/shared/ui/Container";
-import { Headline } from "@/shared/ui/Headline";
-import TechItem from "@/shared/ui/TechItem";
+import MainActivities from "@/shared/ui/MainActivities";
 
 const activities = [
   {
@@ -29,28 +27,13 @@ const activities = [
   },
 ];
 
-function MainActivities() {
+function ActivitiesWrapper() {
   return (
-    <section className="main-activities">
-      <Container>
-        <div className="activities-wrapper flex flex-col gap-6 md:gap-8 pt-24">
-          <Headline size="sm" as="h5" className="text-gray-400 pb-2">
-            Основные направления деятельности
-          </Headline>
-
-          <div className="activities grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {activities.map((activity, index) => (
-              <TechItem
-                key={index}
-                title={activity.title}
-                desc={activity.desc}
-              />
-            ))}
-          </div>
-        </div>
-      </Container>
-    </section>
+    <MainActivities
+      activities={activities}
+      title="Основные направления деятельности"
+    />
   );
 }
 
-export default MainActivities;
+export default ActivitiesWrapper;
