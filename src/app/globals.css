@@ -150,6 +150,11 @@
   @apply stroke-thesecondary/40 cursor-not-allowed 
 }
 
+.depart-prev-btn.swiper-button-disabled,
+.depart-next-btn.swiper-button-disabled {
+  @apply stroke-thesecondary/40 cursor-not-allowed 
+}
+
 .rtl {
   direction: rtl;
 }

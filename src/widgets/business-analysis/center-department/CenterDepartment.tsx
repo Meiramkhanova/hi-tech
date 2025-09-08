@@ -1,5 +1,6 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
+import DepartmentsSwiper from "./DepartmentsSwiper";
 
 function CenterDepartment() {
   return (
@@ -9,6 +10,8 @@ function CenterDepartment() {
           <Headline size="sm" as="h5" className="text-gray-400 pb-2">
             Центры департамента
           </Headline>
+
+          <DepartmentsSwiper />
         </div>
       </Container>
     </section>

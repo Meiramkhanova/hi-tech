@@ -132,7 +132,7 @@ function Footer() {
                   alt="logo"
                   width={86}
                   height={86}
-                  className="size-[5.4rem]"
+                  className="size-[5.4rem] -ml-2.5"
                 />
 
                 <div className="hi-tech-text uppercase text-5xl">

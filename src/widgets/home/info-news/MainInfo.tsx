@@ -7,7 +7,7 @@ function MainInfo() {
   return (
     <div
       className={cn(
-        "main-info h-[21rem] md:h-[34rem] border rounded-2xl",
+        "main-info h-[21rem] md:h-[35rem] border rounded-2xl",
         "bg-theprimary text-white p-6 md:p-8",
         "flex flex-col justify-between"
       )}>

@@ -75,6 +75,7 @@ function AICarousel() {
           />
         </div>
       </div>
+
       <div className="ai-carousel w-full">
         <Swiper
           modules={[Navigation]}
