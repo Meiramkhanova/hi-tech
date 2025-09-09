@@ -1,13 +1,15 @@
 import { cloneElement, ReactElement, SVGProps } from "react";
 
 interface IconWrapperProps {
-  icon: ReactElement<SVGProps<SVGSVGElement>>;
+  icon?: ReactElement<SVGProps<SVGSVGElement>>;
 }
 
 function IconWrapper({ icon }: IconWrapperProps) {
+  if (!icon) return null;
+
   return cloneElement(icon, {
     className:
-      "size-8 md:size-10 fill-theprimary/5 " + (icon.props.className ?? ""),
+      "size-10 fill-theprimary/5 flex shrink-0" + (icon.props.className ?? ""),
   });
 }
 

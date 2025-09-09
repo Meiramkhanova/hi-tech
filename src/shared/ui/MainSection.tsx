@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Container from "./Container";
-import BusinessAnalysis from "../icons/BusinessAnalysis";
 import { Headline } from "./Headline";
 import Button from "./Button";
 import { ReactElement, SVGProps } from "react";

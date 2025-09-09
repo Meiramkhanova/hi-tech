@@ -1,7 +1,6 @@
 import Biotech from "@/shared/icons/Biotech";
-import BusinessAnalysis from "@/shared/icons/BusinessAnalysis";
 import MainSection from "@/shared/ui/MainSection";
-import AboutDepartment from "@/widgets/biotech/AboutDepartment";
+import AboutDepartmentWrapper from "@/widgets/biotech/AboutDepartmentWrapper";
 import BiotechActivities from "@/widgets/biotech/BiotechActivities";
 import SchoolBiotech from "@/widgets/biotech/SchoolBiotech";
 
@@ -15,7 +14,7 @@ function BiotechPage() {
         image="/assets/biotech.png"
       />
 
-      <AboutDepartment />
+      <AboutDepartmentWrapper />
 
       <BiotechActivities />
 

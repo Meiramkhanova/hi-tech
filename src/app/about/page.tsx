@@ -1,4 +1,3 @@
-import TitleInfo from "@/shared/ui/TitleInfo";
 import AboutMain from "@/widgets/about/AboutMain";
 import GoalMission from "@/widgets/about/GoalMission";
 import LearnDirections from "@/widgets/about/learn-directions/LearnDirections";

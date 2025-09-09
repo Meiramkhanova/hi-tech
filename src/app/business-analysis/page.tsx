@@ -1,8 +1,8 @@
 import BusinessAnalysis from "@/shared/icons/BusinessAnalysis";
 import MainSection from "@/shared/ui/MainSection";
-import AboutDepartment from "@/widgets/business-analysis/AboutDepartment";
 import ActivitiesWrapper from "@/widgets/business-analysis/ActivitiesWrapper";
 import CenterDepartment from "@/widgets/business-analysis/center-department/CenterDepartment";
+import AboutWrapper from "@/widgets/business-analysis/AboutWrapper";
 
 function BusinessAnalysisPage() {
   return (
@@ -14,7 +14,7 @@ function BusinessAnalysisPage() {
         image="/assets/slide1.png"
       />
 
-      <AboutDepartment />
+      <AboutWrapper />
 
       <ActivitiesWrapper />
 
