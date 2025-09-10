@@ -4,9 +4,10 @@ import { Headline } from "./Headline";
 import Button from "./Button";
 import { ReactElement, SVGProps } from "react";
 import IconWrapper from "./IconWrapper";
+import { cn } from "@/lib/utils";
 
 interface MainSectionProps {
-  icon: ReactElement<SVGProps<SVGSVGElement>>;
+  icon?: ReactElement<SVGProps<SVGSVGElement>>;
   name: string;
   title: string;
   image: string;
@@ -18,10 +19,18 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
       <Container>
         <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 pt-6 md:pt-8">
           <div className="left-wrapper flex flex-col justify-between gap-6 md:gap-8">
-            <div className="icon-title flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
-              <div className="icon size-16 md:size-20 flex items-center justify-center shrink-0 bg-theprimary/10 rounded-2xl">
-                <IconWrapper icon={icon} />
-              </div>
+            <div
+              className={cn(
+                "icon-title",
+                icon
+                  ? "flex flex-col md:flex-row md:items-center gap-6 md:gap-8"
+                  : "pt-4"
+              )}>
+              {icon && (
+                <div className="icon size-16 md:size-20 flex items-center justify-center shrink-0 bg-theprimary/10 rounded-2xl">
+                  <IconWrapper icon={icon} />
+                </div>
+              )}
 
               <Headline className="uppercase max-w-[31rem]">{name}</Headline>
             </div>

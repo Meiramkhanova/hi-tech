@@ -81,7 +81,7 @@ function SchoolDepartment() {
                     key={item.id}
                     className="2xl:!w-[24.5rem] !h-auto">
                     <InfoItem
-                      order={item.id}
+                      orderName={item.id}
                       title={item.title}
                       desc={item.desc}
                       hasButton

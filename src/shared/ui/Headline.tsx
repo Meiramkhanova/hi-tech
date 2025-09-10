@@ -9,7 +9,7 @@ type HeadlineTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 type HeadlineSizes = "sm" | "md" | "lg" | "xl";
 
 const HeadlineSizeClasses: Record<HeadlineSizes, string> = {
-  sm: "text-base uppercase",
+  sm: "text-base uppercase tracking-wider",
   md: "text-2xl 2xl:text-3xl",
   lg: "text-4xl",
   xl: "text-5xl",

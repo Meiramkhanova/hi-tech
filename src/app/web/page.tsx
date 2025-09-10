@@ -4,7 +4,7 @@ import AboutDepartmentWrapper from "@/widgets/web/AboutDepartmentWrapper";
 import SchoolSecurity from "@/widgets/web/SchoolSecurity";
 import WebActivities from "@/widgets/web/WebActivities";
 
-function Blockchain() {
+function WebPage() {
   return (
     <>
       <MainSection
@@ -23,4 +23,4 @@ function Blockchain() {
   );
 }
 
-export default Blockchain;
+export default WebPage;
