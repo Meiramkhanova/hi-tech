@@ -4,6 +4,7 @@ import Header from "@/widgets/header";
 import { Montserrat } from "next/font/google";
 import Footer from "@/widgets/footer";
 import { cn } from "@/lib/utils";
+import HeaderProvider from "@/entities/header/HeaderProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
@@ -23,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("min-h-screen", montserrat.className)}>
-        <Header />
-
-        {children}
-
-        <Footer />
+        <HeaderProvider>
+          <Header />
+          {children}
+          <Footer />\
+        </HeaderProvider>
       </body>
     </html>
   );

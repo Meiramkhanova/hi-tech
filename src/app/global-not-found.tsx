@@ -1,8 +1,10 @@
+import HeaderProvider from "@/entities/header/HeaderProvider";
 import "./globals.css";
 import Footer from "@/widgets/footer";
 import Header from "@/widgets/header";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import Container from "@/shared/ui/Container";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
@@ -18,22 +20,28 @@ function GlobalNotFound() {
   return (
     <html lang="en" className={montserrat.className}>
       <body>
-        <Header />
+        <HeaderProvider>
+          <Header />
 
-        <div className="not-found-wrapper h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-6 md:gap-8">
-          <div className="error-status text-8xl text-theprimary">404</div>
+          <div className="not-found-wrapper">
+            <Container>
+              <div className="wrapper flex flex-col items-center justify-center gap-6 md:gap-8 text-center h-[calc(100vh-80px)]">
+                <div className="error-status text-8xl text-theprimary">404</div>
 
-          <div className="error-desc text-4xl text-theprimary uppercase">
-            Страница не найдена
+                <div className="error-desc text-4xl text-theprimary uppercase">
+                  Страница не найдена
+                </div>
+
+                <div className="text-gray-400 max-w-[30rem]">
+                  Возможно, ссылка устарела или введена неверно. Попробуйте
+                  вернуться на главную страницу или воспользуйтесь навигацией.
+                </div>
+              </div>
+            </Container>
           </div>
 
-          <div className="text-gray-400 max-w-[30rem] text-center">
-            Возможно, ссылка устарела или введена неверно. Попробуйте вернуться
-            на главную страницу или воспользуйтесь навигацией.
-          </div>
-        </div>
-
-        <Footer />
+          <Footer />
+        </HeaderProvider>
       </body>
     </html>
   );
