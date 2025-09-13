@@ -5,5 +5,5 @@ export interface StrapiBase {
   updatedAt: string;
   publishedAt: string;
   locale: string;
-  localizations: any[];
+  localizations: [];
 }
