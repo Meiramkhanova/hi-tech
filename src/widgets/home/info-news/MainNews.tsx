@@ -60,7 +60,7 @@ function MainNews() {
               </div>
 
               <div className="news-title absolute left-6 top-6 md:left-8 md:top-8 z-20">
-                <Headline className="font-light text-white">
+                <Headline className="font-light text-white uppercase">
                   {slide.name}
                 </Headline>
               </div>
