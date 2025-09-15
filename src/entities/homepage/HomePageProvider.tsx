@@ -6,7 +6,11 @@ import HomePageClientProvider from "./HomePageClientProvider";
 export const revalidate = 0;
 
 async function HomePageProvider({ children }: { children: ReactNode }) {
+  console.log("API URL being used:", process.env.NEXT_PUBLIC_API_URL);
+
   const data: HomePageData | null = await getHomePageData();
+
+  console.log("Data fetched:", data);
 
   return (
     <HomePageClientProvider value={data}>{children}</HomePageClientProvider>
