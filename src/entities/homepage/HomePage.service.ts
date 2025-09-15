@@ -5,7 +5,7 @@ import { HomePageData, HomePageResponse } from "./getHomepage.t";
 export const getHomePageData = async (): Promise<HomePageData | null> => {
   try {
     const response: AxiosResponse<HomePageResponse> = await api.get(
-      "homepage?populate[swiper][populate]=*&populate[about][populate]=*&populate[aboutinfos][populate]=*&populate[mainNews][populate]=*",
+      `homepage?populate[swiper][populate]=*&populate[about][populate]=*&populate[aboutinfos][populate]=*&populate[mainNews][populate]=*&t=${Date.now()}`,
       {
         headers: {
           "Cache-Control": "no-cache",
