@@ -2,6 +2,7 @@ import { navlinks } from "@/shared/config/navigation";
 import Container from "@/shared/ui/Container";
 import Image from "next/image";
 import Link from "next/link";
+import NavLinks from "../../shared/ui/NavLinks";
 
 const contacts = [
   {
@@ -48,16 +49,10 @@ function Footer() {
               <div className="footer-nav-item flex-col gap-6 hidden 2xl:flex">
                 <div className="footer-item-name uppercase">Навигация</div>
 
-                <div className="footer-item-info flex flex-col gap-6 md:gap-8">
-                  {navlinks.map((navlink) => (
-                    <Link
-                      href={navlink.link}
-                      key={navlink.id}
-                      className="navlink">
-                      {navlink.name}
-                    </Link>
-                  ))}
-                </div>
+                <NavLinks
+                  className="gap-6 md:gap-8 flex flex-col items-start"
+                  linkClassName="hover:text-white transition-none"
+                />
               </div>
 
               <div className="footer-contact-item flex flex-col gap-6">

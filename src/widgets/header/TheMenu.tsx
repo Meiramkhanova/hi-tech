@@ -8,6 +8,7 @@ import { useState } from "react";
 import Searching from "./Searching";
 import { navlinks } from "@/shared/config/navigation";
 import LanguageSelector from "./LanguageSelector";
+import NavLinks from "@/shared/ui/NavLinks";
 
 function TheMenu() {
   const [open, setOpen] = useState(false);
@@ -60,13 +61,11 @@ function TheMenu() {
             <Searching className="w-full" inputClassName="py-3 rounded-lg" />
           </div>
 
-          <div className="navlinks flex flex-col">
-            {navlinks.map((navLink) => (
-              <Link key={navLink.id} href={navLink.link} className="py-3">
-                {navLink.name}
-              </Link>
-            ))}
-          </div>
+          <NavLinks
+            className="gap-0 flex flex-col items-start"
+            linkClassName="py-3"
+            spanClassName="py-3"
+          />
 
           <div className="w-full lg-switcher-wrapper flex justify-end">
             <LanguageSelector

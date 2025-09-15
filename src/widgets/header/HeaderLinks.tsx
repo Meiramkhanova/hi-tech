@@ -1,5 +1,5 @@
 import { cn } from "@/shared/utils/cn";
-import NavLinks from "./NavLinks";
+import NavLinks from "../../shared/ui/NavLinks";
 import Searching from "./Searching";
 
 function HeaderLinks() {

@@ -1,6 +1,6 @@
-import { StrapiBase } from "../types";
+import { StrapiBaseLocale } from "../types";
 
-export interface HeaderData extends StrapiBase {
+export interface HeaderData extends StrapiBaseLocale {
   text: string;
   url: string;
 }
