@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Searching from "./Searching";
-import { navlinks } from "@/shared/config/navigation";
 import LanguageSelector from "./LanguageSelector";
 import NavLinks from "@/shared/ui/NavLinks";
 

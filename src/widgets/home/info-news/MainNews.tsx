@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Headline } from "@/shared/ui/Headline";
 import { useHomePage } from "@/entities/homepage/HomePageClientProvider";
-import { MainSwiper } from "@/entities/homepage/getHomepage.t";
 import { getStrapiMedia } from "@/shared/utils/getStrapiMedia";
 
 function MainNews() {

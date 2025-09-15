@@ -1,7 +1,5 @@
-import { navlinks } from "@/shared/config/navigation";
 import Container from "@/shared/ui/Container";
 import Image from "next/image";
-import Link from "next/link";
 import NavLinks from "../../shared/ui/NavLinks";
 
 const contacts = [
