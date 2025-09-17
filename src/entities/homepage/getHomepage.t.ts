@@ -18,6 +18,7 @@ export interface AboutSection {
 
 export interface AboutInfo extends StrapiBase {
   svgImage: StrapiImage;
+  title: string;
 }
 
 export interface MainNewsComponent {

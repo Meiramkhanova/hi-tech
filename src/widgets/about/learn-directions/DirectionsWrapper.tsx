@@ -1,4 +1,4 @@
-import AboutInfo from "@/shared/ui/AboutInfo";
+import AboutInfo from "@/shared/ui/AboutInfoItem";
 
 const directions = [
   {
@@ -24,7 +24,7 @@ const directions = [
 function DirectionsWrapper() {
   return (
     <div className="directions-wrapper grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:[&>*:last-child]:col-start-2">
-      {directions.map((direction, i) => (
+      {/* {directions.map((direction, i) => (
         <AboutInfo
           key={direction.id}
           title={direction.title}
@@ -32,7 +32,7 @@ function DirectionsWrapper() {
           desc={direction.desc}
           className={i === directions.length - 1 ? "rtl" : ""}
         />
-      ))}
+      ))} */}
     </div>
   );
 }

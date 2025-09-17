@@ -16,7 +16,7 @@ function Methods() {
             которые делают процесс динамичным и прикладным
           </Headline>
 
-          <MethodsWrapper />
+          {/* <MethodsWrapper /> */}
 
           <div className="learning-desc text-gray-400 lg:w-1/2 pt-2">
             Эти практики помогают студентам не просто усваивать знания, а

@@ -1,4 +1,4 @@
-import AboutInfo from "@/shared/ui/AboutInfo";
+import AboutInfo from "@/shared/ui/AboutInfoItem";
 
 const methods = [
   {
@@ -36,14 +36,14 @@ const methods = [
 function MethodsWrapper() {
   return (
     <div className="methods-wrapper grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:[&>*:last-child]:col-start-2">
-      {methods.map((method) => (
+      {/* {methods.map((method) => (
         <AboutInfo
           key={method.id}
           title={method.title}
           iconText={method.iconText}
           desc={method.desc}
         />
-      ))}
+      ))} */}
     </div>
   );
 }

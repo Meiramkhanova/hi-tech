@@ -15,7 +15,7 @@ function AboutPage() {
 
       <TitleInfoWrapper />
 
-      <LearnDirections />
+      {/* <LearnDirections /> */}
 
       <Methods />
 

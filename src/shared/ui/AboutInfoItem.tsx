@@ -1,26 +1,37 @@
+import { AboutInfo } from "@/entities/homepage/getHomepage.t";
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { getStrapiMedia } from "../utils/getStrapiMedia";
 
-interface AboutInfoProps {
-  icon?: ReactNode;
-  iconText?: string;
-  title: string;
-  desc?: string;
+interface AboutInfoItemProps {
+  aboutInfo: AboutInfo;
   className?: string;
+  iconText?: string;
+  desc?: string;
 }
 
-function AboutInfo({ icon, title, iconText, desc, className }: AboutInfoProps) {
-  const [first, ...rest] = title.split(" ");
+function AboutInfoItem({
+  aboutInfo,
+  className,
+  iconText,
+  desc,
+}: AboutInfoItemProps) {
+  const [first, ...rest] = aboutInfo.title.split(" ");
 
   return (
     <div
       className={cn(
         "border p-6 rounded-2xl flex flex-col xl:flex-row xl:items-center gap-6 ltr",
-        desc && "justify-between",
+        aboutInfo.title && "justify-between",
         className
       )}>
       <div className="flex flex-col xl:items-center md:flex-row gap-6 ">
-        {icon && <>{icon}</>}
+        {aboutInfo.svgImage && (
+          <img
+            src={getStrapiMedia(aboutInfo.svgImage.url)}
+            alt={aboutInfo.title}
+            className="size-11"
+          />
+        )}
 
         {iconText && (
           <div className="icon-text text-theprimary size-fit xl:size-24 flex items-center justify-center text-2xl">
@@ -40,4 +51,4 @@ function AboutInfo({ icon, title, iconText, desc, className }: AboutInfoProps) {
   );
 }
 
-export default AboutInfo;
+export default AboutInfoItem;

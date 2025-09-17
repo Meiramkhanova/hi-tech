@@ -17,8 +17,6 @@ function MainNews() {
 
   const slides = data.swiper;
 
-  ///smt
-
   return (
     <div className="main-news h-[21rem] md:h-[35rem] rounded-2xl relative overflow-hidden">
       <Swiper
