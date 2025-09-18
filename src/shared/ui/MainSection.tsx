@@ -2,15 +2,14 @@ import Image from "next/image";
 import Container from "./Container";
 import { Headline } from "./Headline";
 import Button from "./Button";
-import { ReactElement, SVGProps } from "react";
-import IconWrapper from "./IconWrapper";
 import { cn } from "@/lib/utils";
+import { getStrapiMedia } from "../utils/getStrapiMedia";
+import { TabMainSection } from "@/entities/tabContent/TabContent.t";
+import { ReactNode } from "react";
 
-interface MainSectionProps {
-  icon?: ReactElement<SVGProps<SVGSVGElement>>;
-  name: string;
-  title: string;
-  image: string;
+export interface MainSectionProps extends TabMainSection {
+  tempIcon?: ReactNode;
+  tempImage?: string;
 }
 
 function MainSection({ icon, name, title, image }: MainSectionProps) {
@@ -26,9 +25,10 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
                   ? "flex flex-col md:flex-row md:items-center gap-6 md:gap-8"
                   : "pt-4"
               )}>
-              {icon && (
+              {icon && icon[0]?.url && (
                 <div className="icon size-16 md:size-20 flex items-center justify-center shrink-0 bg-theprimary/10 rounded-2xl">
-                  <IconWrapper icon={icon} />
+                  {/* <IconWrapper icon={icon} /> */}
+                  <img src={getStrapiMedia(icon[0].url)} alt="icon" />
                 </div>
               )}
 
@@ -48,7 +48,7 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
 
           <div className="right-wrapper w-full">
             <Image
-              src={image}
+              src={getStrapiMedia(image?.url)}
               alt="info-img"
               width={672}
               height={672}

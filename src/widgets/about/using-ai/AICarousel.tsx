@@ -95,7 +95,11 @@ function AICarousel() {
           }}>
           {aiItems.map((item) => (
             <SwiperSlide key={item.id} className="2xl:!w-[24.5rem] !h-auto">
-              <InfoItem title={item.title} desc={item.desc} icon={item.icon} />
+              <InfoItem
+                title={item.title}
+                desc={item.desc}
+                tempIcon={item.icon}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

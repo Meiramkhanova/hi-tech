@@ -1,15 +1,19 @@
-import { ReactElement, SVGProps } from "react";
+import { Icon } from "@/entities/homepage/getHomepage.t";
 import Button from "./Button";
 import { Headline } from "./Headline";
-import IconWrapper from "./IconWrapper";
 import { cn } from "@/lib/utils";
+import { getStrapiMedia } from "../utils/getStrapiMedia";
+import Link from "next/link";
+import { ReactNode } from "react";
 
 interface InfoItemProps {
-  icon?: ReactElement<SVGProps<SVGSVGElement>>;
+  icon?: Icon;
   title: string;
   desc: string | string[];
   hasButton?: boolean;
   orderName?: number | string;
+  slug?: string;
+  tempIcon?: ReactNode;
 }
 
 function InfoItem({
@@ -18,11 +22,18 @@ function InfoItem({
   desc,
   hasButton = false,
   orderName,
+  slug,
 }: InfoItemProps) {
   return (
     <div className="info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit">
       <div className="item-icon rounded-2xl text-theprimary size-20 flex items-center justify-center shrink-0 bg-theprimary/10">
-        {icon && <IconWrapper icon={icon} />}
+        {icon && (
+          <img
+            src={getStrapiMedia(icon.url)}
+            className="size-9 fill-theprimary/5 flex shrink-0"
+            alt="icon"
+          />
+        )}
 
         {orderName && <div className="order text-2xl">{orderName}</div>}
       </div>
@@ -41,9 +52,9 @@ function InfoItem({
         </div>
 
         {hasButton && (
-          <Button variant="outlined" className="mt-auto">
-            Подробнее
-          </Button>
+          <Link href={slug ?? "#"} className="mt-auto">
+            <Button variant="outlined">Подробнее</Button>
+          </Link>
         )}
       </div>
     </div>

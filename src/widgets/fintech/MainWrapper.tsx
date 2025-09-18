@@ -4,10 +4,10 @@ import MainSection from "@/shared/ui/MainSection";
 function MainWrapper() {
   return (
     <MainSection
-      icon={<Bank />}
+      tempIcon={<Bank />}
       name="FinTech"
       title="Финансовые технологии, риск-менеджмент и цифровые финансы"
-      image="/assets/fintech.png"
+      tempImage="/assets/fintech.png"
     />
   );
 }

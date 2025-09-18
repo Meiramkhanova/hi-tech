@@ -1,6 +1,5 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
-import MethodsWrapper from "./MethodsWrapper";
 
 function Methods() {
   return (

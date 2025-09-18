@@ -3,9 +3,9 @@ import { HomePageData } from "./getHomepage.t";
 export const getHomePageData = async (): Promise<HomePageData | null> => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/homepage?populate[swiper][populate]=*&populate[about][populate]=*&populate[aboutinfos][populate]=*&populate[mainNews][populate]=*`,
+      `${process.env.NEXT_PUBLIC_API_URL}/homepage?populate[swiper][populate]=*&populate[about][populate]=*&populate[aboutinfos][populate]=*&populate[mainNews][populate]=*&populate[tabs][populate][tab_contents][populate]=icon`,
       {
-        cache: "no-store", // ключ! всегда свежие данные, Vercel не отдаст старую страницу
+        cache: "no-store",
       }
     );
 

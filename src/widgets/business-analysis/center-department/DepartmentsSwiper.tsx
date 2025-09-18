@@ -111,7 +111,7 @@ function DepartmentsSwiper() {
               <InfoItem
                 title={item.title}
                 desc={item.desc}
-                icon={item.icon}
+                tempIcon={item.icon}
                 hasButton
               />
             </SwiperSlide>

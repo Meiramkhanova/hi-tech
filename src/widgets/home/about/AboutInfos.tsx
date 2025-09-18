@@ -1,8 +1,4 @@
 import { AboutInfo } from "@/entities/homepage/getHomepage.t";
-import Compass from "@/shared/icons/Compass";
-import Globe from "@/shared/icons/Globe";
-import Settings from "@/shared/icons/Settings";
-import UserProfile from "@/shared/icons/UserProfile";
 import AboutInfoItem from "@/shared/ui/AboutInfoItem";
 
 // const aboutIcons = [

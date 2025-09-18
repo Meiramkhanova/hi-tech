@@ -5,7 +5,7 @@ export const getHeaderData = async (): Promise<HeaderData[]> => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/navlinks?populate=*`,
       {
-        cache: "no-store", // всегда свежие данные, Vercel не отдаст старую страницу
+        cache: "no-store",
       }
     );
 
