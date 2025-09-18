@@ -23,7 +23,7 @@ export default async function DeparetmentFormatPage({
         if (!section.__component) return null;
 
         const Component =
-          sectionsMapper[section.__component as keyof typeof sectionsMapperз];
+          sectionsMapper[section.__component as keyof typeof sectionsMapper];
 
         if (!Component) return null;
 
