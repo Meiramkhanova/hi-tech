@@ -3,10 +3,10 @@ import { sectionsMapper } from "@/entities/tabContent/sectionsMapper";
 import { TabResponse } from "@/entities/tabContent/TabContent.t";
 import NotFound from "../not-found";
 
-export default async function DeparetmentFormatPage({
+export default async function DepartmentFormatPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
   const { slug } = await params;
   const res: TabResponse | null = await getTabContentData(slug);
@@ -19,15 +19,21 @@ export default async function DeparetmentFormatPage({
 
   return (
     <div className="page-wrapper py-6 md:py-8">
-      {tabData.sections?.map((section) => {
+      {tabData.sections?.map((section, index) => {
         if (!section.__component) return null;
 
-        const Component =
-          sectionsMapper[section.__component as keyof typeof sectionsMapper];
+        const Component = sectionsMapper[section.__component];
 
         if (!Component) return null;
 
-        return <Component key={section.id} {...section} />;
+        const sectionKey: string = `section-${String(section.id)}-${index}`;
+
+        return (
+          <div key={sectionKey}>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            <Component {...(section as any)} />
+          </div>
+        );
       })}
     </div>
   );

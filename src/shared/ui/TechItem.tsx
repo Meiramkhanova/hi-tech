@@ -10,7 +10,7 @@ interface TechItemProps {
 
 function TechItem({ title, desc, icon }: TechItemProps) {
   return (
-    <div className="tech-item border rounded-2xl p-6 grid grid-cols-1 2xl:grid-cols-2 items-center gap-6 md:gap-8">
+    <div className="tech-item border rounded-2xl p-6 grid grid-cols-1 2xl:grid-cols-2 items-center gap-6 md:gap-8 2xl:gap-10">
       <div
         className={cn(
           "left-side text-xl",
