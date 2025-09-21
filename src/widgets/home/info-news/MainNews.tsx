@@ -13,7 +13,7 @@ import { getStrapiMedia } from "@/shared/utils/getStrapiMedia";
 function MainNews() {
   const data = useHomePage();
 
-  if (!data || !data.swiper) return null;
+  if (!data?.swiper?.length) return null;
 
   const slides = data.swiper;
 

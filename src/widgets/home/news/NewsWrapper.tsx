@@ -25,7 +25,7 @@ import Image from "next/image";
 function NewsWrapper() {
   const data = useHomePage();
 
-  if (!data || !data.mainNews) return null;
+  if (!data?.mainNews?.length) return null;
 
   const mainNews = data?.mainNews;
 

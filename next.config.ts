@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
         hostname: "strapi-hitech.onrender.com",
         pathname: "/uploads/**",
       },
+      {
+        protocol: "http",
+        hostname: "backend",
+        port: "1337",
+        pathname: "/uploads/**",
+      },
     ],
   },
 };

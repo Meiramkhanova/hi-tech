@@ -102,7 +102,7 @@ function Carousel() {
 
   const data = useHomePage();
 
-  if (!data || !data.tabs) return null;
+  if (!data?.about?.length) return null;
 
   const activeTabData =
     activeTab === "department" ? data.tabs[0] : data.tabs[1];

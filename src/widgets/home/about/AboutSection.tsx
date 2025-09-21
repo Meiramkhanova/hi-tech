@@ -11,7 +11,7 @@ import { getStrapiMedia } from "@/shared/utils/getStrapiMedia";
 function AboutSection() {
   const data = useHomePage();
 
-  if (!data || !data.about) return null;
+  if (!data?.about?.length) return null;
 
   const aboutInfo = data.about[0];
 
