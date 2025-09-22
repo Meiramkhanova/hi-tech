@@ -14,8 +14,14 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "http",
+        hostname: "backend",
+        port: "1337",
+        pathname: "/path/to/your/images/**",
+      },
+      {
+        protocol: "http",
         hostname: "194.31.159.170",
-        port: "1338",
+        port: "1337",
         pathname: "/**",
       },
       {
