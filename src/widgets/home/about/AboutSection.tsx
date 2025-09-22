@@ -31,7 +31,9 @@ function AboutSection() {
             <div className="info-btn flex flex-col gap-6 md:gap-8">
               <p className="text-gray-400">{aboutInfo.desc}</p>
 
-              <Button variant="outlined">Подробнее о HTI</Button>
+              <Button href="/about" variant="outlined">
+                Подробнее о HTI
+              </Button>
             </div>
           </div>
 

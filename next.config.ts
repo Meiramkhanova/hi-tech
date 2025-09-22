@@ -9,18 +9,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "backend",
-        port: "1338",
-      },
-      {
-        protocol: "http",
-        hostname: "194.31.159.170",
-        port: "1338",
-      },
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "1337",
+        hostname: process.env.NEXT_BACKEND_HOST || "http://194.31.159.170/",
+        port: process.env.NEXT_BACKEND_PORT,
       },
     ],
   },
