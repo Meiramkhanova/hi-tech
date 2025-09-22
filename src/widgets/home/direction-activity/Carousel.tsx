@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import Button from "@/shared/ui/Button";
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
@@ -9,103 +7,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import InfoItem from "@/shared/ui/InfoItem";
-import { useHomePage } from "@/entities/homepage/HomePageClientProvider";
+import { StrapiTab } from "@/entities/homepage/getHomepage.t";
 
-// const departments = [
-//   {
-//     id: 1,
-//     title: "Business Analytics & Strategy",
-//     desc: "Готовим специалистов по анализу бизнес-процессов, стратегиям и цифровым решениям для компаний",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 2,
-//     title: "AI & Data Science",
-//     desc: "Обучаем работе с данными и искусственным интеллектом",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 3,
-//     title: "FinTech",
-//     desc: "Финансовые технологии: цифровые платежи, блокчейн-сервисы и инновации в банковской сфере.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 4,
-//     title: "Cybersecurity",
-//     desc: "Защита данных и систем: криптография, аудит и практические проекты по кибербезопасности.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 5,
-//     title: "Biotech",
-//     desc: "Современные биотехнологии: генная инженерия, биоинформатика и исследования для медицины и экологии.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 6,
-//     title: "Blockchain / Web3",
-//     desc: "Децентрализованные технологии: смарт-контракты, токенизация и создание приложений Web3.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 7,
-//     title: "Digital Product & Design",
-//     desc: "Создание цифровых продуктов: веб-разработка, UX/UI-дизайн и креативные медиа-проекты.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 8,
-//     title: "VC Department",
-//     desc: "Готовит новое поколение инвесторов, аналитиков и основателей стартапов, работающих в венчурной экосистеме.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-// ];
-
-// const activities = [
-//   {
-//     id: 1,
-//     title: "Курсы и программы",
-//     desc: "Современные образовательные модули в областях AI, FinTech, Data Science, биотеха и других перспективных направлений.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 2,
-//     title: "Хакатоны",
-//     desc: "Практические соревнования для студентов: программирование, аналитика и разработка решений для бизнеса.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 3,
-//     title: "Лаборатории",
-//     desc: "Пространства для исследований и практики, где студенты работают над кейсами и реальными проектами.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 4,
-//     title: "Проектная работа",
-//     desc: "Участие в совместных проектах с компаниями и запуск собственных инициатив, меняющих индустрию.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-//   {
-//     id: 5,
-//     title: "Воркшопы и мастер-классы",
-//     desc: "Интенсивные занятия с экспертами индустрии и международными специалистами.",
-//     icon: <Icon className="size-9 stroke-theprimary" />,
-//   },
-// ];
-
-function Carousel() {
-  const [activeTab, setActiveTab] = useState<"department" | "activity">(
-    "department"
+function Carousel({ tabsData }: { tabsData: StrapiTab[] }) {
+  const [activeTab, setActiveTab] = useState<string>(
+    tabsData?.[0]?.title || ""
   );
 
-  const data = useHomePage();
-
-  if (!data?.about?.length) return null;
-
-  const activeTabData =
-    activeTab === "department" ? data.tabs[0] : data.tabs[1];
+  const activeTabData = tabsData.find((tab) => tab.title === activeTab);
 
   return (
     <div className="carousel-wrapper flex flex-col gap-6 md:gap-8">
@@ -115,27 +24,19 @@ function Carousel() {
           "2xl:flex-row 2xl:items-center justify-between"
         )}>
         <div className="tab-btns flex flex-col sm:flex-row sm:items-center gap-2">
-          <Button
-            onClick={() => setActiveTab("department")}
-            size="sm"
-            className={cn(
-              "rounded-full w-full sm:w-fit",
-              activeTab !== "department" &&
-                "bg-thesecondary/50 border-thesecondary/0"
-            )}>
-            Департаменты
-          </Button>
-
-          <Button
-            onClick={() => setActiveTab("activity")}
-            size="sm"
-            className={cn(
-              "rounded-full w-full sm:w-fit",
-              activeTab !== "activity" &&
-                "bg-thesecondary/50 border-thesecondary/0"
-            )}>
-            Форматы и активность
-          </Button>
+          {tabsData.map((tabData) => (
+            <Button
+              key={tabData.id}
+              onClick={() => setActiveTab(tabData.title)}
+              size="sm"
+              className={cn(
+                "rounded-full w-full sm:w-fit",
+                activeTab !== tabData.title &&
+                  "bg-thesecondary/50 border-thesecondary/0"
+              )}>
+              {tabData.title}
+            </Button>
+          ))}
         </div>
 
         <div className="nav-arrows flex items-center justify-end 2xl:justify-start gap-2">
@@ -167,7 +68,7 @@ function Carousel() {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}>
-          {activeTabData.tab_contents?.map((item) => (
+          {activeTabData?.tab_contents?.map((item) => (
             <SwiperSlide key={item.id} className="2xl:!w-[24.5rem] !h-auto">
               <InfoItem
                 title={item.title}

@@ -3,7 +3,6 @@ import Button from "./Button";
 import { Headline } from "./Headline";
 import { cn } from "@/lib/utils";
 import { getStrapiMedia } from "../utils/getStrapiMedia";
-import Link from "next/link";
 import { ReactNode } from "react";
 
 interface InfoItemProps {
@@ -52,9 +51,9 @@ function InfoItem({
         </div>
 
         {hasButton && (
-          <Link href={slug ?? "#"} className="mt-auto">
-            <Button variant="outlined">Подробнее</Button>
-          </Link>
+          <Button href={slug ?? "#"} variant="outlined" className="mt-auto">
+            Подробнее
+          </Button>
         )}
       </div>
     </div>

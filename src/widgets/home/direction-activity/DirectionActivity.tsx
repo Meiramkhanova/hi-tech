@@ -1,8 +1,15 @@
+"use client";
+
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import Carousel from "./Carousel";
+import { useHomePage } from "@/entities/homepage/HomePageClientProvider";
 
 function DirectionActivity() {
+  const data = useHomePage();
+
+  if (!data?.tabs?.length) return null;
+
   return (
     <section className="direction-activity">
       <Container>
@@ -11,7 +18,7 @@ function DirectionActivity() {
             Основные направления деятельности
           </Headline>
 
-          <Carousel />
+          <Carousel tabsData={data.tabs} />
         </div>
       </Container>
     </section>

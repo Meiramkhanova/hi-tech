@@ -5,10 +5,9 @@ export default async function getTabContentData(
 ): Promise<TabResponse | null> {
   try {
     const res = await fetch(
-      `https://strapi-hitech.onrender.com/api/tab-contents?filters[slug]=${slug}&populate[sections][populate]=*`,
+      `${process.env.NEXT_PUBLIC_API_URL}/tab-contents?filters[slug]=${slug}&populate[sections][populate]=*`,
       { cache: "no-store" }
     );
-
     if (!res.ok) {
       throw new Error(`Fetch error: ${res.status}`);
     }

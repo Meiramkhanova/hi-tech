@@ -1,7 +1,8 @@
 // components/ui/Button.tsx
-import clsx from "clsx";
 import type { ReactNode } from "react";
 import type { ButtonHTMLAttributes } from "react";
+import { cn } from "../utils/cn";
+import Link from "next/link";
 
 type Variant = "primary" | "secondary" | "outlined";
 type Size = "sm" | "md" | "lg";
@@ -11,6 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
   size?: Size;
   className?: string;
+  href?: string;
 }
 
 export default function Button({
@@ -18,6 +20,7 @@ export default function Button({
   variant = "primary",
   size = "md",
   className,
+  href,
   ...props
 }: ButtonProps) {
   const baseStyles =
@@ -38,9 +41,20 @@ export default function Button({
     lg: "px-10 py-4",
   };
 
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={cn(baseStyles, variants[variant], sizes[size], className)}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <button
-      className={clsx(baseStyles, variants[variant], sizes[size], className)}
+      type="button"
+      className={cn(baseStyles, variants[variant], sizes[size], className)}
       {...props}>
       {children}
     </button>

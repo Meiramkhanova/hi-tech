@@ -1,37 +1,12 @@
-"use client";
-
-import { useHomePage } from "@/entities/homepage/HomePageClientProvider";
+import { MainNewsComponent } from "@/entities/homepage/getHomepage.t";
 import { Headline } from "@/shared/ui/Headline";
 import { getStrapiMedia } from "@/shared/utils/getStrapiMedia";
 import Image from "next/image";
 
-// const news = [
-//   {
-//     id: 1,
-//     date: "5 сентября 2025",
-//     title: "Стартап -инкубатор HTI",
-//     desc: "Hi-Tech Institute — это современный центр образования и инноваций в Казахстане и Центральной Азии. Мы объединяем обучение, практику и исследования, помогая студентам развивать ключевые компетенции и реализовывать проекты в сфере технологий и бизнеса",
-//     image: "/assets/news1.png",
-//   },
-//   {
-//     id: 2,
-//     date: "28 октября 2025",
-//     title: "48 часов кода, идей и решений",
-//     desc: "В Hi-Tech Institute состоялся ежегодный хакатон, собравший более 200 студентов и молодых специалистов. Участники в течение 48 часов работали над задачами в области финтеха, кибербезопасности и биотеха. ",
-//     image: "/assets/news2.png",
-//   },
-// ];
-
-function NewsWrapper() {
-  const data = useHomePage();
-
-  if (!data?.mainNews?.length) return null;
-
-  const mainNews = data?.mainNews;
-
+function NewsWrapper({ mainNews }: { mainNews: MainNewsComponent[] }) {
   return (
     <div className="news-info-wrapper w-full grid grid-cols-1 2xl:grid-cols-2 gap-6 2xl:gap-8">
-      {mainNews.map((newsItem) => (
+      {mainNews?.map((newsItem) => (
         <div
           key={newsItem.id}
           className="news-info-image grid grid-cols-1 md:grid-cols-2 gap-4">

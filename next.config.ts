@@ -14,9 +14,15 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "http",
-        hostname: "backend",
+        hostname: "194.31.159.170",
+        port: "1338",
+        pathname: "/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
         port: "1337",
-        pathname: "/uploads/**",
+        pathname: "/**",
       },
     ],
   },
