@@ -8,27 +8,19 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "strapi-hitech.onrender.com",
-        pathname: "/uploads/**",
-      },
-      {
         protocol: "http",
         hostname: "backend",
-        port: "1337",
-        pathname: "/path/to/your/images/**",
+        port: "1338",
       },
       {
         protocol: "http",
         hostname: "194.31.159.170",
-        port: "1337",
-        pathname: "/**",
+        port: "1338",
       },
       {
         protocol: "http",
         hostname: "localhost",
         port: "1337",
-        pathname: "/**",
       },
     ],
   },
