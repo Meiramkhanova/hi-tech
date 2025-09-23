@@ -22,7 +22,7 @@ function NewsWrapper({ mainNews }: { mainNews: MainNewsComponent[] }) {
 
           <div className="news-image size-full rounded-2xl">
             <Image
-              src={getStrapiMedia(newsItem.newsImage.url)}
+              src={getStrapiMedia(newsItem.newsImage?.url)}
               alt="news-image"
               width={328}
               height={392}

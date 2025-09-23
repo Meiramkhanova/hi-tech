@@ -6,11 +6,12 @@ const nextConfig: NextConfig = {
     globalNotFound: true,
   },
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: "http",
-        hostname: process.env.NEXT_BACKEND_HOST || "http://194.31.159.170/",
-        port: process.env.NEXT_BACKEND_PORT,
+        hostname: process.env.NEXT_PUBLIC_BACKEND_HOST || "194.31.159.170",
+        port: process.env.NEXT_PUBLIC_BACKEND_PORT || "1337",
       },
     ],
   },

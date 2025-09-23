@@ -4,6 +4,7 @@ import { Headline } from "./Headline";
 import { cn } from "@/lib/utils";
 import { getStrapiMedia } from "../utils/getStrapiMedia";
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface InfoItemProps {
   icon?: Icon;
@@ -27,10 +28,12 @@ function InfoItem({
     <div className="info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit">
       <div className="item-icon rounded-2xl text-theprimary size-20 flex items-center justify-center shrink-0 bg-theprimary/10">
         {icon && (
-          <img
+          <Image
             src={getStrapiMedia(icon.url)}
             className="size-9 fill-theprimary/5 flex shrink-0"
             alt="icon"
+            width={80}
+            height={80}
           />
         )}
 

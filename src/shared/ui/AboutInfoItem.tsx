@@ -1,6 +1,7 @@
 import { AboutInfo } from "@/entities/homepage/getHomepage.t";
 import { cn } from "@/lib/utils";
 import { getStrapiMedia } from "../utils/getStrapiMedia";
+import Image from "next/image";
 
 interface AboutInfoItemProps {
   aboutInfo: AboutInfo;
@@ -26,10 +27,12 @@ function AboutInfoItem({
       )}>
       <div className="flex flex-col xl:items-center md:flex-row gap-6 ">
         {aboutInfo.svgImage && (
-          <img
+          <Image
             src={getStrapiMedia(aboutInfo.svgImage.url)}
             alt={aboutInfo.title}
             className="size-11"
+            width={80}
+            height={80}
           />
         )}
 

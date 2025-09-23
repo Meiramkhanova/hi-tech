@@ -1,5 +1,6 @@
-const BACKEND_HOST = process.env.NEXT_BACKEND_HOST;
-const BACKEND_PORT = process.env.NEXT_BACKEND_PORT;
+const BACKEND_HOST =
+  process.env.NEXT_PUBLIC_BACKEND_HOST || "http://194.31.159.170/";
+const BACKEND_PORT = process.env.NEXT_PUBLIC_BACKEND_PORT;
 
 const MEDIA_URL = `http://${BACKEND_HOST}:${BACKEND_PORT}`;
 

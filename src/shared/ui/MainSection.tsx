@@ -27,8 +27,12 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
               )}>
               {icon && icon[0]?.url && (
                 <div className="icon size-16 md:size-20 flex items-center justify-center shrink-0 bg-theprimary/10 rounded-2xl">
-                  {/* <IconWrapper icon={icon} /> */}
-                  <img src={getStrapiMedia(icon[0].url)} alt="icon" />
+                  <Image
+                    src={getStrapiMedia(icon[0].url)}
+                    alt="icon"
+                    width={80}
+                    height={80}
+                  />
                 </div>
               )}
 
