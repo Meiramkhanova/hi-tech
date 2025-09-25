@@ -29,13 +29,34 @@ export interface MainAreasActivity {
   }>;
 }
 
-export type Section = TabMainSection | TabAboutDepartment | MainAreasActivity;
-
-interface DataItem extends StrapiBase {
-  sections: Section[];
+export interface CentersOfDepartment {
+  __component: "sections.centers-of-department";
+  id: number;
+  center_departments: Array<{
+    id: number;
+    documentId: string;
+    title: string;
+    slug: string;
+    desc: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    locale: string;
+    order: number | null;
+  }>;
 }
 
-export interface TabResponse {
+export type DepartmentSection =
+  | TabMainSection
+  | TabAboutDepartment
+  | MainAreasActivity
+  | CentersOfDepartment;
+
+interface DataItem extends StrapiBase {
+  sections: DepartmentSection[];
+}
+
+export interface DepartmentTabResponse {
   data: DataItem[];
   meta: Meta;
 }

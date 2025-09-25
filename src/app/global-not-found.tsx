@@ -40,7 +40,7 @@ function GlobalNotFound() {
             </Container>
           </div>
 
-          <Footer />
+          <Footer className="mt-0" />
         </HeaderProvider>
       </body>
     </html>

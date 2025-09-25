@@ -31,7 +31,7 @@ function Partners() {
   return (
     <section className="partners">
       <Container>
-        <div className="wrapper flex flex-col gap-6 md:gap-8 py-24">
+        <div className="wrapper flex flex-col gap-6 md:gap-8 pt-24">
           <Headline size="sm" as="h5" className="text-gray-400 pb-2 ">
             Партнёрство с YaizY
           </Headline>

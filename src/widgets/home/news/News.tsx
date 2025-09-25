@@ -14,7 +14,7 @@ function News() {
   return (
     <section className="news">
       <Container>
-        <div className="news-wrapper py-24 flex flex-col gap-6 md:gap-">
+        <div className="news-wrapper pt-24 flex flex-col gap-6 md:gap-">
           <Headline size="sm" className="text-gray-400 pb-2">
             Новости
           </Headline>

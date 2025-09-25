@@ -1,15 +1,15 @@
 import getTabContentData from "@/entities/tabContent/getTabContent";
-import { sectionsMapper } from "@/entities/tabContent/sectionsMapper";
-import { TabResponse } from "@/entities/tabContent/TabContent.t";
 import NotFound from "../not-found";
+import { departmentSectionsMapper } from "@/entities/tabContent/sectionsMapper";
+import { DepartmentTabResponse } from "@/entities/tabContent/TabContent.t";
 
 export default async function DepartmentFormatPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const { slug } = await params;
-  const res: TabResponse | null = await getTabContentData(slug);
+  const { slug } = params;
+  const res: DepartmentTabResponse | null = await getTabContentData(slug);
 
   if (!res || !res.data?.length || !res.data[0]?.sections?.length) {
     return NotFound();
@@ -18,11 +18,11 @@ export default async function DepartmentFormatPage({
   const tabData = res.data[0];
 
   return (
-    <div className="page-wrapper py-6 md:py-8">
+    <div className="page-wrapper pt-6 md:pt-8">
       {tabData.sections?.map((section, index) => {
         if (!section.__component) return null;
 
-        const Component = sectionsMapper[section.__component];
+        const Component = departmentSectionsMapper[section.__component];
 
         if (!Component) return null;
 
@@ -31,7 +31,7 @@ export default async function DepartmentFormatPage({
         return (
           <div key={sectionKey}>
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-            <Component {...(section as any)} />
+            <Component {...(section as any)} departmentSlug={slug} />
           </div>
         );
       })}

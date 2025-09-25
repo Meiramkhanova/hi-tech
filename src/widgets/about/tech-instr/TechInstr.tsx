@@ -6,7 +6,7 @@ function TechInstr() {
   return (
     <section className="tech-instr">
       <Container>
-        <div className="tech-instr-wrapper py-24 flex flex-col gap-6 md:gap-8">
+        <div className="tech-instr-wrapper pt-24 flex flex-col gap-6 md:gap-8">
           <Headline size="sm" as="h5" className="text-gray-400 pb-2">
             ТЕХНИЧЕСКИЕ ИНСТРУМЕНТЫ
           </Headline>

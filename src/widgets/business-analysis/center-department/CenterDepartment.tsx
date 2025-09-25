@@ -6,7 +6,7 @@ function CenterDepartment() {
   return (
     <section className="center-department">
       <Container>
-        <div className="center-department-wrapper py-24 flex flex-col gap-6 md:gap-8">
+        <div className="center-department-wrapper pt-24 flex flex-col gap-6 md:gap-8">
           <Headline size="sm" as="h5" className="text-gray-400 pb-2">
             Центры департамента
           </Headline>

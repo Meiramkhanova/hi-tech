@@ -21,7 +21,7 @@ function LabClub() {
   return (
     <section className="lab-and-club">
       <Container>
-        <div className="wrapper flex flex-col gap-6 md:gap-8 py-24">
+        <div className="wrapper flex flex-col gap-6 md:gap-8 pt-24">
           <Headline size="sm" as="h5" className="text-gray-400 pb-2 ">
             VC Lab и VC Club
           </Headline>

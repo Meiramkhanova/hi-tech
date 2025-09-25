@@ -1,6 +1,7 @@
 import Container from "@/shared/ui/Container";
 import Image from "next/image";
 import NavLinks from "../../shared/ui/NavLinks";
+import { cn } from "@/lib/utils";
 
 const contacts = [
   {
@@ -37,10 +38,14 @@ const socials = [
   },
 ];
 
-function Footer() {
+function Footer({ className }: { className?: string }) {
   return (
     <footer>
-      <div className="footer-wrapper bg-theprimary text-white py-12 rounded-t-2xl">
+      <div
+        className={cn(
+          "footer-wrapper bg-theprimary text-white py-12 rounded-t-2xl mt-24",
+          className
+        )}>
         <Container>
           <div className="wrapper flex flex-col gap-14 2xl:gap-28">
             <div className="footer-top-wrapper w-full flex flex-col lg:flex-row gap-16 lg:gap-32">

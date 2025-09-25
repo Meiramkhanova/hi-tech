@@ -3,7 +3,9 @@ import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import TechItem from "@/shared/ui/TechItem";
 
-function MainActivities({ activityItems }: MainAreasActivity) {
+function MainActivities({
+  activityItems,
+}: MainAreasActivity & { departmentSlug: string }) {
   return (
     <section className="main-activities">
       <Container>

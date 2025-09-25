@@ -11,9 +11,10 @@ interface InfoItemProps {
   title: string;
   desc: string | string[];
   hasButton?: boolean;
-  orderName?: number | string;
+  orderName?: number | null | string;
   slug?: string;
   tempIcon?: ReactNode;
+  departmentSlug?: string;
 }
 
 function InfoItem({
@@ -23,7 +24,11 @@ function InfoItem({
   hasButton = false,
   orderName,
   slug,
+  departmentSlug,
 }: InfoItemProps) {
+  const href =
+    departmentSlug && slug ? `/${departmentSlug}/${slug}` : slug ?? "#";
+
   return (
     <div className="info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit">
       <div className="item-icon rounded-2xl text-theprimary size-20 flex items-center justify-center shrink-0 bg-theprimary/10">
@@ -54,7 +59,7 @@ function InfoItem({
         </div>
 
         {hasButton && (
-          <Button href={slug ?? "#"} variant="outlined" className="mt-auto">
+          <Button href={href} variant="outlined" className="mt-auto">
             Подробнее
           </Button>
         )}

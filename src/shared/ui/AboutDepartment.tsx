@@ -2,7 +2,10 @@ import { TabAboutDepartment } from "@/entities/tabContent/TabContent.t";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 
-function AboutDepartment({ title, desc }: TabAboutDepartment) {
+function AboutDepartment({
+  title,
+  desc,
+}: TabAboutDepartment & { departmentSlug: string }) {
   return (
     <section className="about-department">
       <Container>

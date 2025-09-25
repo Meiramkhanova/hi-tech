@@ -19,7 +19,7 @@ function MainLikeSection({
   return (
     <section className="school-info">
       <Container>
-        <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 py-24">
+        <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 pt-24">
           <div className="left-wrapper flex flex-col justify-between gap-6 md:gap-8">
             <Headline size="sm" as="h5" className="text-gray-400 pb-2">
               {name}

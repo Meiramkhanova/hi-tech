@@ -10,6 +10,7 @@ import { ReactNode } from "react";
 export interface MainSectionProps extends TabMainSection {
   tempIcon?: ReactNode;
   tempImage?: string;
+  departmentSlug: string;
 }
 
 function MainSection({ icon, name, title, image }: MainSectionProps) {

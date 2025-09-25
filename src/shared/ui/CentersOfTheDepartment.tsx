@@ -1,28 +1,21 @@
 "use client";
 
-import Container from "@/shared/ui/Container";
-import { Headline } from "@/shared/ui/Headline";
-import InfoItem from "@/shared/ui/InfoItem";
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
-import { Navigation } from "swiper/modules";
+import Container from "./Container";
+import { Headline } from "./Headline";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import InfoItem from "./InfoItem";
+import { CentersOfDepartment } from "@/entities/tabContent/TabContent.t";
 
-const items = [
-  {
-    id: 1,
-    title: "Центр искусственного интеллекта",
-    desc: "Разработка решений на базе нейросетей и алгоритмов машинного обучения.",
-  },
-  {
-    id: 2,
-    title: "Центр макро-Data Science & AI",
-    desc: "Аналитика и прогнозирование на макроуровне — экономика, финансы, социальные системы.",
-  },
-];
-
-function CenterDepartment() {
+function CentersOfTheDepartment({
+  center_departments,
+  departmentSlug,
+}: CentersOfDepartment & { departmentSlug: string }) {
   return (
-    <section className="center-department">
+    <section className="centers-of-deparment">
       <Container>
         <div className="wrapper flex flex-col gap-6 md:gap-8 pt-24">
           <Headline size="sm" as="h5" className="text-gray-400 pb-2 ">
@@ -61,14 +54,17 @@ function CenterDepartment() {
                   1024: { slidesPerView: 3 },
                   1536: { slidesPerView: "auto" },
                 }}>
-                {items.map((item) => (
+                {center_departments.map((item) => (
                   <SwiperSlide
                     key={item.id}
                     className="2xl:!w-[24.5rem] !h-auto">
                     <InfoItem
-                      orderName={item.id}
+                      // or={item.id}
                       title={item.title}
                       desc={item.desc}
+                      slug={item.slug}
+                      departmentSlug={departmentSlug}
+                      orderName={item.order}
                       hasButton
                     />
                   </SwiperSlide>
@@ -82,4 +78,4 @@ function CenterDepartment() {
   );
 }
 
-export default CenterDepartment;
+export default CentersOfTheDepartment;
