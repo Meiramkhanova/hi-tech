@@ -7,9 +7,9 @@ import CenterMainSection from "@/widgets/department-center/CenterMainSection";
 export default async function DepartmentCenterPage({
   params,
 }: {
-  params: { slug: string; centerSlug: string };
+  params: Promise<{ slug: string; centerSlug: string }>;
 }) {
-  const { centerSlug } = params;
+  const { centerSlug } = await params;
 
   const res: DepartmentCenterResponse | null = await GetDepartmentCenter(
     centerSlug

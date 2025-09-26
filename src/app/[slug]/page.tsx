@@ -6,16 +6,21 @@ import { DepartmentTabResponse } from "@/entities/tabContent/TabContent.t";
 export default async function DepartmentFormatPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   const res: DepartmentTabResponse | null = await getTabContentData(slug);
 
-  if (!res || !res.data?.length || !res.data[0]?.sections?.length) {
+  if (
+    !res ||
+    !res.data?.length ||
+    !res.data[0]?.sections ||
+    !res.data[0]?.sections?.length
+  ) {
     return NotFound();
   }
 
-  const tabData = res.data[0];
+  const tabData = res?.data[0];
 
   return (
     <div className="page-wrapper pt-6 md:pt-8">

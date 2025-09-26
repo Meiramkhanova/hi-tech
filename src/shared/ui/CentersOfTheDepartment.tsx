@@ -14,6 +14,10 @@ function CentersOfTheDepartment({
   center_departments,
   departmentSlug,
 }: CentersOfDepartment & { departmentSlug: string }) {
+  if (!center_departments || center_departments.length === 0) {
+    return null;
+  }
+
   return (
     <section className="centers-of-deparment">
       <Container>
@@ -54,7 +58,7 @@ function CentersOfTheDepartment({
                   1024: { slidesPerView: 3 },
                   1536: { slidesPerView: "auto" },
                 }}>
-                {center_departments.map((item) => (
+                {center_departments?.map((item) => (
                   <SwiperSlide
                     key={item.id}
                     className="2xl:!w-[24.5rem] !h-auto">

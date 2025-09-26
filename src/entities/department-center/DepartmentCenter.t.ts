@@ -1,40 +1,10 @@
 import { Meta, StrapiBase } from "../types";
 
-export interface PotentialPartnersOfCenter {
-  __component: "sections.potential-partners-of-center";
-  id: number;
-  potential_partners: Array<{
-    order: number;
-    id: number;
-    title: string;
-  }>;
-}
-
 export interface MastersDegreeOfCenter {
   __component: "sections.masterd-degree-of-center";
   id: number;
   title: string;
   desc: string;
-}
-
-export interface ExampleProjectsOfCenter {
-  __component: "sections.example-projects-of-center";
-  id: number;
-  example_projects_of_center: Array<{
-    order: number;
-    id: number;
-    title: string;
-  }>;
-}
-
-export interface MainActivitiesOfCenter {
-  __component: "sections.main-activities-of-center";
-  id: number;
-  main_activities: Array<{
-    order: number;
-    id: number;
-    title: string;
-  }>;
 }
 
 export interface AboutDepartmentCenter {
@@ -44,12 +14,31 @@ export interface AboutDepartmentCenter {
   desc: string;
 }
 
+export interface FintechItemCenter {
+  __component: "sections.fintech-item";
+  id: number;
+  sectionTitle: string | null;
+  innerTitleOne: string | null;
+  innerTitleTwo: string | null;
+  innerTitleThree: string | null;
+  innerTitleTwoBold: string | null;
+  innerTitleTwoGrey: string | null;
+  innerTitleThreeBold: string | null;
+  innerTitleThreeGrey: string | null;
+}
+
+export interface CenterTitleOrderItems {
+  __component: "sections.center-title-order-items";
+  id: number;
+  title: string;
+  order_items: Array<{ order: number; id: number; title: string }>;
+}
+
 export type DepartmentCenterSection =
   | AboutDepartmentCenter
-  | MainActivitiesOfCenter
-  | ExampleProjectsOfCenter
   | MastersDegreeOfCenter
-  | PotentialPartnersOfCenter;
+  | FintechItemCenter
+  | CenterTitleOrderItems;
 
 interface DepartmentCenterData extends StrapiBase {
   title: string;

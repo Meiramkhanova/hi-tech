@@ -4,6 +4,8 @@ import ExampleProjects from "@/widgets/department-center/ExampleProjects";
 import MainActivities from "@/widgets/department-center/MainActivities";
 import MastersDegreeCenter from "@/widgets/department-center/MastersDegreeCenter";
 import PotentialPartners from "@/widgets/department-center/PotentialPartners";
+import FintechItem from "./FintechItem";
+import CenterTitleOrderItems from "./CenterTitleOrderItemsSection";
 
 type SectionsMap = {
   [K in DepartmentCenterSection["__component"]]: React.ComponentType<
@@ -18,18 +20,6 @@ export const departmentCenterSectionsMapper: SectionsMap = {
       { __component: "sections.about-department-center" }
     >
   >,
-  "sections.main-activities-of-center": MainActivities as React.ComponentType<
-    Extract<
-      DepartmentCenterSection,
-      { __component: "sections.main-activities-of-center" }
-    >
-  >,
-  "sections.example-projects-of-center": ExampleProjects as React.ComponentType<
-    Extract<
-      DepartmentCenterSection,
-      { __component: "sections.example-projects-of-center" }
-    >
-  >,
   "sections.masterd-degree-of-center":
     MastersDegreeCenter as React.ComponentType<
       Extract<
@@ -37,11 +27,14 @@ export const departmentCenterSectionsMapper: SectionsMap = {
         { __component: "sections.masterd-degree-of-center" }
       >
     >,
-  "sections.potential-partners-of-center":
-    PotentialPartners as React.ComponentType<
+  "sections.fintech-item": FintechItem as React.ComponentType<
+    Extract<DepartmentCenterSection, { __component: "sections.fintech-item" }>
+  >,
+  "sections.center-title-order-items":
+    CenterTitleOrderItems as React.ComponentType<
       Extract<
         DepartmentCenterSection,
-        { __component: "sections.potential-partners-of-center" }
+        { __component: "sections.center-title-order-items" }
       >
     >,
 };
