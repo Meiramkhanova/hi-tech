@@ -1,11 +1,10 @@
 import { DepartmentCenterSection } from "./DepartmentCenter.t";
 import AboutCenter from "@/widgets/department-center/AboutCenter";
-import ExampleProjects from "@/widgets/department-center/ExampleProjects";
-import MainActivities from "@/widgets/department-center/MainActivities";
 import MastersDegreeCenter from "@/widgets/department-center/MastersDegreeCenter";
-import PotentialPartners from "@/widgets/department-center/PotentialPartners";
-import FintechItem from "./FintechItem";
-import CenterTitleOrderItems from "./CenterTitleOrderItemsSection";
+import CenterTitleOrderItems from "../../widgets/department-center/CenterTitleOrderItemsSection";
+import FintechItem from "@/widgets/department-center/FintechItem";
+import MissionProductInfo from "@/shared/ui/MissionProductInfo";
+import TitleUnorderedItems from "@/shared/ui/TitleUnorderedItems";
 
 type SectionsMap = {
   [K in DepartmentCenterSection["__component"]]: React.ComponentType<
@@ -37,4 +36,16 @@ export const departmentCenterSectionsMapper: SectionsMap = {
         { __component: "sections.center-title-order-items" }
       >
     >,
+  "sections.mission-product-info": MissionProductInfo as React.ComponentType<
+    Extract<
+      DepartmentCenterSection,
+      { __component: "sections.mission-product-info" }
+    >
+  >,
+  "sections.title-unordered-items": TitleUnorderedItems as React.ComponentType<
+    Extract<
+      DepartmentCenterSection,
+      { __component: "sections.title-unordered-items" }
+    >
+  >,
 };

@@ -66,7 +66,7 @@ function Conception() {
                 key={conception.id}
                 title={conception.title}
                 desc={conception.desc}
-                tempIcon={conception.icon}
+                localIcon={conception.icon}
               />
             ))}
           </div>

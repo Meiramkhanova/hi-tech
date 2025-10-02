@@ -34,11 +34,36 @@ export interface CenterTitleOrderItems {
   order_items: Array<{ order: number; id: number; title: string }>;
 }
 
+export interface MisstionProductInfo {
+  __component: "sections.mission-product-info";
+  id: number;
+  sectionTitle: string;
+  missionDesc: string;
+  productDesc: string;
+  targetAudience: string;
+  durationOfTraining: string;
+  problem: string;
+  solution: string;
+}
+
+export interface TheTitleUnorderedItems {
+  __component: "sections.title-unordered-items";
+  id: number;
+  sectionTitle: string;
+  items: Array<{
+    id: number;
+    title: string;
+    desc: string;
+  }>;
+}
+
 export type DepartmentCenterSection =
   | AboutDepartmentCenter
   | MastersDegreeOfCenter
   | FintechItemCenter
-  | CenterTitleOrderItems;
+  | CenterTitleOrderItems
+  | MisstionProductInfo
+  | TheTitleUnorderedItems;
 
 interface DepartmentCenterData extends StrapiBase {
   title: string;

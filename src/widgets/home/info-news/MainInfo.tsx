@@ -11,27 +11,23 @@ function MainInfo() {
         "bg-theprimary text-white p-6 md:p-8",
         "flex flex-col justify-between"
       )}>
-      <div className="top-info flex gap-6 2xl:gap-16">
+      <div className="top-info flex items-center gap-6 2xl:gap-16">
         <Image
-          src="/assets/narxozLogo.png"
-          alt="narxoz-logo"
-          width={214}
-          height={62}
-          className="h-9 w-24 2xl:w-52 2xl:h-16 object-cover"
+          src="/assets/ai_inst.png"
+          alt="ai-institute"
+          width={123}
+          height={71}
+          className="w-32 h-20 object-contain"
         />
 
-        <div className="logo-hi-tech flex items-center gap-2">
+        <div className="logo-narxoz">
           <Image
-            src="/assets/logo.png"
-            alt="logo"
-            width={57}
-            height={57}
-            className="size-7 2xl:size-14"
+            src="/assets/narxozLogo.png"
+            alt="narxoz-logo"
+            width={214}
+            height={62}
+            className="h-9 w-24 2xl:w-52 2xl:h-16 object-cover"
           />
-
-          <div className="hi-tech-text uppercase text-sm 2xl:text-3xl">
-            Hi tech <br /> institute
-          </div>
         </div>
       </div>
 

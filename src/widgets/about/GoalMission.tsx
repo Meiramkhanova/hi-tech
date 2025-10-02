@@ -34,7 +34,7 @@ function GoalMission() {
                 key={mission.id}
                 title={mission.title}
                 desc={mission.desc}
-                tempIcon={mission.icon}
+                localIcon={mission.icon}
               />
             ))}
           </div>

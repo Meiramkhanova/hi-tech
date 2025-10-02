@@ -3,8 +3,9 @@ import Button from "./Button";
 import { Headline } from "./Headline";
 import { cn } from "@/lib/utils";
 import { getStrapiMedia } from "../utils/getStrapiMedia";
-import { ReactNode } from "react";
+import { ReactElement, ReactNode, ReactSVGElement, SVGProps } from "react";
 import Image from "next/image";
+import IconWrapper from "./IconWrapper";
 
 interface InfoItemProps {
   icon?: Icon;
@@ -13,8 +14,9 @@ interface InfoItemProps {
   hasButton?: boolean;
   orderName?: number | null | string;
   slug?: string;
-  tempIcon?: ReactNode;
   departmentSlug?: string;
+  localIcon?: ReactElement<SVGProps<SVGSVGElement>>;
+  className?: string;
 }
 
 function InfoItem({
@@ -25,12 +27,18 @@ function InfoItem({
   orderName,
   slug,
   departmentSlug,
+  localIcon,
+  className,
 }: InfoItemProps) {
   const href =
     departmentSlug && slug ? `/${departmentSlug}/${slug}` : slug ?? "#";
 
   return (
-    <div className="info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit">
+    <div
+      className={cn(
+        "info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit",
+        className
+      )}>
       <div className="item-icon rounded-2xl text-theprimary size-20 flex items-center justify-center shrink-0 bg-theprimary/10">
         {icon && (
           <Image
@@ -41,6 +49,8 @@ function InfoItem({
             height={80}
           />
         )}
+
+        {localIcon && <IconWrapper icon={localIcon} />}
 
         {orderName && <div className="order text-2xl">{orderName}</div>}
       </div>

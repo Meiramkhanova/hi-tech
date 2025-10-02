@@ -16,6 +16,6 @@ export const getHeaderData = async (): Promise<HeaderData[]> => {
     return json.data ?? [];
   } catch (error) {
     console.error("Ошибка при получении данных для header:", error);
-    return []; // сайт не упадёт, просто вернём пустой массив
+    return [];
   }
 };

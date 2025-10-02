@@ -98,7 +98,7 @@ function AICarousel() {
               <InfoItem
                 title={item.title}
                 desc={item.desc}
-                tempIcon={item.icon}
+                localIcon={item.icon}
               />
             </SwiperSlide>
           ))}
