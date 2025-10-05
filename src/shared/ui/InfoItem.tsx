@@ -21,8 +21,9 @@ interface InfoItemProps {
   hasRegister?: boolean;
   subTitle?: string;
   isTitleGreen?: boolean;
-  descWithId?: Array<{ id: number; text: string }>;
+  descWithId?: Array<{ id: number; text: string }> | string[];
   HasDescWithIdTitle?: boolean;
+  descWithIdClassName?: string;
 }
 
 function InfoItem({
@@ -40,6 +41,7 @@ function InfoItem({
   isTitleGreen = false,
   descWithId,
   HasDescWithIdTitle = false,
+  descWithIdClassName,
 }: InfoItemProps) {
   const href =
     departmentSlug && slug
@@ -51,7 +53,7 @@ function InfoItem({
   return (
     <div
       className={cn(
-        "info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit",
+        "info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit bg-white",
         className,
         isTitleGreen && "pb-12 w-full"
       )}>
@@ -113,9 +115,13 @@ function InfoItem({
         )}
 
         {descWithId && (
-          <ul className="item-description text-sm flex flex-col gap-4 list-disc list-inside">
-            {descWithId.map((d) => (
-              <li key={d.id}>{d.text}</li>
+          <ul
+            className={cn(
+              "item-description text-sm flex flex-col gap-4 list-disc list-inside",
+              descWithIdClassName
+            )}>
+            {descWithId.map((d, index) => (
+              <li key={index}>{typeof d === "string" ? d : d.text}</li>
             ))}
           </ul>
         )}

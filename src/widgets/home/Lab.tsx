@@ -2,11 +2,12 @@ import getLabItems from "@/entities/lab-items/getLabItems.service";
 import Button from "@/shared/ui/Button";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
+import { getLabWord } from "@/shared/utils/getLabWord";
 
 async function Lab() {
   const data = await getLabItems();
 
-  if (!data) {
+  if (!data || !data.data?.length) {
     return null;
   }
 
@@ -22,7 +23,7 @@ async function Lab() {
 
           <div className="lab-wrapper grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <Headline>
-              <span>{totalLabItems ?? 0}</span> лабораторий будущего
+              <span>{totalLabItems ?? 0}</span> {getLabWord(totalLabItems ?? 0)}
             </Headline>
 
             <div className="lab-info-wrapper flex flex-col gap-6 md:gap-8">

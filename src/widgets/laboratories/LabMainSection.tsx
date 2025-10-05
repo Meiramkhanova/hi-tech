@@ -1,12 +1,13 @@
 import getLabItems from "@/entities/lab-items/getLabItems.service";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
+import { getLabWord } from "@/shared/utils/getLabWord";
 import Image from "next/image";
 
 async function LabMainSection() {
   const data = await getLabItems();
 
-  if (!data) {
+  if (!data || !data.data?.length) {
     return null;
   }
 
@@ -20,7 +21,8 @@ async function LabMainSection() {
             <Headline>Лаборатории</Headline>
 
             <Headline>
-              <span>{totalLabItems ?? 0}</span> лабораторий будущего в Нархозе
+              <span>{totalLabItems ?? 0}</span> {getLabWord(totalLabItems ?? 0)}{" "}
+              в Нархозе
             </Headline>
 
             <div className="lab-description text-gray-400">

@@ -2,6 +2,9 @@ import Container from "@/shared/ui/Container";
 import Image from "next/image";
 import NavLinks from "../../shared/ui/NavLinks";
 import { cn } from "@/lib/utils";
+import HiTechCluster from "@/shared/icons/HiTechCluster";
+import AiInstitute from "@/shared/icons/AiInstitute";
+import NarxozLogo from "@/shared/icons/NarxozLogo";
 
 const contacts = [
   {
@@ -115,27 +118,21 @@ function Footer({ className }: { className?: string }) {
               </div>
             </div>
 
-            <div className="footer-bottom flex flex-col lg:flex-row lg:items-center gap-12 2xl:gap-24">
-              <Image
+            <div className="footer-bottom flex flex-col md:flex-row md:items-center gap-6 md:gap-8 xl:gap-12">
+              {/* <Image
                 src="/assets/narxozLogo.png"
                 alt="narxoz-logo"
                 width={400}
                 height={116}
                 className="w-[25rem] h-28 object-cover -ml-6"
-              />
+              /> */}
 
-              <div className="logo-hi-tech flex items-center gap-2">
-                <Image
-                  src="/assets/logo.png"
-                  alt="logo"
-                  width={86}
-                  height={86}
-                  className="size-[5.4rem] -ml-2.5"
-                />
+              <NarxozLogo />
 
-                <div className="hi-tech-text uppercase text-5xl">
-                  Hi tech <br /> institute
-                </div>
+              <div className="logos-wrapper flex items-center gap-6 md:gap-8 xl:gap-12">
+                <HiTechCluster />
+
+                <AiInstitute />
               </div>
             </div>
           </div>

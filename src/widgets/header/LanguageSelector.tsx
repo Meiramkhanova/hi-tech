@@ -21,7 +21,7 @@ function LanguageSelector({
       <Select>
         <SelectTrigger
           className={cn(
-            "w-[4.5rem] !h-14 rounded-2xl items-center font-light ",
+            "w-[4.5rem] !h-14 rounded-2xl items-center font-light",
             selectClassName,
             iconClassName
           )}>

@@ -18,7 +18,7 @@ function MainNews() {
   const slides = data.swiper;
 
   return (
-    <div className="main-news h-[21rem] md:h-[35rem] rounded-2xl relative overflow-hidden">
+    <div className="main-news min-h-[21rem] max-h-[35rem] md:h-[35rem] rounded-2xl relative overflow-hidden">
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{

@@ -1,5 +1,6 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
+import FAQItem from "./components/FAQItem";
 
 const faqItems = [
   {
@@ -29,7 +30,11 @@ function LabFAQ() {
             FAQ
           </Headline>
 
-          <div className="faq-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8"></div>
+          <div className="faq-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8">
+            {faqItems.map((faqItem, index) => (
+              <FAQItem key={index} title={faqItem.title} desc={faqItem.desc} />
+            ))}
+          </div>
         </div>
       </Container>
     </section>

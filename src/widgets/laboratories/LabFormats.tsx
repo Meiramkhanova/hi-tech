@@ -36,6 +36,7 @@ function LabFormats() {
                 title={format.title}
                 desc={format.desc}
                 iconOrder={index + 1}
+                boldDesc={format.boldText}
               />
             ))}
           </div>

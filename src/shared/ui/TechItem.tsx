@@ -8,6 +8,7 @@ interface TechItemProps {
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   descClassName?: string;
   iconOrder?: number;
+  boldDesc?: string;
 }
 
 function TechItem({
@@ -16,6 +17,7 @@ function TechItem({
   icon,
   descClassName,
   iconOrder,
+  boldDesc,
 }: TechItemProps) {
   return (
     <div className="tech-item border rounded-2xl p-6 grid grid-cols-1 2xl:grid-cols-[1fr_auto] items-center gap-6 md:gap-8">
@@ -38,12 +40,18 @@ function TechItem({
         <span className="font-medium ">{title}</span>
       </div>
 
-      <div
-        className={cn(
-          "right-desc text-gray-400 text-sm line-clamp-2 mt-auto 2xl:mt-0 min-w-0 max-w-fit",
-          descClassName
-        )}>
-        {desc}
+      <div className="mt-auto 2xl:mt-0 min-w-0 max-w-fit">
+        {boldDesc && (
+          <div className="right-desc-info font-medium">{boldDesc}</div>
+        )}
+
+        <div
+          className={cn(
+            "right-desc text-gray-400 text-sm line-clamp-2",
+            descClassName
+          )}>
+          {desc}
+        </div>
       </div>
     </div>
   );
