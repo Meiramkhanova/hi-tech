@@ -3,7 +3,7 @@ import { LabDirectionsResponse } from "./LabDirections.t";
 export default async function getLabDirections(): Promise<LabDirectionsResponse | null> {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/lab-directions?populate=*`,
+      `${process.env.NEXT_PUBLIC_API_URL}/lab-directions?populate[lab_items][populate]=icon`,
       { cache: "no-store" }
     );
 

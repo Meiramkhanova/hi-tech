@@ -16,7 +16,7 @@ async function LabMainSection() {
     <section className="lab-main-section">
       <Container>
         <div className="pt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 xl:h-[calc(100vh-80px)]">
-          <div className="left-main-section h-full flex flex-col justify-between pt-12 md:pb-12">
+          <div className="left-main-section h-full flex flex-col gap-4 justify-between pt-12 md:pb-12">
             <Headline>Лаборатории</Headline>
 
             <Headline>

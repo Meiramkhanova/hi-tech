@@ -24,7 +24,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "flex w-fit items-center justify-center tracking-wide cursor-pointer transition-all ease-in-out duration-300 rounded-2xl";
+    "flex w-fit items-center justify-center tracking-wide cursor-pointer transition-all ease-in-out duration-300 rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:brightness-95";
 
   const variants: Record<Variant, string> = {
     primary:

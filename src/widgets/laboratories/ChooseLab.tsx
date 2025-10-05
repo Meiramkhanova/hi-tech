@@ -13,8 +13,6 @@ function ChooseLab({ labDirections }: { labDirections: LabDirection[] }) {
 
   const activeTabData = labDirections.find((tab) => tab.title === activeTab);
 
-  console.log("dews", labDirections);
-
   return (
     <div className="labs-wrapper pt-8 flex flex-col gap-6 md:gap-8">
       <div className="tabs flex flex-col sm:flex-row sm:items-center gap-2">
@@ -41,7 +39,11 @@ function ChooseLab({ labDirections }: { labDirections: LabDirection[] }) {
             hasButton
             desc={labItem.desc}
             className="w-full"
-            orderName={index + 1}
+            icon={labItem.icon}
+            hasRegister
+            slug={labItem?.slug}
+            subTitle={labItem.subtitle}
+            departmentSlug="laboratories"
           />
         ))}
       </div>

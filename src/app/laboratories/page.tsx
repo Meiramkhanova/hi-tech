@@ -1,4 +1,6 @@
+import HowGetInto from "@/widgets/laboratories/HowGetInto";
 import LabDirections from "@/widgets/laboratories/LabDirections";
+import LabFormats from "@/widgets/laboratories/LabFormats";
 import LabMainSection from "@/widgets/laboratories/LabMainSection";
 
 function LaboratoriesPage() {
@@ -7,6 +9,10 @@ function LaboratoriesPage() {
       <LabMainSection />
 
       <LabDirections />
+
+      <HowGetInto />
+
+      <LabFormats />
     </>
   );
 }

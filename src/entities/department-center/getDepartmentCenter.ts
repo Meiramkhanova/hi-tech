@@ -15,7 +15,7 @@ export default async function GetDepartmentCenter(
 
     return await res.json();
   } catch (error) {
-    console.error("Ошибка при получении данных:", error);
+    console.error("Ошибка при получении данных департмента:", error);
     return null;
   }
 }
