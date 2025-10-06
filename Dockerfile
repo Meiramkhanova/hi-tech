@@ -15,11 +15,11 @@ RUN \
     # Create directories for the volumes to inherit the correct permissions
     npm install --no-audit \
     # React client build
-    npm run build
+    # npm run build
 
 # Node API setup
 # ENV HOST 0.0.0.0
 EXPOSE 3000
 
 ENV HOSTNAME="0.0.0.0"
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
