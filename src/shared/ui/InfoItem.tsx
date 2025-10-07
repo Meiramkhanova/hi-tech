@@ -134,7 +134,7 @@ function InfoItem({
           )}>
           {hasRegister && (
             <Button
-              href="/lab-registration"
+              href={`/lab-registration?lab=${encodeURIComponent(title)}`}
               variant="primary"
               className="w-full lg:w-fit">
               Зарегистрироваться

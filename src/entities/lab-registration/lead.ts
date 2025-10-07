@@ -16,3 +16,5 @@ export const leadSchema = z.object({
 });
 
 export type LeadFormData = z.infer<typeof leadSchema>;
+
+export type LeadFormDataWithLab = LeadFormData & { labName: string };

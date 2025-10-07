@@ -7,8 +7,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "@/shared/ui/Button";
 import { Headline } from "@/shared/ui/Headline";
 import LeadSuccess from "./LeadSuccess";
+import { useSearchParams } from "next/navigation";
 
 export default function LeadForm() {
+  const searchParams = useSearchParams();
+  const labName = searchParams.get("lab") || "";
+
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -26,10 +30,15 @@ export default function LeadForm() {
     setIsLoading(true);
 
     try {
+      const body = {
+        ...data,
+        labName,
+      };
+
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(body),
       });
 
       const result = await res.json();
@@ -57,7 +66,7 @@ export default function LeadForm() {
 
   return (
     <div className="lab-form-wrapper flex flex-col gap-6 md:gap-8 pt-16">
-      <Headline>Регистрация на лабораторию</Headline>
+      {labName && <Headline className="uppercase">{labName}</Headline>}
 
       <form
         onSubmit={handleSubmit(onSubmit)}

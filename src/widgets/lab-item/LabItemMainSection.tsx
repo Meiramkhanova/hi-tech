@@ -22,7 +22,9 @@ function LabItemMainSection({
             <div className="right-lab-info flex flex-col gap-8 md:gap-18">
               <Headline>«{subtTitle}»</Headline>
 
-              <Button href="/lab-registration" className="w-full md:w-fit">
+              <Button
+                href={`/lab-registration?lab=${encodeURIComponent(title)}`}
+                className="w-full md:w-fit">
                 Записаться в лабораторию
               </Button>
 

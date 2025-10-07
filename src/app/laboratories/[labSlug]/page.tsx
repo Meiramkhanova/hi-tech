@@ -24,8 +24,8 @@ export default async function LabSinglePage({
   return (
     <>
       <LabItemMainSection
-        title={labData?.title}
-        subtTitle={labData?.subtitle}
+        title={labData?.section[0]?.main_section_title}
+        subtTitle={labData?.section[0]?.main_section_desc}
       />
 
       <LabItemInfos sectionInfo={labData?.section[0]} />

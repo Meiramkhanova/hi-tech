@@ -1,6 +1,4 @@
-import { cn } from "@/lib/utils";
 import Container from "@/shared/ui/Container";
-import { Headline } from "@/shared/ui/Headline";
 import LabRegistrsationForm from "@/widgets/lab-registration/LabRegistrsationForm";
 import Image from "next/image";
 

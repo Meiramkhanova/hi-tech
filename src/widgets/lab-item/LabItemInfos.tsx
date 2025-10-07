@@ -33,7 +33,7 @@ function LabItemInfos({ sectionInfo }: LabItemInfosProps) {
           <InfoItem
             localIcon={<Career />}
             title="Карьера"
-            descWithId={sectionInfo.skills}
+            descWithId={sectionInfo.careers}
             isTitleGreen
             HasDescWithIdTitle
           />

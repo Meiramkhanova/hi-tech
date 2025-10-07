@@ -1,9 +1,9 @@
-import { LeadFormData } from "@/entities/lab-registration/lead";
+import { LeadFormDataWithLab } from "@/entities/lab-registration/lead";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const body: LeadFormData = await req.json();
+    const body: LeadFormDataWithLab = await req.json();
 
     const strapiRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads`, {
       method: "POST",
@@ -16,6 +16,7 @@ export async function POST(req: Request) {
           name: body.name,
           email: body.email,
           phone: body.phone,
+          lab_name: body.labName,
         },
       }),
     });

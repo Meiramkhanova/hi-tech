@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import AiInstitute from "@/shared/icons/AiInstitute";
 import NarxozLogo from "@/shared/icons/NarxozLogo";
-import Button from "@/shared/ui/Button";
 import { Headline } from "@/shared/ui/Headline";
 
 function MainInfo() {
@@ -25,13 +24,13 @@ function MainInfo() {
       </div>
 
       <div className="bottom-info-btns flex flex-col 2xl:flex-row 2xl:items-center gap-2">
-        <Button className="w-full 2xl:w-fit">Поступить</Button>
+        {/* <Button className="w-full 2xl:w-fit">Поступить</Button> */}
 
-        <Button
+        {/* <Button
           className="w-full 2xl:w-fit text-nowrap 2xl:text-wrap"
           variant="secondary">
           Программы и направления
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
