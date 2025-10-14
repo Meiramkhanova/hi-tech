@@ -2,8 +2,11 @@ import { cn } from "@/lib/utils";
 import AiInstitute from "@/shared/icons/AiInstitute";
 import NarxozLogo from "@/shared/icons/NarxozLogo";
 import { Headline } from "@/shared/ui/Headline";
+import { useTranslations } from "next-intl";
 
 function MainInfo() {
+  const t = useTranslations("HomePage");
+
   return (
     <div
       className={cn(
@@ -19,7 +22,7 @@ function MainInfo() {
 
       <div className="middle-info-text">
         <Headline className="text-white">
-          Образование, технологии и проекты будущего
+          {t("Education, technologies and future projects")}
         </Headline>
       </div>
 

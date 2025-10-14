@@ -1,4 +1,4 @@
-import NotFound from "@/app/not-found";
+import NotFound from "@/app/[locale]/not-found";
 import { departmentCenterSectionsMapper } from "@/entities/department-center/centersSectionsMapper";
 import { DepartmentCenterResponse } from "@/entities/department-center/DepartmentCenter.t";
 import GetDepartmentCenter from "@/entities/department-center/getDepartmentCenter";

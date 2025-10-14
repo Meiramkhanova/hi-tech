@@ -1,4 +1,4 @@
-import NotFound from "@/app/not-found";
+import NotFound from "@/app/[locale]/not-found";
 import getLabItem from "@/entities/lab-item/getLabItem.service";
 import { LabItemResponse } from "@/entities/lab-item/LabItemSingle.t";
 import LabItemInfos from "@/widgets/lab-item/LabItemInfos";

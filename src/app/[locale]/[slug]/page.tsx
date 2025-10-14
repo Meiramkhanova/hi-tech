@@ -1,7 +1,7 @@
 import getTabContentData from "@/entities/tabContent/getTabContent";
-import NotFound from "../not-found";
 import { departmentSectionsMapper } from "@/entities/tabContent/sectionsMapper";
 import { DepartmentTabResponse } from "@/entities/tabContent/TabContent.t";
+import NotFound from "../not-found";
 
 // export default async function DepartmentFormatPage({
 //   params,

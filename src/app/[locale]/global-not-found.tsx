@@ -1,5 +1,5 @@
 import HeaderProvider from "@/entities/header/HeaderProvider";
-import "./globals.css";
+import "../globals.css";
 import Footer from "@/widgets/footer";
 import Header from "@/widgets/header";
 import { Metadata } from "next";
