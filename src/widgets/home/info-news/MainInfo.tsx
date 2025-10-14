@@ -21,7 +21,7 @@ function MainInfo() {
       </div>
 
       <div className="middle-info-text">
-        <Headline className="text-white">
+        <Headline className="text-white 2xl:max-w-[80%]">
           {t("Education, technologies and future projects")}
         </Headline>
       </div>

@@ -25,6 +25,10 @@ function LanguageSelector({
 
   const pathname = usePathname();
 
+  const currentLocale = locales.includes(pathname.split("/")[1])
+    ? pathname.split("/")[1]
+    : "ru";
+
   const changeLanguage = (locale: string) => {
     const currentLocale = pathname.split("/")[1];
 
@@ -37,7 +41,7 @@ function LanguageSelector({
 
   return (
     <div className={cn("lg-switcher", className)}>
-      <Select onValueChange={changeLanguage}>
+      <Select value={currentLocale} onValueChange={changeLanguage}>
         <SelectTrigger
           className={cn(
             "w-[4.5rem] !h-14 rounded-2xl items-center font-light",

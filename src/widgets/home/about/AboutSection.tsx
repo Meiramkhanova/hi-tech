@@ -7,6 +7,7 @@ import Image from "next/image";
 import AboutInfos from "./AboutInfos";
 import { useHomePage } from "@/entities/homepage/HomePageClientProvider";
 import { getStrapiMedia } from "@/shared/utils/getStrapiMedia";
+import { useTranslations } from "next-intl";
 
 function AboutSection() {
   const data = useHomePage();
@@ -17,12 +18,14 @@ function AboutSection() {
 
   const aboutInfos = data.aboutinfos;
 
+  const t = useTranslations("HomePage");
+
   return (
     <section className="about">
       <Container>
         <div className="about-wrapper pt-24 flex flex-col gap-6 md:gap-8">
           <Headline size="sm" as="h5" className="text-gray-400 pb-2">
-            О нас
+            {t("About us")}
           </Headline>
 
           <div className="about-info grid grid-cols-1 md:grid-cols-2 w-full gap-6 md:gap-8">
@@ -32,7 +35,7 @@ function AboutSection() {
               <p className="text-gray-400">{aboutInfo.desc}</p>
 
               <Button href="/about" variant="outlined">
-                Подробнее о HTI
+                {t("More about HTI")}
               </Button>
             </div>
           </div>
