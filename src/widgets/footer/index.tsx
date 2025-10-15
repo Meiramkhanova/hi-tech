@@ -1,47 +1,49 @@
 import Container from "@/shared/ui/Container";
-import Image from "next/image";
 import NavLinks from "../../shared/ui/NavLinks";
 import { cn } from "@/lib/utils";
 import HiTechCluster from "@/shared/icons/HiTechCluster";
 import AiInstitute from "@/shared/icons/AiInstitute";
 import NarxozLogo from "@/shared/icons/NarxozLogo";
+import { getTranslations } from "next-intl/server";
 
-const contacts = [
-  {
-    id: 1,
-    contactTitle: "Адрес",
-    contactLabel: "г. Алматы, ул. Жандосова 55",
-  },
-  {
-    id: 2,
-    contactTitle: "Телефон",
-    contactLabel: "+7 (727) 123-45-67",
-    contactLink: "tel:+77271234567",
-  },
-  {
-    id: 3,
-    contactTitle: "Email",
-    contactLabel: "info@hti.kz",
-    contactLink: "mailto:info@hti.kz",
-  },
-  {
-    id: 4,
-    contactTitle: "Приёмная комиссия",
-    contactLabel: "admission@hti.kz",
-    contactLink: "mailto:admission@hti.kz",
-  },
-];
+async function Footer({ className }: { className?: string }) {
+  const t = await getTranslations("Footer");
 
-const socials = [
-  {
-    id: 1,
-    contactTitle: "Instagram",
-    contactLabel: "hti_kz",
-    contactLink: "https://www.instagram.com/hti_kz/",
-  },
-];
+  const contacts = [
+    {
+      id: 1,
+      contactTitle: t("address"),
+      contactLabel: t("addressLocation"),
+    },
+    {
+      id: 2,
+      contactTitle: t("telephone"),
+      contactLabel: "+7 (727) 123-45-67",
+      contactLink: "tel:+77271234567",
+    },
+    {
+      id: 3,
+      contactTitle: "Email",
+      contactLabel: "info@hti.kz",
+      contactLink: "mailto:info@hti.kz",
+    },
+    {
+      id: 4,
+      contactTitle: t("admission"),
+      contactLabel: "admission@hti.kz",
+      contactLink: "mailto:admission@hti.kz",
+    },
+  ];
 
-function Footer({ className }: { className?: string }) {
+  const socials = [
+    {
+      id: 1,
+      contactTitle: "Instagram",
+      contactLabel: "hti_kz",
+      contactLink: "https://www.instagram.com/hti_kz/",
+    },
+  ];
+
   return (
     <footer>
       <div
@@ -53,7 +55,9 @@ function Footer({ className }: { className?: string }) {
           <div className="wrapper flex flex-col gap-14 2xl:gap-28">
             <div className="footer-top-wrapper w-full flex flex-col lg:flex-row gap-16 lg:gap-32">
               <div className="footer-nav-item flex-col gap-6 hidden 2xl:flex">
-                <div className="footer-item-name uppercase">Навигация</div>
+                <div className="footer-item-name uppercase">
+                  {t("navigation")}
+                </div>
 
                 <NavLinks
                   className="gap-6 md:gap-8 flex flex-col items-start"
@@ -62,7 +66,9 @@ function Footer({ className }: { className?: string }) {
               </div>
 
               <div className="footer-contact-item flex flex-col gap-6">
-                <div className="footer-item-name uppercase">Контакты</div>
+                <div className="footer-item-name uppercase">
+                  {t("contacts")}
+                </div>
 
                 <div className="footer-item-info flex flex-col gap-6 md:gap-8">
                   {contacts.map((contact) => (
@@ -90,7 +96,7 @@ function Footer({ className }: { className?: string }) {
               </div>
 
               <div className="footer-socials-item flex flex-col gap-6">
-                <div className="footer-item-name uppercase">Соцсети</div>
+                <div className="footer-item-name uppercase">{t("socials")}</div>
 
                 <div className="footer-item-info flex flex-col gap-6 md:gap-8">
                   {socials.map((social) => (

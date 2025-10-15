@@ -2,13 +2,16 @@ import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import ChooseLab from "./ChooseLab";
 import getLabDirections from "@/entities/lab-directions/getLabDirections";
+import { getTranslations } from "next-intl/server";
 
 async function LabDirections() {
   const data = await getLabDirections();
 
-  if (!data) {
-    return null;
-  }
+  if (!data?.data?.length) return null;
+
+  console.log("dataa", data);
+
+  const t = await getTranslations("LaboratoriesPage");
 
   const labDirections = data?.data;
 
@@ -16,7 +19,7 @@ async function LabDirections() {
     <section className="lab-directions">
       <Container>
         <div className="wrapper flex flex-col gap-6 md:gap-8 pt-24">
-          <Headline>Выбери направление лабораторий</Headline>
+          <Headline>{t("chooseLab")}</Headline>
 
           <ChooseLab labDirections={labDirections} />
         </div>

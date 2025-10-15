@@ -1,6 +1,9 @@
+import { getTranslations } from "next-intl/server";
 import { cn } from "../utils/cn";
 
-function Stepper({ textClassName }: { textClassName?: string }) {
+async function Stepper({ textClassName }: { textClassName?: string }) {
+  const t = await getTranslations("LaboratoriesPage");
+
   return (
     <div className="stepper w-full flex justify-center md:justify-start relative">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 relative w-full">
@@ -26,7 +29,7 @@ function Stepper({ textClassName }: { textClassName?: string }) {
           </div>
 
           <div className={cn("first-item-text", textClassName)}>
-            Регистрация
+            {t("registration")}
           </div>
         </div>
 
@@ -43,8 +46,9 @@ function Stepper({ textClassName }: { textClassName?: string }) {
             2
           </div>
 
-          <div className={cn("second-item-text", textClassName)}>
-            Вступительный проект <br /> (реальная задача)
+          <div
+            className={cn("second-item-text 2xl:max-w-[80%]", textClassName)}>
+            {t("initialProject")}
           </div>
         </div>
 
@@ -61,8 +65,8 @@ function Stepper({ textClassName }: { textClassName?: string }) {
             3
           </div>
 
-          <div className={cn("third-item-text", textClassName)}>
-            Мини-интервью <br /> (5–10 минут)
+          <div className={cn("third-item-text 2xl:max-w-[50%]", textClassName)}>
+            {t("miniProject")}
           </div>
         </div>
       </div>

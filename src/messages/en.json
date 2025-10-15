@@ -2,6 +2,79 @@
   "HomePage":{
     "Education, technologies and future projects": "Education, technology and future projects",
     "More about HTI":"More about HTI",
-    "About us":"About us"
+    "About us":"About us",
+    "Laboratories":"Laboratories",
+    "laboratory": {
+      "one": "laboratory of the future",
+      "few": "laboratories of the future",
+      "many": "laboratories of the future"
+    },
+    "labInfo":"Laboratories are practical platforms where students work on real tasks and learn from experts. It’s your chance to take the first step in your career, explore different fields, and build a strong portfolio.",
+    "More about laboratories":"More about laboratories",
+    "AIInstitute": {
+      "whoWeAre": "Who we are: a team of experts and practitioners",
+      "desc": "We bring together specialists from leading tech and consulting companies to implement AI and digital solutions in business, education, and the public sector.",
+      "practiceAndProjects": "Practice and projects",
+      "practiceDesc": "Learning and implementation go hand in hand.",
+      "project": "Project approach",
+      "projectDesc": "Every solution is tested on real-world cases.",
+      "partnership": "Partnership",
+      "partnershipDesc": "We collaborate with the largest companies in Central Asia.",
+      "Product": "Product",
+      "Products": {
+        "desc1": "RG Gold — automation of geodata and factory management.",
+        "desc2": "Kazakhmys — digitalization of production processes.",
+        "desc3": "KazTransOil — chatbot, training, and AI system setup.",
+        "desc4": "Digital University & OquLabs — digital platform and student monitoring.",
+        "desc5": "Delicatest — AI testing.",
+        "desc6": "Cubus — financial digitalization."
+      },
+      "Potential": "Potential",
+      "Potentials": {
+        "desc1": "AI and ML in industry, education, and public administration.",
+        "desc2": "IoT solutions for healthcare and infrastructure.",
+        "desc3": "ESG digitalization and sustainability analytics.",
+        "desc4": "HR analytics and digital platforms."
+      }
+    }
+  },
+  "LaboratoriesPage": {
+    "Laboratories": "Laboratories",
+    "inNarxoz": "at Narxoz",
+    "labDesc": "Join student laboratories — from investments and AI to superforecasting and business analytics. Gain experience you won’t find in textbooks.",
+    "chooseLab": "Choose a laboratory direction",
+    "howGetIntoLab": "How to join a laboratory",
+    "registration": "Registration",
+    "initialProject": "Entry project (real-world task)",
+    "miniProject": "Mini interview (5–10 minutes)",
+    "formats": "Formats",
+    "formatItem1Title": "Funded by the institute grant",
+    "formatItem1Desc": "If you complete a complex project",
+    "formatItem2Title": "Basic",
+    "formatItem2DescBold": "25,000 ₸/month",
+    "formatItem2Desc": "If you complete a complex project",
+    "formatItem3Title": "Advanced",
+    "formatItem3DescBold": "49,000 ₸/month",
+    "formatItem3Desc": "More hours and teacher support",
+    "faqItem1Title": "Do I need prior experience?",
+    "faqItem1Desc": "No, motivation and willingness to learn are what matter.",
+    "faqItem2Title": "How long does the training take?",
+    "faqItem2Desc": "On average, 5–8 hours per week.",
+    "faqItem3Title": "Can I join multiple laboratories?",
+    "faqItem3Desc": "Yes, but you’ll need to pass selection for each one.",
+    "faqItem4Title": "What will I get in the end?",
+    "faqItem4Desc": "A project portfolio, real skills, and a certificate."
+  },
+  "Header": {
+    "search":"search"
+  },
+  "Footer": {
+    "navigation": "Navigation",
+    "contacts": "Contacts",
+    "socials": "Socials",
+    "address": "Address",
+    "addressLocation":"55 Zhandosov St, Almaty",
+    "telephone": "Telephone",
+    "admission": "Admission committee"
   }
 }

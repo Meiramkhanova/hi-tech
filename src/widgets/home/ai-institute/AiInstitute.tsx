@@ -7,34 +7,37 @@ import Transport from "@/shared/icons/Transport";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import InfoItem from "@/shared/ui/InfoItem";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-const instituteInfos = [
-  {
-    icon: <Goal />,
-    title: "Продукт",
-    desc: [
-      "RG Gold — автоматизация геоданных и управление фабрикой.",
-      "Казахмыс — цифровизация производственных процессов.",
-      "КазТрансОйл — чат-бот, обучение, подготовка AI-системы.",
-      "Digital University & OquLabs — цифровая платформа и мониторинг студентов.",
-      "Delicatest — AI-тестирование.",
-      "Cubus — цифровизация финансов.",
-    ],
-  },
-  {
-    icon: <Transport />,
-    title: "Потенциал",
-    desc: [
-      "AI и ML в промышленности, образовании и госуправлении.",
-      "IoT-решения для медицины и инфраструктуры.",
-      "ESG-цифровизация и аналитика устойчивости.",
-      "HR-аналитика и цифровые платформы.",
-    ],
-  },
-];
+async function AiInstitute() {
+  const t = await getTranslations("HomePage");
 
-function AiInstitute() {
+  const instituteInfos = [
+    {
+      icon: <Goal />,
+      title: t("AIInstitute.Product"),
+      desc: [
+        t("AIInstitute.Products.desc1"),
+        t("AIInstitute.Products.desc2"),
+        t("AIInstitute.Products.desc3"),
+        t("AIInstitute.Products.desc4"),
+        t("AIInstitute.Products.desc5"),
+        t("AIInstitute.Products.desc6"),
+      ],
+    },
+    {
+      icon: <Transport />,
+      title: t("AIInstitute.Potential"),
+      desc: [
+        t("AIInstitute.Potentials.desc1"),
+        t("AIInstitute.Potentials.desc2"),
+        t("AIInstitute.Potentials.desc3"),
+        t("AIInstitute.Potentials.desc4"),
+      ],
+    },
+  ];
+
   return (
     <section className="ai-institute">
       <div className="outer-bg-wrapper bg-theprimary mt-24 rounded-2xl">
@@ -46,13 +49,9 @@ function AiInstitute() {
 
             <div className="institute-info-wrapper w-full pb-12 text-white ">
               <div className="institute-title-desc w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <Headline>Кто мы: команда экспертов и практиков</Headline>
+                <Headline>{t("AIInstitute.whoWeAre")}</Headline>
 
-                <div className="institute-desc">
-                  Мы объединяем специалистов из ведущих технологических и
-                  консалтинговых компаний, чтобы внедрять AI и цифровые решения
-                  в бизнес, образование и государственный сектор.
-                </div>
+                <div className="institute-desc">{t("AIInstitute.desc")}</div>
               </div>
             </div>
 
@@ -69,11 +68,11 @@ function AiInstitute() {
 
                   <div className="title-desc">
                     <div className="title text-white/50 uppercase">
-                      Практика и проекты
+                      {t("AIInstitute.practiceAndProjects")}
                     </div>
 
                     <div className="text-lg md:text-2xl">
-                      Обучение и внедрение технологий идут параллельно.
+                      {t("AIInstitute.practiceDesc")}
                     </div>
                   </div>
                 </div>
@@ -85,11 +84,11 @@ function AiInstitute() {
 
                   <div className="title-desc">
                     <div className="title text-white/50 uppercase">
-                      Проектный подход
+                      {t("AIInstitute.project")}
                     </div>
 
                     <div className="text-lg md:text-2xl">
-                      Каждое решение проверяется на реальных кейсах.
+                      {t("AIInstitute.projectDesc")}
                     </div>
                   </div>
                 </div>
@@ -101,11 +100,11 @@ function AiInstitute() {
 
                   <div className="title-desc">
                     <div className="title text-white/50 uppercase">
-                      Партнёрство
+                      {t("AIInstitute.partnership")}
                     </div>
 
                     <div className="text-lg md:text-2xl">
-                      Работаем с крупнейшими компаниями Центральной Азии.
+                      {t("AIInstitute.partnershipDesc")}{" "}
                     </div>
                   </div>
                 </div>

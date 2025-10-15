@@ -1,27 +1,30 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import FAQItem from "./components/FAQItem";
+import { getTranslations } from "next-intl/server";
 
-const faqItems = [
-  {
-    title: "Нужен ли опыт?",
-    desc: "Нет, главное — мотивация и готовность учиться.",
-  },
-  {
-    title: "Сколько времени займёт обучение?",
-    desc: "В среднем 5–8 часов в неделю.",
-  },
-  {
-    title: "Можно участвовать в нескольких лабораториях?",
-    desc: "Да, но придётся проходить отбор в каждую.",
-  },
-  {
-    title: "Что будет на выходе?",
-    desc: "Портфолио проектов, реальные навыки, сертификат.",
-  },
-];
+async function LabFAQ() {
+  const t = await getTranslations("LaboratoriesPage");
 
-function LabFAQ() {
+  const faqItems = [
+    {
+      title: t("faqItem1Title"),
+      desc: t("faqItem1Desc"),
+    },
+    {
+      title: t("faqItem2Title"),
+      desc: t("faqItem2Desc"),
+    },
+    {
+      title: t("faqItem3Title"),
+      desc: t("faqItem3Desc"),
+    },
+    {
+      title: t("faqItem4Title"),
+      desc: t("faqItem4Desc"),
+    },
+  ];
+
   return (
     <section className="lab-faq">
       <Container>
