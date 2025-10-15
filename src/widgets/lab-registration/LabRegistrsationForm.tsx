@@ -8,6 +8,7 @@ import Button from "@/shared/ui/Button";
 import { Headline } from "@/shared/ui/Headline";
 import LeadSuccess from "./LeadSuccess";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function LeadForm() {
   const searchParams = useSearchParams();
@@ -24,6 +25,8 @@ export default function LeadForm() {
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadSchema),
   });
+
+  const t = useTranslations("LabRegistrsationForm");
 
   const onSubmit = async (data: LeadFormData) => {
     setErrorMessage("");
@@ -46,15 +49,11 @@ export default function LeadForm() {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        setErrorMessage(
-          result?.message || "Не удалось отправить заявку. Попробуйте позже."
-        );
+        setErrorMessage(result?.message || t("ErrorMsg"));
       }
     } catch (err) {
       console.error("Ошибка сети:", err);
-      setErrorMessage(
-        "Ошибка соединения. Проверьте интернет и попробуйте снова."
-      );
+      setErrorMessage(t("NetworkErrMsg"));
     } finally {
       setIsLoading(false);
     }
@@ -74,7 +73,7 @@ export default function LeadForm() {
         <div className="name-field w-full">
           <input
             {...register("name")}
-            placeholder="ФИО"
+            placeholder={t("fullName")}
             className="w-full bg-gray-100 h-14 flex items-center rounded-2xl pl-6 md:pl-8"
           />
           {errors.name && (
@@ -99,7 +98,7 @@ export default function LeadForm() {
             <input
               {...register("phone")}
               type="tel"
-              placeholder="Телефон"
+              placeholder={t("telephone")}
               className="w-full bg-gray-100 h-14 flex items-center rounded-2xl pl-6 md:pl-8"
             />
             {errors.phone && (
@@ -118,10 +117,10 @@ export default function LeadForm() {
           {isLoading ? (
             <span className="flex items-center justify-center gap-2">
               <span className="w-4 h-4 border-2 border-t-transparent border-white rounded-full animate-spin" />
-              Отправка...
+              {t("sending")}
             </span>
           ) : (
-            "Отправить"
+            t("send")
           )}
         </Button>
       </form>

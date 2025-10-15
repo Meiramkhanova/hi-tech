@@ -36,7 +36,11 @@
         "desc3": "ESG digitalization and sustainability analytics.",
         "desc4": "HR analytics and digital platforms."
       }
-    }
+    },
+    "News": {
+      "News": "News",
+      "moreNews": "More news"
+}
   },
   "LaboratoriesPage": {
     "Laboratories": "Laboratories",
@@ -64,6 +68,19 @@
     "faqItem3Desc": "Yes, but you’ll need to pass selection for each one.",
     "faqItem4Title": "What will I get in the end?",
     "faqItem4Desc": "A project portfolio, real skills, and a certificate."
+  },
+  "LabRegistrsationForm": {
+    "ErrorMsg": "Өтінімді жіберу мүмкін болмады. Кейінірек қайталап көріңіз.",
+    "NetworkErrMsg": "Байланыс қатесі. Интернетті тексеріп, қайтадан көріңіз.",
+    "sending": "Жіберілуде...",
+    "send": "Жіберу",
+    "fullName": "Full name",
+    "telephone": "Phone",
+    "LeadSuccess": {
+      "thanksForRequest": "Өтініміңіз үшін рақмет!",
+      "callLater": "Біз жақын арада сізбен хабарласамыз.",
+      "doNotMiss": "Ештеңені жіберіп алмау үшін біздің әлеуметтік желілерге жазылыңыз."
+    }
   },
   "Header": {
     "search":"search"

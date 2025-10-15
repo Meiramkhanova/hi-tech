@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import HeaderProvider from "@/entities/header/HeaderProvider";
 import HomePageProvider from "@/entities/homepage/HomePageProvider";
 import { ReactNode } from "react";
-import { getMessages } from "next-intl/server";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -34,7 +33,7 @@ export default async function RootLayout({ children, params }: Props) {
   }
 
   return (
-    <html>
+    <html lang={locale}>
       <body className={cn("min-h-screen", montserrat.className)}>
         <NextIntlClientProvider>
           <HeaderProvider>
