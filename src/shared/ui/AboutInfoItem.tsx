@@ -4,7 +4,7 @@ import { getStrapiMedia } from "../utils/getStrapiMedia";
 import Image from "next/image";
 
 interface AboutInfoItemProps {
-  aboutInfo: AboutInfo;
+  aboutInfo: AboutInfo | string;
   className?: string;
   iconText?: string;
   desc?: string;
@@ -16,17 +16,21 @@ function AboutInfoItem({
   iconText,
   desc,
 }: AboutInfoItemProps) {
-  const [first, ...rest] = aboutInfo.title.split(" ");
+  const isTitleString = typeof aboutInfo === "string";
+
+  const title = isTitleString ? aboutInfo : aboutInfo.title;
+
+  const [first, ...rest] = title.split(" ");
 
   return (
     <div
       className={cn(
         "border p-6 rounded-2xl flex flex-col xl:flex-row xl:items-center gap-6 ltr",
-        aboutInfo.title && "justify-between",
+        title && "justify-between",
         className
       )}>
       <div className="flex flex-col xl:items-center md:flex-row gap-6 ">
-        {aboutInfo.svgImage && (
+        {!isTitleString && aboutInfo.svgImage && (
           <Image
             src={getStrapiMedia(aboutInfo.svgImage.url)}
             alt={aboutInfo.title}

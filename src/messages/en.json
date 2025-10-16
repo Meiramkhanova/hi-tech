@@ -42,6 +42,89 @@
       "moreNews": "More news"
 }
   },
+  "AboutPage": {
+    "HistoryConception": {
+      "sectionTitle": "history and concept"
+    },
+    "AboutInfo": {
+      "sectionTitle": "18 years of experience, research, and practice that shaped our concept",
+      "sectionDesc": {
+        "desc1": "Over 18 years, Hi-Tech Institute has evolved from a scientific seminar into an international center with programs, laboratories, and startups. Today, our education is built on project-based learning and close collaboration with the industry.",
+        "desc2": "Our model is based on three ideas: practical and real-world projects, implementation of innovations and technologies driven by artificial intelligence and data science, and the formation of an intellectual community of students, experts, and researchers."
+      }
+    },
+    "GoalAndMissions": {
+      "sectionTitle": "goals and mission",
+      "ourGoals": "Our goals",
+      "ourGoalsDesc": "To develop the competencies of specialists in Kazakhstan and Central Asia and to promote the implementation of modern technologies and business strategies. The Institute offers a wide range of educational programs, webinars, and training sessions aimed at professional skill development.",
+      "ourMissions": "Our mission",
+      "ourMissionsDesc": "To provide quality education and professional development for specialists in Kazakhstan and Central Asia. The Institute aims to become a platform for developing competencies necessary for implementing modern technologies, developing business strategies, and managing risks in the context of global digitalization and increasing competition."
+    },
+    "Approach": {
+      "sectionTitle": "approach",
+      "sectionDesc": "Hi-Tech Institute’s learning approach is based on the balance of three key areas",
+      "item1Percent": "50%",
+      "item1Title": "Practice and projects",
+      "item1Desc": "Real business cases and tasks in an agile format.",
+      "item2Percent": "30%",
+      "item2Title": "Applied knowledge",
+      "item2Desc": "Master classes and analytics for professional skill development.",
+      "item3Percent": "20%",
+      "item3Title": "Career and community",
+      "item3Desc": "Industry meetings, critical thinking, and networking opportunities.",
+      "sectionBottomDesc": "This approach turns learning into a full experience: students not only gain knowledge but also learn to apply it in practice and build their careers during their studies."
+    },
+    "PracticeAndMethods": {
+      "sectionTitle": "PRACTICES AND METHODS",
+      "sectionDesc": "Education at Hi-Tech Institute is based on modern practices that make the process dynamic and practical",
+      "item1Percent": "1",
+      "item1Title": "Project-based learning",
+      "item1Desc": "Students solve real business and research challenges.",
+      "item2Percent": "2",
+      "item2Title": "Agile and teamwork formats",
+      "item2Desc": "Flexible methodologies and group work build collaboration skills.",
+      "item3Percent": "3",
+      "item3Title": "Case methods and hackathons",
+      "item3Desc": "Intensive formats where students train critical thinking and decision-making speed.",
+      "item4Percent": "4",
+      "item4Title": "Master classes and practical sessions",
+      "item4Desc": "Work with industry experts and applied skills development.",
+      "item5Percent": "5",
+      "item5Title": "Online and offline formats",
+      "item5Desc": "Flexible learning using digital tools and platforms.",
+      "sectionBottomDesc": "These practices help students not only acquire knowledge but also gain hands-on experience and prepare for industry work during their studies."
+    },
+    "UsingAi": {
+      "sectionTitle": "Using Artificial Intelligence",
+      "sectionDesc": "We use AI to make education personalized, flexible, and effective",
+      "item1Title": "Predictive analytics",
+      "item1Desc": "Big data–based systems identify potential challenges and risks in advance, helping instructors support students early and improve overall learning outcomes.",
+      "item2Title": "Adaptive knowledge testing",
+      "item2Desc": "AI algorithms assess a student’s current level and adjust the program accordingly, identifying gaps and building personalized learning paths.",
+      "item3Title": "Automatic assignment checking",
+      "item3Desc": "AI evaluates tests, essays, and other tasks, speeding up feedback and helping students understand where improvement is needed.",
+      "item4Title": "AI-based evaluation and anti-plagiarism",
+      "item4Desc": "Algorithms objectively check texts, code, and projects, detecting errors and ensuring fairness in grading.",
+      "item5Title": "Personalized learning",
+      "item5Desc": "NLP and machine learning–based platforms create individual learning routes tailored to each student’s goals and level.",
+      "item6Title": "Speech recognition",
+      "item6Desc": "AI is used for language learning, presentations, and public speaking, analyzing pronunciation and providing real-time feedback.",
+      "item7Title": "Virtual assistants and chatbots",
+      "item7Desc": "AI chatbots act as personal mentors: they answer questions, provide tips, and help students grasp complex topics."
+    },
+    "TechInstruments": {
+      "sectionTitle": "TECHNICAL TOOLS",
+      "sectionDesc": "We use modern digital solutions for data analysis, teamwork, and development",
+      "item1Title": "Analytics and data",
+      "item1Desc": "Python, Excel, Power BI, Qlik, Kaggle",
+      "item2Title": "AI tools",
+      "item2Desc": "ChatGPT, Gemini, Cursor",
+      "item3Title": "Collaboration",
+      "item3Desc": "Slack, Trello, Zoom",
+      "item4Title": "Development",
+      "item4Desc": "GitHub"
+    }
+  },
   "LaboratoriesPage": {
     "Laboratories": "Laboratories",
     "inNarxoz": "at Narxoz",

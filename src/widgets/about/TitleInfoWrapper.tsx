@@ -1,15 +1,17 @@
 import TitleInfo from "@/shared/ui/TitleInfo";
+import { getTranslations } from "next-intl/server";
 
-const aboutTitleInfo = {
-  title:
-    "18 лет опыта, исследований и практики, ставших основой нашей концепции",
-  descriptions: [
-    "За 18 лет Hi-Tech Institute прошёл путь от научного семинара до международного центра с программами, лабораториями и стартапами. Сегодня мы строим обучение на проектной работе и тесной связи с индустрией.",
-    "Наша модель опирается на три идеи: практика и реальные проекты, внедрение инноваций и технологий на базе искусственного интеллекта и data science, а также формирование интеллектуального сообщества студентов, экспертов и исследователей.",
-  ],
-};
+export default async function TitleInfoWrapper() {
+  const t = await getTranslations("AboutPage");
 
-function TitleInfoWrapper() {
+  const aboutTitleInfo = {
+    title: t("AboutInfo.sectionTitle"),
+    descriptions: [
+      t("AboutInfo.sectionDesc.desc1"),
+      t("AboutInfo.sectionDesc.desc2"),
+    ],
+  };
+
   return (
     <TitleInfo
       title={aboutTitleInfo.title}
@@ -17,5 +19,3 @@ function TitleInfoWrapper() {
     />
   );
 }
-
-export default TitleInfoWrapper;

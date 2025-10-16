@@ -1,31 +1,30 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
+import MethodsWrapper from "./MethodsWrapper";
+import { getTranslations } from "next-intl/server";
 
-function Methods() {
+export default async function Methods() {
+  const t = await getTranslations("AboutPage");
+
   return (
     <section className="methods">
       <Container>
         <div className="methods-outer-wrapper flex flex-col gap-6 md:gap-8 pt-24">
           <Headline as="h5" size="sm" className="text-gray-400 pb-2">
-            ПРАКТИКИ И МЕТОДЫ
+            {t("PracticeAndMethods.sectionTitle")}
           </Headline>
 
           <Headline className="lg:w-1/2">
-            Обучение в Hi-Tech Institute строится на современных практиках
-            которые делают процесс динамичным и прикладным
+            {t("PracticeAndMethods.sectionDesc")}
           </Headline>
 
-          {/* <MethodsWrapper /> */}
+          <MethodsWrapper />
 
           <div className="learning-desc text-gray-400 lg:w-1/2 pt-2">
-            Эти практики помогают студентам не просто усваивать знания, а
-            накапливать опыт и готовиться к работе в индустрии ещё во время
-            учёбы.
+            {t("PracticeAndMethods.sectionBottomDesc")}
           </div>
         </div>
       </Container>
     </section>
   );
 }
-
-export default Methods;
