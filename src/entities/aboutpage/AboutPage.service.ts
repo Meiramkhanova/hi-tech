@@ -1,12 +1,12 @@
 import { getLocale } from "next-intl/server";
-import { HomePageData } from "./getHomepage.t";
+import { AboutPageData } from "./getAboutpage.t";
 
-export const getHomePageData = async (): Promise<HomePageData | null> => {
+export const getAboutPageData = async (): Promise<AboutPageData | null> => {
   const locale = await getLocale();
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/homepage?populate[swiper][populate]=*&populate[about][populate]=*&populate[aboutinfos][populate]=*&populate[mainNews][populate]=*&populate[tabs][populate][tab_contents][populate]=icon&locale=${locale}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/aboutpage?populate=*&locale=${locale}`,
       {
         cache: "no-store",
       }

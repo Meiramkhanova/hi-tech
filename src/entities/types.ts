@@ -15,6 +15,14 @@ export interface StrapiBaseWithoutLocale {
   publishedAt: string;
 }
 
+export interface LocaleItem {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string;
+}
 export interface StrapiBaseLocale {
   id: number;
   documentId: string;
@@ -22,7 +30,7 @@ export interface StrapiBaseLocale {
   updatedAt: string;
   publishedAt: string;
   locale: string;
-  localizations: [];
+  localizations: LocaleItem[];
 }
 
 export interface StrapiImageFormat {

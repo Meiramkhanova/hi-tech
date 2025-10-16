@@ -1,8 +1,17 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import AboutSwiper from "./AboutSwiper";
+import { getAboutPageData } from "@/entities/aboutpage/AboutPage.service";
 
-function AboutMain() {
+export default async function AboutMain() {
+  const data = await getAboutPageData();
+
+  const aboutItems = data?.about_history;
+
+  if (!aboutItems?.length) {
+    return null;
+  }
+
   return (
     <section className="about-main">
       <Container>
@@ -11,11 +20,9 @@ function AboutMain() {
             история и концепция
           </Headline>
 
-          <AboutSwiper />
+          <AboutSwiper aboutItems={aboutItems} />
         </div>
       </Container>
     </section>
   );
 }
-
-export default AboutMain;

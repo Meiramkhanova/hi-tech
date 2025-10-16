@@ -42,6 +42,11 @@
       "moreNews":" Больше новостей"
     }
   },
+  "AboutPage":{
+    "HistoryConception":{
+      "history":"история и концепция"
+    }
+  },
   "LaboratoriesPage":{
     "Laboratories":"Лаборатории",
     "inNarxoz":"в Нархозе",

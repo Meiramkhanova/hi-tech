@@ -4,27 +4,25 @@ import Methods from "@/widgets/about/methods/Methods";
 import TechInstr from "@/widgets/about/tech-instr/TechInstr";
 import TitleInfoWrapper from "@/widgets/about/TitleInfoWrapper";
 import UsingAI from "@/widgets/about/using-ai/UsingAI";
-import NotFound from "../not-found";
 
 function AboutPage() {
-  return NotFound();
-  // return (
-  //   <>
-  //     <AboutMain />
+  return (
+    <>
+      <AboutMain />
 
-  //     <GoalMission />
+      <GoalMission />
 
-  //     <TitleInfoWrapper />
+      <TitleInfoWrapper />
 
-  //     {/* <LearnDirections /> */}
+      {/* <LearnDirections /> */}
 
-  //     <Methods />
+      <Methods />
 
-  //     <UsingAI />
+      <UsingAI />
 
-  //     <TechInstr />
-  //   </>
-  // );
+      <TechInstr />
+    </>
+  );
 }
 
 export default AboutPage;
