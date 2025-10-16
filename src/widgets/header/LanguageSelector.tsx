@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 
 const locales = ["kk", "ru", "en"];
@@ -24,6 +25,8 @@ function LanguageSelector({
   const router = useRouter();
 
   const pathname = usePathname();
+
+  const t = useTranslations("Header");
 
   const currentLocale = locales.includes(pathname.split("/")[1])
     ? pathname.split("/")[1]
@@ -51,9 +54,9 @@ function LanguageSelector({
           <SelectValue placeholder="Рус" />
         </SelectTrigger>
         <SelectContent align="end" className="font-light">
-          <SelectItem value="kk">Кз</SelectItem>
-          <SelectItem value="ru">Рус</SelectItem>
-          <SelectItem value="en">Англ</SelectItem>
+          <SelectItem value="kk">{t("kk")}</SelectItem>
+          <SelectItem value="ru">{t("ru")}</SelectItem>
+          <SelectItem value="en">{t("en")}</SelectItem>
         </SelectContent>
       </Select>
     </div>

@@ -166,7 +166,10 @@
     }
   },
   "Header": {
-    "search":"search"
+    "search":"search",
+    "kk": "Kaz",
+    "ru": "Rus",
+    "en": "Eng"
   },
   "Footer": {
     "navigation": "Navigation",
