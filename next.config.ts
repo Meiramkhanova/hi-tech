@@ -14,11 +14,11 @@ const nextConfig: NextConfig = {
         hostname: process.env.NEXT_PUBLIC_BACKEND_HOST || "194.31.159.170",
         port: process.env.NEXT_PUBLIC_BACKEND_PORT || "1337",
       },
-      // {
-      //   protocol: "https",
-      //   hostname: process.env.NEXT_PUBLIC_BACKEND_HOST || "194.31.159.170",
-      //   port: process.env.NEXT_PUBLIC_BACKEND_PORT || "1337",
-      // },
+      {
+        protocol: "https",
+        hostname: process.env.NEXT_PUBLIC_BACKEND_HOST || "194.31.159.170",
+        port: process.env.NEXT_PUBLIC_BACKEND_PORT || "1337",
+      },
     ],
   },
 };

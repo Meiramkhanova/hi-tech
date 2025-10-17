@@ -1,24 +1,12 @@
-"use client";
-
 import Button from "@/shared/ui/Button";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import Image from "next/image";
 import AboutInfos from "./AboutInfos";
-import { useHomePage } from "@/entities/homepage/HomePageClientProvider";
-import { getStrapiMedia } from "@/shared/utils/getStrapiMedia";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-function AboutSection() {
-  const data = useHomePage();
-
-  if (!data?.about?.length) return null;
-
-  const aboutInfo = data.about[0];
-
-  const aboutInfos = data.aboutinfos;
-
-  const t = useTranslations("HomePage");
+async function AboutSection() {
+  const t = await getTranslations("HomePage");
 
   return (
     <section className="about">
@@ -29,10 +17,10 @@ function AboutSection() {
           </Headline>
 
           <div className="about-info grid grid-cols-1 md:grid-cols-2 w-full gap-6 md:gap-8">
-            <Headline>{aboutInfo.title}</Headline>
+            <Headline>{t("About.sectionTitle")}</Headline>
 
             <div className="info-btn flex flex-col gap-6 md:gap-8">
-              <p className="text-gray-400">{aboutInfo.desc}</p>
+              <p className="text-gray-400">{t("About.sectionDesc")}</p>
 
               <Button href="/about" variant="outlined">
                 {t("More about HTI")}
@@ -41,19 +29,24 @@ function AboutSection() {
           </div>
 
           <div className="about-images grid grid-cols-1 md:grid-cols-2 w-full gap-6 md:gap-8">
-            {aboutInfo.images?.map((image) => (
-              <Image
-                key={image.id}
-                src={getStrapiMedia(image?.formats?.large?.url || image?.url)}
-                alt="about"
-                width={672}
-                height={392}
-                className="w-full h-[24.5rem] object-cover rounded-2xl"
-              />
-            ))}
+            <Image
+              src="/assets/about1.webp"
+              alt="about"
+              width={672}
+              height={392}
+              className="w-full h-[24.5rem] object-cover rounded-2xl"
+            />
+
+            <Image
+              src="/assets/about2.webp"
+              alt="about"
+              width={672}
+              height={392}
+              className="w-full h-[24.5rem] object-cover rounded-2xl"
+            />
           </div>
 
-          <AboutInfos aboutInfos={aboutInfos} />
+          <AboutInfos />
         </div>
       </Container>
     </section>

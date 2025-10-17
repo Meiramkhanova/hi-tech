@@ -40,7 +40,18 @@
     "News": {
       "News": "News",
       "moreNews": "More news"
-}
+    },
+    "About": {
+      "title1": "Practice and Projects",
+      "title2": "Global Perspective",
+      "title3": "Experts and Mentors",
+      "title4": "Innovation and Technology",
+      "sectionTitle": "We train specialists and build a technology ecosystem",
+      "sectionDesc": "Hi-Tech Institute is a modern center of education and innovation in Kazakhstan and Central Asia. We combine learning, practice, and research to help students develop key competencies and implement projects in technology and business."
+    },
+    "DirectionActivity": {
+      "sectionTitle": "Main areas of activity"
+    }
   },
   "AboutPage": {
     "HistoryConception": {

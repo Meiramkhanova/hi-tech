@@ -30,7 +30,7 @@ export default async function DirectionsWrapper() {
       {directions.map((direction, i) => (
         <AboutInfoItem
           key={direction.id}
-          aboutInfo={direction.title}
+          title={direction.title}
           iconText={direction.iconText}
           desc={direction.desc}
           className={i === directions.length - 1 ? "rtl" : ""}

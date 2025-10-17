@@ -42,7 +42,7 @@ export default async function MethodsWrapper() {
       {methods.map((method) => (
         <AboutInfoItem
           key={method.id}
-          aboutInfo={method.title}
+          title={method.title}
           iconText={method.iconText}
           desc={method.desc}
         />

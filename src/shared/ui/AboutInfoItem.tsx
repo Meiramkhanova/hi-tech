@@ -1,25 +1,22 @@
-import { AboutInfo } from "@/entities/homepage/getHomepage.t";
 import { cn } from "@/lib/utils";
-import { getStrapiMedia } from "../utils/getStrapiMedia";
-import Image from "next/image";
+import { ReactElement, SVGProps } from "react";
+import IconWrapper from "./IconWrapper";
 
 interface AboutInfoItemProps {
-  aboutInfo: AboutInfo | string;
+  title: string;
   className?: string;
   iconText?: string;
   desc?: string;
+  icon?: ReactElement<SVGProps<SVGSVGElement>>;
 }
 
 function AboutInfoItem({
-  aboutInfo,
+  title,
   className,
   iconText,
   desc,
+  icon,
 }: AboutInfoItemProps) {
-  const isTitleString = typeof aboutInfo === "string";
-
-  const title = isTitleString ? aboutInfo : aboutInfo.title;
-
   const [first, ...rest] = title.split(" ");
 
   return (
@@ -30,15 +27,7 @@ function AboutInfoItem({
         className
       )}>
       <div className="flex flex-col xl:items-center md:flex-row gap-6 ">
-        {!isTitleString && aboutInfo.svgImage && (
-          <Image
-            src={getStrapiMedia(aboutInfo.svgImage.url)}
-            alt={aboutInfo.title}
-            className="size-11"
-            width={80}
-            height={80}
-          />
-        )}
+        {icon && <IconWrapper icon={icon} />}
 
         {iconText && (
           <div className="icon-text text-theprimary size-fit xl:size-24 flex items-center justify-center text-2xl">
