@@ -190,5 +190,42 @@
     "addressLocation":"55 Zhandosov St, Almaty",
     "telephone": "Telephone",
     "admission": "Admission committee"
+  },
+   "centerSlug": {
+    "aboutCenter": "About the center",
+    "mainActivityDirections": "Main activity directions",
+    "exampleProjects": "Example projects",
+    "potentialPartners": "Potential partners"
+  },
+  "schoolSlug": {
+    "moreAboutSchool": "More about the school",
+    "mainDirections": "Main directions"
+  },
+  "slugPage": {
+    "enroll": "Enroll",
+    "programmAndProjects": "Programs and projects",
+    "aboutDepartment": "About the department",
+    "mainActivityDirections": "Main activity directions",
+    "centersOfDepartments": "Department centers",
+    "schoolsOfDepartments": "Department schools"
+  },
+   "Analytics": {
+    "sectionTitle": "Hi-Tech Institute Analytics",
+    "desc1": "The HTI Analytical Department conducts applied research in the interests of the state, business, and society.",
+    "desc2": "Our goal is to provide data-driven, in-depth analytics to support strategic decision-making, policy development, and program evaluation.",
+    "mainActivities": {
+      "title1": "Sectoral and Macroeconomic Analysis",
+      "desc1": "Key industries, regions, and trends.",
+      "title2": "Investment Analytics and Strategic Planning",
+      "desc2": "Development scenarios and project evaluation.",
+      "title3": "Research in Education and Human Capital",
+      "desc3": "System monitoring and workforce forecasting.",
+      "title4": "Development of State and Industrial Policy",
+      "desc4": "Support for government bodies and reforms.",
+      "title5": "Science and Technology Analytics",
+      "desc5": "Technological activity, digitalization, AI.",
+      "title6": "Consulting for Business and Government",
+      "desc6": "Reviews, expertise, tenders."
+    }
   }
 }

@@ -37,7 +37,7 @@ function TechItem({
           </div>
         )}
 
-        <span className="font-medium ">{title}</span>
+        <span>{title}</span>
       </div>
 
       <div className="mt-auto 2xl:mt-0 min-w-0 max-w-fit">

@@ -1,26 +1,21 @@
 "use client";
 
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
-import Container from "./Container";
-import { Headline } from "./Headline";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import InfoItem from "./InfoItem";
-import { CentersOfDepartment } from "@/entities/tabContent/TabContent.t";
+import Container from "@/shared/ui/Container";
+import { Headline } from "@/shared/ui/Headline";
 import { useTranslations } from "next-intl";
+import { CentersOfDepartmentItem } from "@/entities/tabContent/TabContent.t";
+import InfoItem from "@/shared/ui/InfoItem";
 
-function CentersOfTheDepartment({
+function CenterOfAnalytics({
   center_departments,
-  departmentSlug,
-}: CentersOfDepartment & {
-  departmentSlug: string;
+}: {
+  center_departments: CentersOfDepartmentItem[];
 }) {
-  if (!center_departments || center_departments.length === 0) {
-    return null;
-  }
-
   const t = useTranslations("slugPage");
 
   return (
@@ -72,7 +67,7 @@ function CentersOfTheDepartment({
                         title={item.title}
                         desc={item.desc}
                         slug={item.slug}
-                        departmentSlug={departmentSlug}
+                        departmentSlug="analytics"
                         orderName={item.order}
                         hasButton
                       />
@@ -88,4 +83,4 @@ function CentersOfTheDepartment({
   );
 }
 
-export default CentersOfTheDepartment;
+export default CenterOfAnalytics;

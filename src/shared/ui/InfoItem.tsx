@@ -44,16 +44,12 @@ function InfoItem({
   descWithIdClassName,
 }: InfoItemProps) {
   const href =
-    departmentSlug && slug
-      ? departmentSlug === "laboratories"
-        ? `/laboratories/${slug}`
-        : `/${departmentSlug}/${slug}`
-      : slug ?? "#";
+    departmentSlug && slug ? `/${departmentSlug}/${slug}` : slug ?? "#";
 
   return (
     <div
       className={cn(
-        "info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit bg-white",
+        "info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit 2xl:min-w-[24.5rem] bg-white",
         className,
         isTitleGreen && "pb-12 w-full"
       )}>

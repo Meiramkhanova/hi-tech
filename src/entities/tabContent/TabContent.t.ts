@@ -29,21 +29,23 @@ export interface MainAreasActivity {
   }>;
 }
 
+export interface CentersOfDepartmentItem {
+  id: number;
+  documentId: string;
+  title: string;
+  slug: string;
+  desc: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string;
+  order: number | null;
+}
+
 export interface CentersOfDepartment {
   __component: "sections.centers-of-department";
   id: number;
-  center_departments: Array<{
-    id: number;
-    documentId: string;
-    title: string;
-    slug: string;
-    desc: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    locale: string;
-    order: number | null;
-  }>;
+  center_departments: CentersOfDepartmentItem[];
 }
 
 export type DepartmentSection =
