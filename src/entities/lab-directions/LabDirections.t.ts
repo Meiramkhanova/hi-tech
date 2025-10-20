@@ -1,5 +1,5 @@
 import { LabItem } from "../lab-items/LabItems.t";
-import { Meta, StrapiBaseLocale, StrapiIcon } from "../types";
+import { Meta, StrapiBaseLocale } from "../types";
 
 export interface LabDirection extends StrapiBaseLocale {
   title: string;

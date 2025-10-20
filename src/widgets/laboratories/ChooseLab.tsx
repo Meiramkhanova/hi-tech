@@ -32,7 +32,7 @@ function ChooseLab({ labDirections }: { labDirections: LabDirection[] }) {
       </div>
 
       <div className="lab-items grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        {activeTabData?.lab_items.map((labItem, index) => (
+        {activeTabData?.lab_items.map((labItem) => (
           <InfoItem
             key={labItem.id}
             title={labItem.title}

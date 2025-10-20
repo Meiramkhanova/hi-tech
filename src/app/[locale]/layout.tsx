@@ -7,9 +7,7 @@ import { cn } from "@/lib/utils";
 import HeaderProvider from "@/entities/header/HeaderProvider";
 import HomePageProvider from "@/entities/homepage/HomePageProvider";
 import { ReactNode } from "react";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { routing } from "@/i18n/routing";
-import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
@@ -23,17 +21,15 @@ export const metadata: Metadata = {
 
 type Props = {
   children: ReactNode;
-  params: Promise<{ locale: "en" | "kk" | "ru" }>;
 };
 
-export default async function RootLayout({ children, params }: Props) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+export default async function RootLayout({ children }: Props) {
+  // if (!hasLocale(routing.locales, locale)) {
+  //   notFound();
+  // }
 
   return (
-    <html lang={locale}>
+    <html>
       <body className={cn("min-h-screen", montserrat.className)}>
         <NextIntlClientProvider>
           <HeaderProvider>

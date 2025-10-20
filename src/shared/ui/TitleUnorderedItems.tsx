@@ -1,5 +1,4 @@
 import { TheTitleUnorderedItems } from "@/entities/department-center/DepartmentCenter.t";
-import { MainAreasActivity } from "@/entities/tabContent/TabContent.t";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import TechItem from "@/shared/ui/TechItem";

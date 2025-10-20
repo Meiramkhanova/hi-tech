@@ -9,9 +9,9 @@ import { useTranslations } from "next-intl";
 function DirectionActivity() {
   const data = useHomePage();
 
-  if (!data?.tabs?.length) return null;
-
   const t = useTranslations("HomePage");
+
+  if (!data?.tabs?.length) return null;
 
   return (
     <section className="direction-activity">

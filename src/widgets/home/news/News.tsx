@@ -10,9 +10,9 @@ import { useTranslations } from "next-intl";
 function News() {
   const data = useHomePage();
 
-  if (!data?.mainNews?.length) return null;
-
   const t = useTranslations("HomePage");
+
+  if (!data?.mainNews?.length) return null;
 
   return (
     <section className="news">

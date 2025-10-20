@@ -6,7 +6,7 @@ export const getHomePageData = async (): Promise<HomePageData | null> => {
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/homepage?populate[swiper][populate]=*&populate[about][populate]=*&populate[aboutinfos][populate]=*&populate[mainNews][populate]=*&populate[tabs][populate][tab_contents][populate]=icon&locale=${locale}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/homepage?populate[swiper][populate]=*&populate[mainNews][populate]=*&populate[tabs][populate][tab_contents][populate]=icon&locale=${locale}`,
       {
         cache: "no-store",
       }

@@ -1,6 +1,5 @@
 import { cn } from "@/shared/utils/cn";
 import NavLinks from "../../shared/ui/NavLinks";
-import Searching from "./Searching";
 
 function HeaderLinks() {
   return (
@@ -11,7 +10,7 @@ function HeaderLinks() {
       )}>
       <NavLinks />
 
-      <Searching />
+      {/* <Searching /> */}
     </div>
   );
 }
