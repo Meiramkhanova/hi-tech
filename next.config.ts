@@ -21,6 +21,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  logging: {
+    // level: "verbose",
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

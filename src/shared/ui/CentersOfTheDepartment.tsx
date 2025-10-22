@@ -15,13 +15,13 @@ function CentersOfTheDepartment({
   center_departments,
   departmentSlug,
 }: CentersOfDepartment & {
-  departmentSlug: string;
+  departmentSlug?: string;
 }) {
+  const t = useTranslations("slugPage");
+
   if (!center_departments || center_departments.length === 0) {
     return null;
   }
-
-  const t = useTranslations("slugPage");
 
   return (
     <section className="centers-of-deparment">

@@ -3,6 +3,7 @@ import AboutDepartment from "@/shared/ui/AboutDepartment";
 import MainActivities from "@/shared/ui/MainActivities";
 import CentersOfDepartment from "@/shared/ui/CentersOfTheDepartment";
 import { DepartmentSection } from "@/entities/tabContent/TabContent.t";
+import SchoolOfDepartmentSection from "@/widgets/department-center/SchoolOfDepartmentSection";
 
 type SectionsMap = {
   [K in DepartmentSection["__component"]]: React.ComponentType<
@@ -28,5 +29,8 @@ export const departmentSectionsMapper: SectionsMap = {
       DepartmentSection,
       { __component: "sections.centers-of-department" }
     >
+  >,
+  "sections.school-of-tab": SchoolOfDepartmentSection as React.ComponentType<
+    Extract<DepartmentSection, { __component: "sections.school-of-tab" }>
   >,
 };

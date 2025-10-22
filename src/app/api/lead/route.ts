@@ -1,11 +1,42 @@
 import { LeadFormDataWithLab } from "@/entities/lab-registration/lead";
 import { NextResponse } from "next/server";
+import { randomUUID } from "node:crypto";
+
+function log(
+  level: "info" | "error",
+  message: string,
+  meta: Record<string, unknown> = {}
+) {
+  const entry = {
+    level,
+    message,
+    timestamp: new Date().toISOString(),
+    ...meta,
+  };
+  // eslint-disable-next-line no-console
+  console[level === "error" ? "error" : "log"](JSON.stringify(entry));
+}
 
 export async function POST(req: Request) {
+  const requestId = randomUUID();
+  const startedAt = Date.now();
   try {
     const body: LeadFormDataWithLab = await req.json();
 
-    const strapiRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads`, {
+    log("info", "lead:incoming", {
+      requestId,
+      method: "POST",
+      endpoint: "/api/lead",
+      payload: {
+        name: body?.name,
+        email: body?.email,
+        phone: body?.phone,
+        labName: body?.labName,
+      },
+    });
+
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/leads`;
+    const strapiRes = await fetch(url, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
@@ -23,11 +54,7 @@ export async function POST(req: Request) {
 
     const data = await strapiRes.json();
 
-    console.log("Response from Strapi:", data);
-
     if (!strapiRes.ok) {
-      console.error("Strapi error:", data);
-
       let message =
         "Не удалось отправить данные. Пожалуйста, попробуйте позже.";
 
@@ -40,11 +67,39 @@ export async function POST(req: Request) {
         }
       }
 
+      log("error", "lead:strapi_error", {
+        requestId,
+        method: "POST",
+        endpoint: "/api/lead",
+        upstreamUrl: url,
+        upstreamStatus: strapiRes.status,
+        upstreamBody: data,
+        durationMs: Date.now() - startedAt,
+      });
+
       return NextResponse.json({ success: false, message }, { status: 400 });
     }
+
+    log("info", "lead:success", {
+      requestId,
+      method: "POST",
+      endpoint: "/api/lead",
+      upstreamStatus: strapiRes.status,
+      durationMs: Date.now() - startedAt,
+    });
+
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    console.error("Error in lead API:", error);
+    log("error", "lead:unhandled_error", {
+      requestId,
+      method: "POST",
+      endpoint: "/api/lead",
+      error:
+        error instanceof Error
+          ? { name: error.name, message: error.message, stack: error.stack }
+          : String(error),
+      durationMs: Date.now() - startedAt,
+    });
     return NextResponse.json(
       {
         success: false,

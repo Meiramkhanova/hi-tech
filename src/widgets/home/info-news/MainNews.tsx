@@ -39,7 +39,7 @@ function MainNews() {
           return (
             <SwiperSlide key={slide.id} className="overflow-hidden rounded-2xl">
               <div className="slide-image relative overflow-hidden h-full">
-                <Image
+                {/* <Image
                   src={getStrapiMedia(
                     slide.image?.formats?.large?.url || slide.image?.url
                   )}
@@ -47,7 +47,7 @@ function MainNews() {
                   className="size-full object-cover"
                   width={672}
                   height={672}
-                />
+                /> */}
 
                 <div
                   className={cn(

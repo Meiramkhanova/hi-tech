@@ -21,13 +21,13 @@ function NewsWrapper({ mainNews }: { mainNews: MainNewsComponent[] }) {
           </div>
 
           <div className="news-image size-full rounded-2xl">
-            <Image
+            {/* <Image
               src={getStrapiMedia(newsItem.newsImage?.url)}
               alt="news-image"
               width={328}
               height={392}
               className="size-full rounded-2xl object-cover"
-            />
+            /> */}
           </div>
         </div>
       ))}

@@ -207,7 +207,9 @@
     "aboutDepartment": "About the department",
     "mainActivityDirections": "Main activity directions",
     "centersOfDepartments": "Department centers",
-    "schoolsOfDepartments": "Department schools"
+    "schoolsOfDepartments": "Department schools",
+    "schoolMoreInfoText": "More information about the program and the school’s directions can be found on a separate page",
+    "schoolMoreInfoBtn": "More about the school"
   },
    "Analytics": {
     "sectionTitle": "Hi-Tech Institute Analytics",

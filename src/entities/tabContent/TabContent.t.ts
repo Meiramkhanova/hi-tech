@@ -1,4 +1,4 @@
-import { Meta, StrapiBase, StrapiIcon } from "../types";
+import { LocaleItem, Meta, StrapiBase, StrapiIcon } from "../types";
 
 export interface TabMainSection {
   __component: "sections.tab-content-main-section";
@@ -29,16 +29,10 @@ export interface MainAreasActivity {
   }>;
 }
 
-export interface CentersOfDepartmentItem {
-  id: number;
-  documentId: string;
+export interface CentersOfDepartmentItem extends LocaleItem {
   title: string;
   slug: string;
   desc: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  locale: string;
   order: number | null;
 }
 
@@ -48,11 +42,24 @@ export interface CentersOfDepartment {
   center_departments: CentersOfDepartmentItem[];
 }
 
+export interface SchoolOfDepartmentItem extends LocaleItem {
+  slug: string;
+  schoolName: string;
+  desc: string;
+}
+
+export interface SchoolsOfDepartment {
+  __component: "sections.school-of-tab";
+  id: number;
+  schools: SchoolOfDepartmentItem[];
+}
+
 export type DepartmentSection =
   | TabMainSection
   | TabAboutDepartment
   | MainAreasActivity
-  | CentersOfDepartment;
+  | CentersOfDepartment
+  | SchoolsOfDepartment;
 
 interface DataItem extends StrapiBase {
   sections: DepartmentSection[];

@@ -58,7 +58,7 @@ function InfoItem({
           "info-item-top",
           isTitleGreen && "flex items-center gap-4"
         )}>
-        <div className="item-icon rounded-2xl text-theprimary size-20 flex items-center justify-center shrink-0 bg-theprimary/10">
+        {/* <div className="item-icon rounded-2xl text-theprimary size-20 flex items-center justify-center shrink-0 bg-theprimary/10">
           {icon && (
             <Image
               src={getStrapiMedia(icon?.url)}
@@ -72,7 +72,7 @@ function InfoItem({
           {localIcon && <IconWrapper icon={localIcon} />}
 
           {orderName && <div className="order text-2xl">{orderName}</div>}
-        </div>
+        </div> */}
 
         {isTitleGreen && (
           <Headline className="normal-case font-medium text-theprimary">

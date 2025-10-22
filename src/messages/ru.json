@@ -207,7 +207,9 @@
     "aboutDepartment":"О департаменте",
     "mainActivityDirections":"Основные направления деятельности",
     "centersOfDepartments":"Центры департамента",
-    "schoolsOfDepartments":"Школы департамента"
+    "schoolsOfDepartments":"Школы департамента",
+    "schoolMoreInfoText":"Подробнее о программе и направлениях школы можно узнать на отдельной странице",
+    "schoolMoreInfoBtn":"Подробнее о школе"
   },
   "Analytics":{
     "sectionTitle":"Аналитика Hi-Tech Institute",

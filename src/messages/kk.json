@@ -208,7 +208,9 @@
     "aboutDepartment": "Кафедра туралы",
     "mainActivityDirections": "Негізгі қызмет бағыттары",
     "centersOfDepartments": "Кафедра орталықтары",
-    "schoolsOfDepartments": "Кафедра мектептері"
+    "schoolsOfDepartments": "Кафедра мектептері",
+    "schoolMoreInfoText": "Мектептің бағдарламасы мен бағыттары туралы толық ақпаратты бөлек беттен білуге болады",
+    "schoolMoreInfoBtn": "Мектеп туралы толығырақ"
   },
   "Analytics": {
   "sectionTitle": "Hi-Tech Institute аналитикасы",

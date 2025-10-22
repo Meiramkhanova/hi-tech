@@ -69,7 +69,7 @@ export interface StrapiIcon extends StrapiBaseWithoutLocale {
   provider_metadata: unknown | null;
 }
 
-export interface StrapiImage extends StrapiBaseLocale {
+export interface StrapiImage extends StrapiBaseWithoutLocale {
   name: string;
   alternativeText: string | null;
   caption: string | null;

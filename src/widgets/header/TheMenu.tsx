@@ -16,7 +16,7 @@ function TheMenu() {
     <>
       <div
         onClick={() => setOpen(true)}
-        className="w-[56px] h-14 flex items-center justify-center bg-thesecondary rounded-2xl shrink-0 cursor-pointer">
+        className="w-[56px] h-14 flex items-center justify-center bg-thesecondary rounded-2xl shrink-0 cursor-pointer 2xl:hidden">
         <Menu className="w-6 h-6 stroke-white" />
       </div>
 
