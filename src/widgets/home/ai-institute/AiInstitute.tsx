@@ -63,7 +63,7 @@ async function AiInstitute() {
               <div className="institute-infos">
                 <div className="practice-prjects border-y border-white/50 py-8 flex items-center gap-8">
                   <div className="icon">
-                    <Compass className="w-12 h-12 fill-transparent" />
+                    <Compass className="w-12 h-12 stroke-white fill-transparent" />
                   </div>
 
                   <div className="title-desc">

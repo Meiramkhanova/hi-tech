@@ -9,5 +9,9 @@ const MEDIA_URL = isDev
 
 export const getStrapiMedia = (url?: string) => {
   if (!url) return "/assets/no-image.png";
-  return url.startsWith("/") ? `${MEDIA_URL}${url}` : url;
+
+  const cleanBase = MEDIA_URL.replace(/\/+$/, "");
+  const cleanUrl = url.replace(/^\/+/, "");
+
+  return `${cleanBase}/${cleanUrl}`;
 };

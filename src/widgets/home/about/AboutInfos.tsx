@@ -10,7 +10,7 @@ async function AboutInfos() {
 
   const aboutInfos = [
     {
-      icon: <Compass />,
+      icon: <Compass className=" stroke-[#32BEAA]" />,
       title: t("About.title1"),
     },
     {
@@ -18,7 +18,7 @@ async function AboutInfos() {
       title: t("About.title2"),
     },
     {
-      icon: <Profile />,
+      icon: <Profile className=" stroke-[#32BEAA]" />,
       title: t("About.title3"),
     },
     {

@@ -2,11 +2,11 @@
 
 import InfoItem from "@/shared/ui/InfoItem";
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
+import { ReactElement, SVGProps } from "react";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { ReactElement, SVGProps } from "react";
 
 interface AICarouselProps {
   aiItems: Array<{

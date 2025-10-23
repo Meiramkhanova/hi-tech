@@ -23,13 +23,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function RootLayout({ children }: Props) {
-  // if (!hasLocale(routing.locales, locale)) {
-  //   notFound();
-  // }
-
   return (
     <html>
       <body className={cn("min-h-screen", montserrat.className)}>

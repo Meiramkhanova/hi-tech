@@ -6,7 +6,7 @@ import TechInstr from "@/widgets/about/tech-instr/TechInstr";
 import TitleInfoWrapper from "@/widgets/about/TitleInfoWrapper";
 import UsingAI from "@/widgets/about/using-ai/UsingAI";
 
-function AboutPage() {
+async function AboutPage() {
   return (
     <>
       <AboutMain />

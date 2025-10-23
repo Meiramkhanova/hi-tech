@@ -26,7 +26,7 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
                   ? "flex flex-col md:flex-row md:items-center gap-6 md:gap-8"
                   : "pt-4"
               )}>
-              {/* {icon && icon[0]?.url && (
+              {icon && icon[0]?.url && (
                 <div className="icon size-16 md:size-20 flex items-center justify-center shrink-0 bg-theprimary/10 rounded-2xl">
                   <Image
                     src={getStrapiMedia(icon[0].url)}
@@ -35,7 +35,7 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
                     height={80}
                   />
                 </div>
-              )} */}
+              )}
 
               <Headline className="uppercase max-w-[31rem]">{name}</Headline>
             </div>

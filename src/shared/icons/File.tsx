@@ -7,7 +7,7 @@ function File({ className, ...props }: SVGAttributes<SVGSVGElement>) {
       width="42"
       height="36"
       viewBox="0 0 42 36"
-      fill="currentColor"
+      fill="white"
       className={className}
       {...props}>
       <path
