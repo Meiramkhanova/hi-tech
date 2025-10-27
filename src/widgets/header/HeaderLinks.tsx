@@ -1,5 +1,6 @@
 import { cn } from "@/shared/utils/cn";
 import NavLinks from "../../shared/ui/NavLinks";
+import EditorPen from "./EditorPen";
 
 function HeaderLinks() {
   return (
@@ -9,6 +10,8 @@ function HeaderLinks() {
         "h-14 px-12 rounded-2xl border flex-1"
       )}>
       <NavLinks />
+
+      <EditorPen />
 
       {/* <Searching /> */}
     </div>
