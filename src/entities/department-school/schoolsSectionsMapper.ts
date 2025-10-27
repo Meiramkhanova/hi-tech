@@ -7,11 +7,11 @@ type SectionsMap = {
   >;
 };
 
-// export const departmentSchoolSectionsMapper: SectionsMap = {
-//   "sections.school-main-section": SchoolMainSection as React.ComponentType<
-//     Extract<
-//       DepartmentSchoolSection,
-//       { __component: "sections.school-main-section" }
-//     >
-//   >,
-// };
+export const departmentSchoolSectionsMapper: SectionsMap = {
+  "sections.school-main-section": SchoolMainSection as React.ComponentType<
+    Extract<
+      DepartmentSchoolSection,
+      { __component: "sections.school-main-section" }
+    >
+  >,
+};

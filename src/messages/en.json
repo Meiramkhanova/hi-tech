@@ -164,17 +164,17 @@
     "faqItem4Desc": "A project portfolio, real skills, and a certificate."
   },
   "LabRegistrsationForm": {
-    "ErrorMsg": "Өтінімді жіберу мүмкін болмады. Кейінірек қайталап көріңіз.",
-    "NetworkErrMsg": "Байланыс қатесі. Интернетті тексеріп, қайтадан көріңіз.",
-    "sending": "Жіберілуде...",
-    "send": "Жіберу",
+    "ErrorMsg": "Failed to submit the request. Please try again later.",
+    "NetworkErrMsg": "Network error. Check your internet connection and try again.",
+    "sending": "Sending...",
+    "send": "Send",
     "fullName": "Full name",
     "telephone": "Phone",
     "LeadSuccess": {
-      "thanksForRequest": "Өтініміңіз үшін рақмет!",
-      "callLater": "Біз жақын арада сізбен хабарласамыз.",
-      "doNotMiss": "Ештеңені жіберіп алмау үшін біздің әлеуметтік желілерге жазылыңыз."
-    }
+  "thanksForRequest": "Thank you for your request!",
+  "callLater": "We will contact you soon.",
+  "doNotMiss": "Follow us on social media so you don’t miss anything."
+}
   },
   "Header": {
     "search":"search",

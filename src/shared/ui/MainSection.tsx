@@ -31,8 +31,9 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
                   <Image
                     src={getStrapiMedia(icon[0].url)}
                     alt="icon"
-                    width={80}
-                    height={80}
+                    width={48}
+                    height={48}
+                    className="size-12"
                   />
                 </div>
               )}
@@ -42,13 +43,13 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
 
             <Headline className="uppercase">{title}</Headline>
 
-            <div className="btns flex flex-col md:flex-row md:items-center gap-2">
+            {/* <div className="btns flex flex-col md:flex-row md:items-center gap-2">
               <Button className="w-full md:w-fit">Поступить</Button>
 
               <Button variant="outlined" className="w-full md:w-fit">
                 Программы и проекты
               </Button>
-            </div>
+            </div> */}
           </div>
 
           <div className="right-wrapper w-full">

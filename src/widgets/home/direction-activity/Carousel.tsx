@@ -68,12 +68,13 @@ function Carousel({ tabsData }: { tabsData: StrapiTab[] }) {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}>
-          {activeTabData?.tab_contents?.map((item) => (
+          {activeTabData?.tab_contents?.map((item, index) => (
             <SwiperSlide key={item.id} className="2xl:!w-[24.5rem] !h-auto">
               <InfoItem
                 title={item.title}
                 desc={item.desc}
-                icon={item.icon}
+                // icon={item.icon}
+                orderName={index + 1}
                 slug={item.slug}
                 hasButton
               />

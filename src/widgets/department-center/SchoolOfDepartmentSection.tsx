@@ -9,6 +9,7 @@ function SchoolOfDepartmentSection({
 
   if (schools.length === 1) {
     const school = schools[0];
+
     return (
       <OneSchoolItem
         slug={school.slug}

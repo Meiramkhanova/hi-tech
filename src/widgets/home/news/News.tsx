@@ -3,7 +3,6 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import NewsWrapper from "./NewsWrapper";
-import Button from "@/shared/ui/Button";
 import { useHomePage } from "@/entities/homepage/HomePageClientProvider";
 import { useTranslations } from "next-intl";
 
@@ -24,11 +23,11 @@ function News() {
 
           <NewsWrapper mainNews={data?.mainNews} />
 
-          <div className="news-btn-wrapper grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {/* <div className="news-btn-wrapper grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <Button variant="outlined" className="col-start-2">
               {t("News.moreNews")}
             </Button>
-          </div>
+          </div> */}
         </div>
       </Container>
     </section>

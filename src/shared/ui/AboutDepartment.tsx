@@ -1,17 +1,20 @@
 import { TabAboutDepartment } from "@/entities/tabContent/TabContent.t";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
+import { getTranslations } from "next-intl/server";
 
-function AboutDepartment({
+async function AboutDepartment({
   title,
   desc,
 }: TabAboutDepartment & { departmentSlug: string }) {
+  const t = await getTranslations("slugPage");
+
   return (
     <section className="about-department">
       <Container>
         <div className="about-wrapper flex flex-col gap-6 md:gap-8 pt-24">
           <Headline size="sm" as="h5" className="text-gray-400 pb-2 ">
-            о департаменте
+            {t("aboutDepartment")}
           </Headline>
 
           <div className="title-desc grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">

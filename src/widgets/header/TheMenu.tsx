@@ -56,9 +56,9 @@ function TheMenu() {
             <X onClick={() => setOpen(false)} className="size-9" />
           </div>
 
-          <div className="menu-info flex flex-col gap-8">
+          {/* <div className="menu-info flex flex-col gap-8">
             <Searching className="w-full" inputClassName="py-3 rounded-lg" />
-          </div>
+          </div> */}
 
           <NavLinks
             className="gap-0 flex flex-col items-start"

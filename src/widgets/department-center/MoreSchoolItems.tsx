@@ -62,7 +62,7 @@ function MoreSchoolItems({ schools }: Pick<SchoolsOfDepartment, "schools">) {
                       title={item.schoolName}
                       desc={item.desc}
                       slug={item.slug}
-                      // departmentSlug={departmentSlug}
+                      departmentSlug={`${item.slug}/schools`}
                       orderName={index + 1}
                       hasButton
                     />

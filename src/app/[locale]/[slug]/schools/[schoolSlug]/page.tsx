@@ -13,6 +13,8 @@ export default async function SchoolSinglePage({
     schoolSlug
   );
 
+  console.log("yoyy", res?.data[0].sections);
+
   if (!res || !res.data?.length || !res.data[0]?.sections?.length) {
     return NotFound();
   }
