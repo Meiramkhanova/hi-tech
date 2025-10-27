@@ -199,7 +199,14 @@
   },
   "schoolSlug":{
     "moreAboutSchool":"Подробнее о школе",
-    "mainDirections":"Основные направления"
+    "mainDirections":"Основные направления",
+    "quantitative risk management":"Количественный риск-менеджмент",
+    "credit analysis":"кредитный анализ",
+    "project":"Проект",
+    "finance":"Финансы",
+    "risk management":"Риск-менеджмент",
+    "quantitative modeling":"Количественное моделирование",
+    "Underwriting":"Андеррайтинг"
   },
   "slugPage":{
     "enroll":"Поступить",

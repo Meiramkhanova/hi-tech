@@ -25,7 +25,7 @@ export default async function DepartmentCenterPage({
     <div className="page-wrapper pt-6 md:pt-8">
       <CenterMainSection title={centerData?.title} />
 
-      {centerData.sections?.map((section, index) => {
+      {centerData?.sections?.map((section, index) => {
         if (!section.__component) return null;
 
         const Component = departmentCenterSectionsMapper[section.__component];

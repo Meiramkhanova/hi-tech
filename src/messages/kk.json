@@ -200,7 +200,14 @@
   },
   "schoolSlug": {
     "moreAboutSchool": "Мектеп туралы толығырақ",
-    "mainDirections": "Негізгі бағыттар"
+    "mainDirections": "Негізгі бағыттар",
+    "quantitative risk management": "Сандық тәуекелдерді басқару",
+    "credit analysis": "Несиелік талдау",
+    "project": "Жоба",
+    "finance": "Қаржы",
+    "risk management": "Тәуекелдерді басқару",
+    "quantitative modeling": "Сандық модельдеу",
+    "underwriting": "Андеррайтинг"
   },
   "slugPage": {
     "enroll": "Оқуға түсу",

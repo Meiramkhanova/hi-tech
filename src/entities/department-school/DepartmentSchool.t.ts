@@ -37,13 +37,13 @@ export interface CreditAnalysis {
   projectDesc: string;
   financeDesc: string;
   riskManagementDesc: string;
-  quantitativeModeling: string;
+  underwritingDesc: string;
 }
 
 export type DepartmentSchoolSection =
   | SchoolMainSection
-  | MainActivities
   | MisstionProductInfo
+  | MainActivities
   | QuantitativeRiskManagement
   | CreditAnalysis;
 

@@ -199,7 +199,14 @@
   },
   "schoolSlug": {
     "moreAboutSchool": "More about the school",
-    "mainDirections": "Main directions"
+    "mainDirections": "Main directions",
+    "quantitative risk management": "Quantitative Risk Management",
+    "credit analysis": "Credit Analysis",
+    "project": "Project",
+    "finance": "Finance",
+    "risk management": "Risk Management",
+    "quantitative modeling": "Quantitative Modeling",
+    "underwriting": "Underwriting"
   },
   "slugPage": {
     "enroll": "Enroll",
