@@ -127,6 +127,38 @@ export default function EditorPen() {
       return;
     }
 
+    // === 1.1) Проверяем вложенные страницы singleType (например, /analytics&strategy/center-analysis) ===
+    const decodedFirstSeg = decodeURIComponent(parts[0] || "");
+
+    if (parts.length === 2 && decodedFirstSeg === "analytics&strategy") {
+      fetch(
+        `${backendUrl}/api/center-departments?filters[slug][$eq]=${encodeURIComponent(
+          parts[1]
+        )}&populate[sections][populate]=*&locale=${locale}`,
+        { headers: { "Content-Type": "application/json" } }
+      )
+        .then((r) => r.json())
+        .then((data) => {
+          const entry = data?.data?.[0];
+          const id = entry?.documentId || entry?.id;
+          if (id) {
+            setAdminUrl(
+              `${backendUrl}/admin/content-manager/collection-types/api::center-department.center-department/${id}?${qsLocale}`
+            );
+          } else {
+            setAdminUrl(
+              `${backendUrl}/admin/content-manager/collection-types/api::center-department.center-department?${qsLocale}`
+            );
+          }
+        })
+        .catch(() =>
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::center-department.center-department?${qsLocale}`
+          )
+        );
+      return;
+    }
+
     // === 3) Стандартная логика для коллекций с slug’ом (projects/slug и т.п.) ===
     const collections = strapiTypes.filter((t) => t.kind === "collectionType");
     const firstSegNorm = norm(firstSeg);
