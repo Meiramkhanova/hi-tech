@@ -8,104 +8,125 @@ import { useLocale } from "next-intl";
 
 export default function EditorPen() {
   const [isAdmin, setIsAdmin] = useState(false);
-  const pathname = usePathname(); // например: /ru, /ru/projects/5, /kk/about
-  const localeFromIntl = useLocale(); // "ru" | "kk" | "en"
+  const [adminUrl, setAdminUrl] = useState<string | null>(null);
+  const pathname = usePathname();
+  const localeFromIntl = useLocale();
   const backendUrl =
     process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:1337";
 
   useEffect(() => {
     const checkAdmin = () =>
       setIsAdmin(localStorage.getItem("isAdmin") === "true");
+
     checkAdmin();
     window.addEventListener("storage", checkAdmin);
     return () => window.removeEventListener("storage", checkAdmin);
   }, []);
 
-  if (!isAdmin) return null;
+  useEffect(() => {
+    if (!isAdmin) return;
 
-  // 1) Определяем локаль (из next-intl либо из URL)
-  const LOCALES = ["ru", "kk", "en"] as const;
-  let locale = localeFromIntl || "ru";
-  const rawParts = pathname.split("/").filter(Boolean);
+    const LOCALES = ["ru", "kk", "en"] as const;
+    let locale = localeFromIntl || "ru";
+    const rawParts = pathname.split("/").filter(Boolean);
 
-  if (rawParts[0] && LOCALES.includes(rawParts[0] as any)) {
-    locale = rawParts[0] as (typeof LOCALES)[number];
-  }
+    if (rawParts[0] && LOCALES.includes(rawParts[0] as any)) {
+      locale = rawParts[0] as (typeof LOCALES)[number];
+    }
 
-  // 2) Снимаем префикс локали из пути, чтобы понять ресурс
-  const parts =
-    rawParts[0] && LOCALES.includes(rawParts[0] as any)
-      ? rawParts.slice(1)
-      : rawParts;
+    const parts =
+      rawParts[0] && LOCALES.includes(rawParts[0] as any)
+        ? rawParts.slice(1)
+        : rawParts;
 
-  // 3) Маппинги фронтовых роутов -> Strapi API имена
-  const singleTypeMap: Record<string, string> = {
-    // /ru -> homepage
-    "": "api::homepage.homepage",
-    // /ru/about
-    about: "api::aboutpage.aboutpage",
-    // /ru/contact
-    contact: "api::contactpage.contactpage",
-  };
+    const singleTypeMap: Record<string, string> = {
+      "": "api::homepage.homepage",
+      about: "api::aboutpage.aboutpage",
+      contact: "api::contactpage.contactpage",
+      analytics: "api::analytic.analytics",
+    };
 
-  const collectionMap: Record<string, string> = {
-    // /ru/projects(/:id)
-    projects: "api::project.project",
-    // /ru/articles(/:id)
-    articles: "api::article.article",
-    // /ru/partners(/:id)
-    partners: "api::partner.partner",
-  };
+    const collectionMap: Record<string, string> = {
+      articles: "api::article.article",
+      projects: "api::project.project",
+      partners: "api::partner.partner",
+      tabs: "api::tab-content.tab-content",
+    };
 
-  // 4) Определяем тип: single/collection + id
-  let adminUrl = `${backendUrl}/admin`;
-  let apiName = "";
-  let isSingle = false;
-  let id: string | undefined;
+    let apiName = "";
+    let isSingle = false;
+    let id: string | undefined;
 
-  if (parts.length === 0) {
-    // пример: /ru -> homepage single type
-    apiName = singleTypeMap[""];
-    isSingle = true;
-  } else if (parts.length === 1) {
-    const seg = parts[0];
-    if (singleTypeMap[seg]) {
-      apiName = singleTypeMap[seg];
+    if (parts.length === 0) {
+      apiName = singleTypeMap[""];
       isSingle = true;
-    } else if (collectionMap[seg]) {
-      apiName = collectionMap[seg];
-      isSingle = false;
-    }
-  } else if (parts.length >= 2) {
-    const [seg, maybeId] = parts;
-    if (collectionMap[seg]) {
-      apiName = collectionMap[seg];
-      isSingle = false;
-      id = maybeId; // /ru/projects/5
-    }
-  }
+    } else if (parts.length === 1) {
+      const seg = parts[0];
+      if (singleTypeMap[seg]) {
+        apiName = singleTypeMap[seg];
+        isSingle = true;
+      } else if (collectionMap[seg]) {
+        apiName = collectionMap[seg];
+        isSingle = false;
+      }
+    } else if (parts.length >= 2) {
+      const [seg, maybeSlug] = parts;
+      if (collectionMap[seg]) {
+        apiName = collectionMap[seg];
+        isSingle = false;
 
-  // 5) Строим путь в админку
-  // ВАЖНО: у тебя пример с "single-types" (через дефис и во множественном числе), поэтому используем его.
-  // Для коллекций — аналогично "collection-types".
-  if (apiName) {
-    const typeSegment = isSingle ? "single-types" : "collection-types";
-    adminUrl += `/content-manager/${typeSegment}/${apiName}`;
-    if (!isSingle && id) adminUrl += `/${id}`;
-    // добавим локаль (как в твоём рабочем примере)
-    const qs = new URLSearchParams({
-      "plugins[i18n][locale]": locale,
-    }).toString();
-    adminUrl += `?${qs}`;
-  }
-  // Если apiName не определился — останется просто /admin
+        // 🔥 Попробуем получить ID элемента по slug
+        fetch(
+          `${backendUrl}/api/${seg}?filters[slug][$eq]=${maybeSlug}&fields[slug,id]&locale=${locale}`,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            const item = data?.data?.[0];
+            if (item?.id) {
+              const id = item.id;
+              const qs = new URLSearchParams({
+                "plugins[i18n][locale]": locale,
+              }).toString();
+              setAdminUrl(
+                `${backendUrl}/admin/content-manager/collection-types/${apiName}/${id}?${qs}`
+              );
+            } else {
+              // если не нашли slug — ведём просто в список
+              setAdminUrl(
+                `${backendUrl}/admin/content-manager/collection-types/${apiName}?plugins[i18n][locale]=${locale}`
+              );
+            }
+          })
+          .catch(() => {
+            setAdminUrl(
+              `${backendUrl}/admin/content-manager/collection-types/${apiName}?plugins[i18n][locale]=${locale}`
+            );
+          });
+      }
+    }
+
+    if (isSingle && apiName) {
+      const qs = new URLSearchParams({
+        "plugins[i18n][locale]": locale,
+      }).toString();
+      setAdminUrl(
+        `${backendUrl}/admin/content-manager/single-types/${apiName}?${qs}`
+      );
+    }
+  }, [isAdmin, pathname]);
+
+  if (!isAdmin || !adminUrl) return null;
 
   return (
     <Link
       href={adminUrl}
       target="_blank"
-      className="flex items-center gap-2 text-gray-600 hover:text-black">
+      className="flex items-center gap-2 text-gray-600 hover:text-black bg-white shadow-md rounded-full px-4 py-2">
       <Pencil size={20} />
+
       <span>Редактировать</span>
     </Link>
   );
