@@ -19,8 +19,6 @@ export default async function LabSinglePage({
 
   const labData = res.data[0];
 
-  console.log("labData", labData);
-
   return (
     <>
       <LabItemMainSection

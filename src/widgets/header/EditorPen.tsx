@@ -6,6 +6,7 @@ import { Pencil } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 import { cn } from "@/shared/utils/cn";
+import { useEnv } from "@/providers/EnvProvider";
 
 const LOCALES = ["ru", "kk", "en"] as const;
 
@@ -33,7 +34,7 @@ export default function EditorPen() {
 
   const pathname = usePathname();
   const localeFromIntl = useLocale();
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const { backendUrl } = useEnv();
 
   useEffect(() => {
     const updateAll = () => {

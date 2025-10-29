@@ -17,11 +17,9 @@ export default function AdminHotkeyHandler() {
         if (current) {
           sessionStorage.removeItem("isAdmin");
           setIsAdmin(false);
-          console.log("🚪 Admin mode deactivated");
         } else {
           sessionStorage.setItem("isAdmin", "true");
           setIsAdmin(true);
-          console.log("🛠 Admin mode activated!");
         }
 
         window.dispatchEvent(new CustomEvent("admin-toggle"));
@@ -36,7 +34,6 @@ export default function AdminHotkeyHandler() {
     sessionStorage.removeItem("isAdmin");
     setIsAdmin(false);
     window.dispatchEvent(new CustomEvent("admin-toggle"));
-    console.log("🚪 Admin mode deactivated (button)");
   };
 
   if (!isAdmin) return null;

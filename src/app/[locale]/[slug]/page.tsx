@@ -10,7 +10,6 @@ export default async function DepartmentFormatPage({
 }) {
   const { slug } = await params;
 
-  console.log("slug", slug);
   const res: DepartmentTabResponse | null = await getTabContentData(slug);
 
   if (

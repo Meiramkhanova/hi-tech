@@ -9,8 +9,6 @@ async function LabDirections() {
 
   if (!data?.data?.length) return null;
 
-  console.log("dataa", data);
-
   const t = await getTranslations("LaboratoriesPage");
 
   const labDirections = data?.data;

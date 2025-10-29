@@ -10,6 +10,7 @@ import { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import AdminHotkeyHandler from "@/components/AdminHotkeyHandler";
 import EditorPen from "@/widgets/header/EditorPen";
+import EnvProvider from "@/providers/EnvProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
@@ -26,19 +27,23 @@ type Props = {
 };
 
 export default async function RootLayout({ children }: Props) {
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? "";
+
   return (
     <html>
       <body className={cn("min-h-screen", montserrat.className)}>
         <NextIntlClientProvider>
           <HeaderProvider>
             <HomePageProvider>
-              <AdminHotkeyHandler />
+              <EnvProvider backendUrl={backendUrl}>
+                <AdminHotkeyHandler />
 
-              <EditorPen />
+                <EditorPen />
 
-              <Header />
-              {children}
-              <Footer />
+                <Header />
+                {children}
+                <Footer />
+              </EnvProvider>
             </HomePageProvider>
           </HeaderProvider>
         </NextIntlClientProvider>
