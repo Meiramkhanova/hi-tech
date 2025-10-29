@@ -103,6 +103,12 @@ export default function EditorPen() {
       }
     }
 
+    // === 2.0) Статические страницы, у которых нет записей в админке ===
+    if (parts.length === 1 && parts[0] === "laboratories") {
+      setAdminUrl(`${backendUrl}/admin`);
+      return;
+    }
+
     // === 2) Tab-content (не трогаем, как раньше) ===
     if (parts.length === 1 && firstSeg) {
       const slug = firstSeg;

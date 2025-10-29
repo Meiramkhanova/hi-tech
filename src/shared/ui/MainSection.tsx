@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Container from "./Container";
 import { Headline } from "./Headline";
-import Button from "./Button";
 import { cn } from "@/lib/utils";
 import { getStrapiMedia } from "../utils/getStrapiMedia";
 import { TabMainSection } from "@/entities/tabContent/TabContent.t";

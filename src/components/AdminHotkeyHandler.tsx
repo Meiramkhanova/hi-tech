@@ -3,11 +3,24 @@
 import { cn } from "@/shared/utils/cn";
 import { useEffect, useState } from "react";
 
+type StrapiContentType = {
+  uid: string;
+  apiID: string;
+  kind: "singleType" | "collectionType";
+};
+
+type StrapiResponse = {
+  data: {
+    uid?: string;
+    apiID: string;
+    kind: "singleType" | "collectionType";
+  }[];
+};
+
 export default function AdminHotkeyHandler() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    // Проверяем состояние при загрузке страницы
     const saved = localStorage.getItem("isAdmin") === "true";
     setIsAdmin(saved);
 
@@ -27,12 +40,12 @@ export default function AdminHotkeyHandler() {
           return;
         }
 
-        const json = await res.json();
+        const json: StrapiResponse = await res.json();
 
-        const types = json.data
-          .filter((t: any) => t.uid?.startsWith("api::"))
-          .map((t: any) => ({
-            uid: t.uid,
+        const types: StrapiContentType[] = json.data
+          .filter((t) => t.uid?.startsWith("api::"))
+          .map((t) => ({
+            uid: t.uid!,
             apiID: t.apiID,
             kind: t.kind,
           }));
@@ -44,20 +57,17 @@ export default function AdminHotkeyHandler() {
       }
     }
 
-    // 🔹 Toggle режим при Ctrl+Shift+K
     const handleKeyDown = (e: KeyboardEvent) => {
-      console.log("Pressed:", e.key, e.ctrlKey, e.shiftKey, e.altKey);
+      // console.log("Pressed:", e.key, e.ctrlKey, e.shiftKey, e.altKey);
 
       if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "k") {
         const current = localStorage.getItem("isAdmin") === "true";
         if (current) {
-          // выключаем
           localStorage.removeItem("isAdmin");
           localStorage.removeItem("strapiTypes");
           console.log("🚪 Admin mode deactivated");
           setIsAdmin(false);
         } else {
-          // включаем
           console.log("🛠 Admin mode activated!");
           localStorage.setItem("isAdmin", "true");
           setIsAdmin(true);
@@ -71,7 +81,6 @@ export default function AdminHotkeyHandler() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // 🔹 Обработчик кнопки "Выйти"
   const handleExit = () => {
     localStorage.removeItem("isAdmin");
     localStorage.removeItem("strapiTypes");

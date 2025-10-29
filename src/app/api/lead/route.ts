@@ -13,7 +13,7 @@ function log(
     timestamp: new Date().toISOString(),
     ...meta,
   };
-  // eslint-disable-next-line no-console
+
   console[level === "error" ? "error" : "log"](JSON.stringify(entry));
 }
 

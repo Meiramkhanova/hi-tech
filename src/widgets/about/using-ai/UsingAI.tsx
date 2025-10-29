@@ -1,9 +1,6 @@
 import Analytic from "@/shared/icons/Analytic";
-import Chat from "@/shared/icons/Chat";
-import PersonalLearn from "@/shared/icons/PersonalLearn";
 import Progress from "@/shared/icons/Progress";
 import SearchMark from "@/shared/icons/SearchMark";
-import Speech from "@/shared/icons/Speech";
 import Task from "@/shared/icons/Task";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
