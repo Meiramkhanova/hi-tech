@@ -21,7 +21,7 @@ export default function AdminHotkeyHandler() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("isAdmin") === "true";
+    const saved = sessionStorage.getItem("isAdmin") === "true";
     setIsAdmin(saved);
 
     async function fetchStrapiTypes() {
@@ -50,30 +50,35 @@ export default function AdminHotkeyHandler() {
             kind: t.kind,
           }));
 
-        localStorage.setItem("strapiTypes", JSON.stringify(types));
-        console.log("💾 Сохранено в localStorage:", types);
+        sessionStorage.setItem("strapiTypes", JSON.stringify(types));
+        console.log("💾 Сохранено в sessionStorage:", types);
       } catch (err) {
         console.error("⚠️ Ошибка fetchStrapiTypes:", err);
       }
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      // console.log("Pressed:", e.key, e.ctrlKey, e.shiftKey, e.altKey);
+      console.log("🔥 HOTKEY PRESSED:", e.key, e.ctrlKey, e.altKey);
 
       if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "k") {
-        const current = localStorage.getItem("isAdmin") === "true";
+        const current = sessionStorage.getItem("isAdmin") === "true";
+
         if (current) {
-          localStorage.removeItem("isAdmin");
-          localStorage.removeItem("strapiTypes");
-          console.log("🚪 Admin mode deactivated");
+          // Выход из админ-режима
+          sessionStorage.removeItem("isAdmin");
+          sessionStorage.removeItem("strapiTypes");
           setIsAdmin(false);
+          console.log("🚪 Admin mode deactivated");
         } else {
-          console.log("🛠 Admin mode activated!");
-          localStorage.setItem("isAdmin", "true");
+          // Вход в админ-режим
+          sessionStorage.setItem("isAdmin", "true");
           setIsAdmin(true);
+          console.log("🛠 Admin mode activated!");
           fetchStrapiTypes();
         }
-        window.dispatchEvent(new Event("storage"));
+
+        // Уведомляем все компоненты (в т.ч. в этом окне)
+        window.dispatchEvent(new CustomEvent("admin-toggle"));
       }
     };
 
@@ -82,10 +87,10 @@ export default function AdminHotkeyHandler() {
   }, []);
 
   const handleExit = () => {
-    localStorage.removeItem("isAdmin");
-    localStorage.removeItem("strapiTypes");
+    sessionStorage.removeItem("isAdmin");
+    sessionStorage.removeItem("strapiTypes");
     setIsAdmin(false);
-    window.dispatchEvent(new Event("storage"));
+    window.dispatchEvent(new CustomEvent("admin-toggle"));
     console.log("🚪 Admin mode deactivated (button)");
   };
 
