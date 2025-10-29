@@ -1,9 +1,7 @@
 import Container from "@/shared/ui/Container";
 import NavLinks from "../../shared/ui/NavLinks";
 import { cn } from "@/lib/utils";
-import HiTechCluster from "@/shared/icons/HiTechCluster";
 import AiInstitute from "@/shared/icons/AiInstitute";
-import NarxozLogo from "@/shared/icons/NarxozLogo";
 import { getTranslations } from "next-intl/server";
 
 async function Footer({ className }: { className?: string }) {
@@ -125,20 +123,8 @@ async function Footer({ className }: { className?: string }) {
             </div>
 
             <div className="footer-bottom flex flex-col md:flex-row md:items-center gap-6 md:gap-8 xl:gap-12">
-              {/* <Image
-                src="/assets/narxozLogo.png"
-                alt="narxoz-logo"
-                width={400}
-                height={116}
-                className="w-[25rem] h-28 object-cover -ml-6"
-              /> */}
-
-              <NarxozLogo />
-
               <div className="logos-wrapper flex items-center gap-6 md:gap-8 xl:gap-12">
-                <HiTechCluster />
-
-                <AiInstitute />
+                <AiInstitute className="w-40 h-fit" />
               </div>
             </div>
           </div>

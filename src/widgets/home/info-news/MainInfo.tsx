@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import AiInstitute from "@/shared/icons/AiInstitute";
-import NarxozLogo from "@/shared/icons/NarxozLogo";
 import { Headline } from "@/shared/ui/Headline";
 import { useTranslations } from "next-intl";
 
@@ -16,8 +15,6 @@ function MainInfo() {
       )}>
       <div className="top-info flex items-center gap-6 md:gap-8">
         <AiInstitute />
-
-        <NarxozLogo className="h-12 w-36 2xl:w-52 2xl:h-16" />
       </div>
 
       <div className="middle-info-text">

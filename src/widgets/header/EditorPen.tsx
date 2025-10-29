@@ -7,12 +7,6 @@ import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 import { cn } from "@/shared/utils/cn";
 
-type StrapiType = {
-  uid: string;
-  apiID: string;
-  kind: "singleType" | "collectionType";
-};
-
 const LOCALES = ["ru", "kk", "en"] as const;
 
 const singlePageMap: Record<string, string> = {
@@ -36,44 +30,26 @@ function singularize(s: string) {
 export default function EditorPen() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminUrl, setAdminUrl] = useState<string | null>(null);
-  const [strapiTypes, setStrapiTypes] = useState<StrapiType[]>([]);
 
   const pathname = usePathname();
   const localeFromIntl = useLocale();
-  const backendUrl =
-    process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:1337";
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  // Загружаем типы контента
   useEffect(() => {
-    const loadTypes = () => {
-      try {
-        const parsed = JSON.parse(
-          sessionStorage.getItem("strapiTypes") || "[]"
-        );
-        setStrapiTypes(parsed);
-      } catch {
-        setStrapiTypes([]);
-      }
+    const updateAll = () => {
+      const admin = sessionStorage.getItem("isAdmin") === "true";
+      setIsAdmin(admin);
     };
-    loadTypes();
-    window.addEventListener("admin-toggle", loadTypes);
-    return () => window.removeEventListener("admin-toggle", loadTypes);
+    updateAll();
+    window.addEventListener("admin-toggle", updateAll);
+    return () => window.removeEventListener("admin-toggle", updateAll);
   }, []);
 
-  // Проверяем isAdmin
   useEffect(() => {
-    const checkAdmin = () =>
-      setIsAdmin(sessionStorage.getItem("isAdmin") === "true");
-    checkAdmin();
-    window.addEventListener("admin-toggle", checkAdmin);
-    return () => window.removeEventListener("admin-toggle", checkAdmin);
-  }, []);
-
-  // Основная логика (оставь как есть, не трогаем)
-  useEffect(() => {
-    if (!isAdmin || !strapiTypes.length) return;
-
-    setAdminUrl(null);
+    if (!isAdmin) {
+      setAdminUrl(null);
+      return;
+    }
 
     const raw = pathname.split("/").filter(Boolean);
     let locale = (localeFromIntl as (typeof LOCALES)[number]) || "ru";
@@ -89,22 +65,109 @@ export default function EditorPen() {
     const firstSeg = parts[0] ?? "";
     const qsLocale = `plugins[i18n][locale]=${encodeURIComponent(locale)}`;
 
-    // === 1) SingleType ===
+    // --- SingleType страницы (about/contact/analytics/home) ---
     if (parts.length <= 1 && firstSeg in singlePageMap) {
-      const apiId = singlePageMap[firstSeg];
-      const type = strapiTypes.find(
-        (t) => t.kind === "singleType" && norm(t.apiID) === norm(apiId)
+      const apiId = singlePageMap[firstSeg]; // например "aboutpage"
+      const uid = `api::${apiId}.${apiId}`; // "api::aboutpage.aboutpage"
+      setAdminUrl(
+        `${backendUrl}/admin/content-manager/single-types/${uid}?${qsLocale}`
       );
-      if (type) {
-        setAdminUrl(
-          `${backendUrl}/admin/content-manager/single-types/${type.uid}?${qsLocale}`
-        );
-        return;
-      }
+      return;
     }
 
-    // ... остальная логика (оставь без изменений)
-  }, [isAdmin, pathname, localeFromIntl, backendUrl, strapiTypes]);
+    // --- Специальный роут ---
+    if (parts.length === 1 && parts[0] === "laboratories") {
+      setAdminUrl(`${backendUrl}/admin`);
+      return;
+    }
+
+    // --- Tab-content (страницы по слагу первого сегмента) ---
+    if (parts.length === 1 && firstSeg) {
+      const slug = firstSeg;
+      fetch(
+        `${backendUrl}/api/tab-contents?filters[slug]=${encodeURIComponent(
+          slug
+        )}&fields=documentId,id&locale=${locale}`,
+        { headers: { "Content-Type": "application/json" } }
+      )
+        .then((r) => r.json())
+        .then((data) => {
+          const entry = data?.data?.[0];
+          const id = entry?.documentId || entry?.id;
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::tab-content.tab-content/${
+              id ? id : ""
+            }?${qsLocale}`
+          );
+        })
+        .catch(() =>
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::tab-content.tab-content?${qsLocale}`
+          )
+        );
+      return;
+    }
+
+    // --- Вложенные страницы центров ---
+    if (parts.length === 2) {
+      const secondSeg = decodeURIComponent(parts[1] || "");
+      fetch(
+        `${backendUrl}/api/center-departments?filters[slug][$eq]=${encodeURIComponent(
+          secondSeg
+        )}&locale=${locale}`,
+        { headers: { "Content-Type": "application/json" } }
+      )
+        .then((r) => r.json())
+        .then((data) => {
+          const entry = data?.data?.[0];
+          const id = entry?.documentId || entry?.id;
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::center-department.center-department/${
+              id ? id : ""
+            }?${qsLocale}`
+          );
+        })
+        .catch(() =>
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::center-department.center-department?${qsLocale}`
+          )
+        );
+      return;
+    }
+
+    // --- Школы ---
+    if (
+      parts.length >= 3 &&
+      (parts[1] === "schools" || singularize(parts[1]) === "school")
+    ) {
+      const slug = parts[2];
+      fetch(
+        `${backendUrl}/api/schools?filters[slug][$eq]=${encodeURIComponent(
+          slug
+        )}&fields=documentId,id&locale=${locale}`,
+        { headers: { "Content-Type": "application/json" } }
+      )
+        .then((r) => r.json())
+        .then((data) => {
+          const entry = data?.data?.[0];
+          const id = entry?.documentId || entry?.id;
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::school.school/${
+              id ? id : ""
+            }?${qsLocale}`
+          );
+        })
+        .catch(() =>
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::school.school?${qsLocale}`
+          )
+        );
+      return;
+    }
+
+    // --- Fallback ---
+    setAdminUrl(`${backendUrl}/admin`);
+  }, [isAdmin, pathname, localeFromIntl, backendUrl]);
 
   if (!isAdmin || !adminUrl) return null;
 
