@@ -8,10 +8,12 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Headline } from "@/shared/ui/Headline";
 import { useHomePage } from "@/entities/homepage/HomePageClientProvider";
-import { getStrapiMedia } from "@/shared/utils/getStrapiMedia";
+import { useStrapiMedia } from "@/shared/utils/useStrapiMedia";
 
 function MainNews() {
   const data = useHomePage();
+
+  const getUrl = useStrapiMedia;
 
   if (!data?.swiper?.length) return null;
 
@@ -36,12 +38,14 @@ function MainNews() {
         speed={1200}
         className="size-full rounded-2xl relative z-20">
         {slides.map((slide) => {
+          const src = getUrl(slide.image?.url);
+
           return (
             <SwiperSlide key={slide.id} className="overflow-hidden rounded-2xl">
               <div className="slide-image relative overflow-hidden h-full">
                 <Image
-                  src={getStrapiMedia(slide.image?.url)}
-                  alt="slide1"
+                  src={src}
+                  alt={slide.name || "slide"}
                   className="size-full object-cover"
                   width={672}
                   height={672}

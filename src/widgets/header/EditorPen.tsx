@@ -18,9 +18,9 @@ const singlePageMap: Record<string, string> = {
   "": "homepage",
 };
 
-function norm(s: string) {
-  return s.toLowerCase().replace(/[^a-z0-9]/g, "");
-}
+// function norm(s: string) {
+//   return s.toLowerCase().replace(/[^a-z0-9]/g, "");
+// }
 function singularize(s: string) {
   if (s.endsWith("ies")) return s.slice(0, -3) + "y";
   if (s.endsWith("ses")) return s.slice(0, -2);

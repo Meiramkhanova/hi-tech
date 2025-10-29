@@ -1,8 +1,10 @@
+"use client";
+
 import { Icon } from "@/entities/homepage/getHomepage.t";
 import Button from "./Button";
 import { Headline } from "./Headline";
 import { cn } from "@/lib/utils";
-import { getStrapiMedia } from "../utils/getStrapiMedia";
+import { useStrapiMedia } from "../utils/useStrapiMedia";
 import { ReactElement, SVGProps } from "react";
 import Image from "next/image";
 import IconWrapper from "./IconWrapper";
@@ -46,6 +48,8 @@ function InfoItem({
   const href =
     departmentSlug && slug ? `/${departmentSlug}/${slug}` : slug ?? "#";
 
+  const iconSrc = useStrapiMedia(icon?.url);
+
   return (
     <div
       className={cn(
@@ -61,7 +65,7 @@ function InfoItem({
         <div className="item-icon rounded-2xl text-theprimary size-20 flex items-center justify-center shrink-0 bg-theprimary/10">
           {icon && (
             <Image
-              src={getStrapiMedia(icon?.url)}
+              src={iconSrc}
               className="size-9 fill-theprimary/5 flex shrink-0"
               alt="icon"
               width={80}

@@ -28,6 +28,14 @@ type Props = {
 
 export default async function RootLayout({ children }: Props) {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? "";
+  const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST ?? "";
+  const backendPort = process.env.NEXT_PUBLIC_BACKEND_PORT ?? "";
+
+  const isDev = process.env.NODE_ENV === "development";
+
+  const mediaUrl = isDev
+    ? `http://${backendHost}:${backendPort}`
+    : `https://${backendHost}`;
 
   return (
     <html>
@@ -35,7 +43,7 @@ export default async function RootLayout({ children }: Props) {
         <NextIntlClientProvider>
           <HeaderProvider>
             <HomePageProvider>
-              <EnvProvider backendUrl={backendUrl}>
+              <EnvProvider backendUrl={backendUrl} mediaUrl={mediaUrl}>
                 <AdminHotkeyHandler />
 
                 <EditorPen />
