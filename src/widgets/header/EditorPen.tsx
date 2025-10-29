@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Pencil } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
+import { cn } from "@/shared/utils/cn";
 
 type StrapiType = {
   uid: string;
@@ -14,21 +15,19 @@ type StrapiType = {
 
 const LOCALES = ["ru", "kk", "en"] as const;
 
-// Явные соответствия "slug на фронте" → "apiID в Strapi"
+// Соответствия singleType страниц
 const singlePageMap: Record<string, string> = {
   about: "aboutpage",
   contact: "contactpage",
-  analytics: "analytycspage", // 👈 опечатка в Strapi, потому указываем именно так
+  analytics: "analytycspage",
   home: "homepage",
-  "": "homepage", // корневая страница
+  "": "homepage",
 };
 
-// Нормализация строки ("Lab-Direction" → "labdirection")
 function norm(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
-// Примитивная сингуларизация (projects → project)
 function singularize(s: string) {
   if (s.endsWith("ies")) return s.slice(0, -3) + "y";
   if (s.endsWith("ses")) return s.slice(0, -2);
@@ -39,20 +38,29 @@ function singularize(s: string) {
 export default function EditorPen() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminUrl, setAdminUrl] = useState<string | null>(null);
+  const [strapiTypes, setStrapiTypes] = useState<StrapiType[]>([]);
 
   const pathname = usePathname();
   const localeFromIntl = useLocale();
   const backendUrl =
     process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:1337";
 
-  const strapiTypes: StrapiType[] = useMemo(() => {
-    try {
-      return JSON.parse(localStorage.getItem("strapiTypes") || "[]");
-    } catch {
-      return [];
-    }
-  }, [isAdmin]);
+  // === Загружаем типы контента из localStorage ===
+  useEffect(() => {
+    const loadTypes = () => {
+      try {
+        const parsed = JSON.parse(localStorage.getItem("strapiTypes") || "[]");
+        setStrapiTypes(parsed);
+      } catch {
+        setStrapiTypes([]);
+      }
+    };
+    loadTypes();
+    window.addEventListener("storage", loadTypes);
+    return () => window.removeEventListener("storage", loadTypes);
+  }, []);
 
+  // === Проверка isAdmin ===
   useEffect(() => {
     const checkAdmin = () =>
       setIsAdmin(localStorage.getItem("isAdmin") === "true");
@@ -61,8 +69,9 @@ export default function EditorPen() {
     return () => window.removeEventListener("storage", checkAdmin);
   }, []);
 
+  // === Основная логика ===
   useEffect(() => {
-    if (!isAdmin) return;
+    if (!isAdmin || !strapiTypes.length) return;
 
     setAdminUrl(null);
 
@@ -80,7 +89,7 @@ export default function EditorPen() {
     const firstSeg = parts[0] ?? "";
     const qsLocale = `plugins[i18n][locale]=${encodeURIComponent(locale)}`;
 
-    // === 1) Проверяем: является ли страница singleType ===
+    // === 1) SingleType ===
     if (parts.length <= 1 && firstSeg in singlePageMap) {
       const apiId = singlePageMap[firstSeg];
       const type = strapiTypes.find(
@@ -94,16 +103,14 @@ export default function EditorPen() {
       }
     }
 
-    // === 2) Если это одноуровневая страница, не из singleType → считаем tab-content ===
+    // === 2) Tab-content (не трогаем, как раньше) ===
     if (parts.length === 1 && firstSeg) {
       const slug = firstSeg;
       fetch(
         `${backendUrl}/api/tab-contents?filters[slug]=${encodeURIComponent(
           slug
         )}&fields=documentId,id&locale=${locale}`,
-        {
-          headers: { "Content-Type": "application/json" },
-        }
+        { headers: { "Content-Type": "application/json" } }
       )
         .then((r) => r.json())
         .then((data) => {
@@ -127,13 +134,14 @@ export default function EditorPen() {
       return;
     }
 
-    // === 1.1) Проверяем вложенные страницы singleType (например, /analytics&strategy/center-analysis) ===
-    const decodedFirstSeg = decodeURIComponent(parts[0] || "");
+    // === 2.1) Вложенные страницы центров (оба сегмента динамические) ===
+    if (parts.length === 2) {
+      const firstSeg = decodeURIComponent(parts[0] || "");
+      const secondSeg = decodeURIComponent(parts[1] || "");
 
-    if (parts.length === 2 && decodedFirstSeg === "analytics&strategy") {
       fetch(
         `${backendUrl}/api/center-departments?filters[slug][$eq]=${encodeURIComponent(
-          parts[1]
+          secondSeg
         )}&populate[sections][populate]=*&locale=${locale}`,
         { headers: { "Content-Type": "application/json" } }
       )
@@ -159,7 +167,42 @@ export default function EditorPen() {
       return;
     }
 
-    // === 3) Стандартная логика для коллекций с slug’ом (projects/slug и т.п.) ===
+    // === 3) Обработка школ (и других вложенных коллекций) ===
+    // Пример: /biotech-school/schools/biotech-school
+    if (
+      parts.length >= 3 &&
+      (parts[1] === "schools" || singularize(parts[1]) === "school")
+    ) {
+      const slug = parts[2];
+      fetch(
+        `${backendUrl}/api/schools?filters[slug][$eq]=${encodeURIComponent(
+          slug
+        )}&fields=documentId,id&locale=${locale}`,
+        { headers: { "Content-Type": "application/json" } }
+      )
+        .then((r) => r.json())
+        .then((data) => {
+          const entry = data?.data?.[0];
+          const id = entry?.documentId || entry?.id;
+          if (id) {
+            setAdminUrl(
+              `${backendUrl}/admin/content-manager/collection-types/api::school.school/${id}?${qsLocale}`
+            );
+          } else {
+            setAdminUrl(
+              `${backendUrl}/admin/content-manager/collection-types/api::school.school?${qsLocale}`
+            );
+          }
+        })
+        .catch(() =>
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::school.school?${qsLocale}`
+          )
+        );
+      return;
+    }
+
+    // === 4) Остальные стандартные коллекции ===
     const collections = strapiTypes.filter((t) => t.kind === "collectionType");
     const firstSegNorm = norm(firstSeg);
     const firstSegSingular = singularize(firstSegNorm);
@@ -215,7 +258,11 @@ export default function EditorPen() {
     <Link
       href={adminUrl}
       target="_blank"
-      className="flex items-center gap-2 text-gray-700 hover:text-black bg-white shadow-md rounded-full px-4 py-2">
+      className={cn(
+        "fixed bottom-20 min-w-[16.5rem] right-8 z-50 flex items-center gap-2 px-4 py-2 h-12",
+        "border-thesecondary text-thesecondary hover:bg-thesecondary hover:text-white",
+        "bg-white border rounded-md tracking-wide cursor-pointer transition-all ease-in-out duration-300"
+      )}>
       <Pencil size={20} />
       <span>Редактировать</span>
     </Link>

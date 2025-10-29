@@ -9,6 +9,7 @@ import HomePageProvider from "@/entities/homepage/HomePageProvider";
 import { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import AdminHotkeyHandler from "@/components/AdminHotkeyHandler";
+import EditorPen from "@/widgets/header/EditorPen";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
@@ -28,11 +29,13 @@ export default async function RootLayout({ children }: Props) {
   return (
     <html>
       <body className={cn("min-h-screen", montserrat.className)}>
-        <AdminHotkeyHandler />
-
         <NextIntlClientProvider>
           <HeaderProvider>
             <HomePageProvider>
+              <AdminHotkeyHandler />
+
+              <EditorPen />
+
               <Header />
               {children}
               <Footer />

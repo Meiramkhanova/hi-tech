@@ -1,14 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
+import { cn } from "@/shared/utils/cn";
+import { useEffect, useState } from "react";
 
 export default function AdminHotkeyHandler() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
   useEffect(() => {
+    // Проверяем состояние при загрузке страницы
+    const saved = localStorage.getItem("isAdmin") === "true";
+    setIsAdmin(saved);
+
     async function fetchStrapiTypes() {
       const backendUrl =
         process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:1337";
-
-      const isLocal = backendUrl.includes("localhost");
 
       try {
         const res = await fetch(`${backendUrl}/api/meta/content-types`, {
@@ -17,17 +22,12 @@ export default function AdminHotkeyHandler() {
           },
         });
 
-        console.log("🧭 Запрос:", res.url, res.status);
-
         if (!res.ok) {
           console.warn("❌ Ошибка при получении типов контента:", res.status);
-          const errText = await res.text();
-          console.log("Ответ от Strapi:", errText);
           return;
         }
 
         const json = await res.json();
-        console.log("✅ Ответ от Strapi:", json);
 
         const types = json.data
           .filter((t: any) => t.uid?.startsWith("api::"))
@@ -44,12 +44,26 @@ export default function AdminHotkeyHandler() {
       }
     }
 
+    // 🔹 Toggle режим при Ctrl+Shift+K
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "k") {
-        console.log("🛠 Admin mode activated!");
-        localStorage.setItem("isAdmin", "true");
+      console.log("Pressed:", e.key, e.ctrlKey, e.shiftKey, e.altKey);
+
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "k") {
+        const current = localStorage.getItem("isAdmin") === "true";
+        if (current) {
+          // выключаем
+          localStorage.removeItem("isAdmin");
+          localStorage.removeItem("strapiTypes");
+          console.log("🚪 Admin mode deactivated");
+          setIsAdmin(false);
+        } else {
+          // включаем
+          console.log("🛠 Admin mode activated!");
+          localStorage.setItem("isAdmin", "true");
+          setIsAdmin(true);
+          fetchStrapiTypes();
+        }
         window.dispatchEvent(new Event("storage"));
-        fetchStrapiTypes();
       }
     };
 
@@ -57,5 +71,26 @@ export default function AdminHotkeyHandler() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  return null;
+  // 🔹 Обработчик кнопки "Выйти"
+  const handleExit = () => {
+    localStorage.removeItem("isAdmin");
+    localStorage.removeItem("strapiTypes");
+    setIsAdmin(false);
+    window.dispatchEvent(new Event("storage"));
+    console.log("🚪 Admin mode deactivated (button)");
+  };
+
+  if (!isAdmin) return null;
+
+  return (
+    <button
+      onClick={handleExit}
+      className={cn(
+        "fixed h-12 min-w-[16.5rem] bottom-4 right-8 z-50 px-4 py-2 rounded-md",
+        "bg-thesecondary hover:brightness-110 border border-thesecondary text-white",
+        "tracking-wide cursor-pointer transition-all ease-in-out duration-300"
+      )}>
+      Выйти из редактирования
+    </button>
+  );
 }
