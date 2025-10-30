@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { getKnowledgePageData } from "@/entities/knowledgepage/knowledge.service";
 
 async function KnowledgeSchools() {
-  const t = await getTranslations("slugPage");
+  const t = await getTranslations("KnowledgePage");
 
   const data = await getKnowledgePageData();
 
@@ -22,7 +22,7 @@ async function KnowledgeSchools() {
         <Container>
           <div className="wrapper flex flex-col gap-6 md:gap-8">
             <Headline size="sm" as="h5" className="text-white">
-              {t("schoolsOfDepartments")}
+              {t("schools")}
             </Headline>
 
             <KnowledgeSchoolsSwiper schools={schools} />

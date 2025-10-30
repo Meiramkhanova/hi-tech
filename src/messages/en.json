@@ -236,5 +236,9 @@
       "title6": "Consulting for Business and Government",
       "desc6": "Reviews, expertise, tenders."
     }
+  },
+  "KnowledgePage": {
+      "schools": "Schools",
+      "studentLabs": "Student Laboratories"
   }
 }
