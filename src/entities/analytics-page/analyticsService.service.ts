@@ -1,5 +1,5 @@
 import { getLocale } from "next-intl/server";
-import { AnalyticsPageData } from "./getAnalyticsPage.t";
+import { AnalyticsPageData } from "./getAnalyticsPage";
 
 export const getAnalyticsPageData =
   async (): Promise<AnalyticsPageData | null> => {
