@@ -1,7 +1,6 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import ChooseLab from "./ChooseLab";
-import getLabDirections from "@/entities/lab-directions/getLabDirections";
 import { getTranslations } from "next-intl/server";
 import { getLabPageData } from "@/entities/laboratories-page/lab-page.service";
 
