@@ -1,17 +1,19 @@
 "use client";
 
-import { LabDirection } from "@/entities/lab-directions/LabDirections.t";
+import { LabDirectionItem } from "@/entities/laboratories-page/getLabPage.t";
 import { cn } from "@/lib/utils";
 import Button from "@/shared/ui/Button";
 import InfoItem from "@/shared/ui/InfoItem";
 import { useState } from "react";
 
-function ChooseLab({ labDirections }: { labDirections: LabDirection[] }) {
+function ChooseLab({ labDirections }: { labDirections: LabDirectionItem[] }) {
   const [activeTab, setActiveTab] = useState<string>(
     labDirections?.[0]?.title || ""
   );
 
   const activeTabData = labDirections.find((tab) => tab.title === activeTab);
+
+  console.log("saz", activeTabData);
 
   return (
     <div className="labs-wrapper pt-8 flex flex-col gap-6 md:gap-8">
@@ -32,7 +34,7 @@ function ChooseLab({ labDirections }: { labDirections: LabDirection[] }) {
       </div>
 
       <div className="lab-items grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        {activeTabData?.lab_items.map((labItem) => (
+        {activeTabData?.lab_items?.map((labItem) => (
           <InfoItem
             key={labItem.id}
             title={labItem.title}

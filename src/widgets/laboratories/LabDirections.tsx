@@ -3,15 +3,16 @@ import { Headline } from "@/shared/ui/Headline";
 import ChooseLab from "./ChooseLab";
 import getLabDirections from "@/entities/lab-directions/getLabDirections";
 import { getTranslations } from "next-intl/server";
+import { getLabPageData } from "@/entities/laboratories-page/lab-page.service";
 
 async function LabDirections() {
-  const data = await getLabDirections();
+  const data = await getLabPageData();
 
-  if (!data?.data?.length) return null;
+  if (!data || !data.lab_directions?.length) return null;
 
   const t = await getTranslations("LaboratoriesPage");
 
-  const labDirections = data?.data;
+  const labDirections = data?.lab_directions;
 
   return (
     <section className="lab-directions">

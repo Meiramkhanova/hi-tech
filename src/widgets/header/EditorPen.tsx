@@ -16,6 +16,7 @@ const singlePageMap: Record<string, string> = {
   analytics: "analytycspage",
   home: "homepage",
   "": "homepage",
+  laboratories: "laboratorypage",
 };
 
 // function norm(s: string) {
@@ -76,8 +77,8 @@ export default function EditorPen() {
       return;
     }
 
-    // --- Специальный роут ---
-    if (parts.length === 1 && parts[0] === "laboratories") {
+    //специальный роут для одной страницы lab-registration
+    if (parts.length === 1 && parts[0] === "lab-registration") {
       setAdminUrl(`${backendUrl}/admin`);
       return;
     }
@@ -104,6 +105,36 @@ export default function EditorPen() {
         .catch(() =>
           setAdminUrl(
             `${backendUrl}/admin/content-manager/collection-types/api::tab-content.tab-content?${qsLocale}`
+          )
+        );
+      return;
+    }
+
+    // --- Лаборатории ---
+    if (
+      parts.length >= 2 &&
+      (parts[0] === "laboratories" || singularize(parts[0]) === "laboratory")
+    ) {
+      const slug = parts[1];
+      fetch(
+        `${backendUrl}/api/lab-items?filters[slug][$eq]=${encodeURIComponent(
+          slug
+        )}&fields=documentId,id&locale=${locale}`,
+        { headers: { "Content-Type": "application/json" } }
+      )
+        .then((r) => r.json())
+        .then((data) => {
+          const entry = data?.data?.[0];
+          const id = entry?.documentId || entry?.id;
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::lab-item.lab-item/${
+              id ? id : ""
+            }?${qsLocale}`
+          );
+        })
+        .catch(() =>
+          setAdminUrl(
+            `${backendUrl}/admin/content-manager/collection-types/api::lab-item.lab-item?${qsLocale}`
           )
         );
       return;

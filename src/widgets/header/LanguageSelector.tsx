@@ -39,7 +39,11 @@ function LanguageSelector({
       ? pathname.replace(`/${currentLocale}`, "")
       : pathname;
 
+    document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000`;
+
     router.push(`/${locale}${pathWithoutLocale}`);
+
+    router.refresh();
   };
 
   return (

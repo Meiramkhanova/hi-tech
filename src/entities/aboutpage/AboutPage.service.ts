@@ -18,7 +18,7 @@ export const getAboutPageData = async (): Promise<AboutPageData | null> => {
 
     return json.data ?? null;
   } catch (error) {
-    console.error("Ошибка при получении данных для homepage:", error);
+    console.error("Ошибка при получении данных для aboutpage:", error);
     return null;
   }
 };

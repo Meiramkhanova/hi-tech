@@ -1,13 +1,13 @@
 import { getLocale } from "next-intl/server";
-import { AnalyticsPageData } from "./getAnalyticsPage.t";
+import { LaboratoriesPageData } from "./getLabPage.t";
 
-export const getAnalyticsPageData =
-  async (): Promise<AnalyticsPageData | null> => {
+export const getLabPageData =
+  async (): Promise<LaboratoriesPageData | null> => {
     const locale = await getLocale();
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/analytycspage?[populate][center_departments][populate]&locale=${locale}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/laboratorypage?populate[lab_directions][populate][lab_items][populate]=icon&locale=${locale}`,
         {
           cache: "no-store",
         }
@@ -19,7 +19,7 @@ export const getAnalyticsPageData =
 
       return json.data ?? null;
     } catch (error) {
-      console.error("Ошибка при получении данных для analyticspage:", error);
+      console.error("Ошибка при получении данных для labpage:", error);
       return null;
     }
   };

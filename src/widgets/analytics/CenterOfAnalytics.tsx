@@ -20,10 +20,10 @@ function CenterOfAnalytics({
 
   return (
     <section className="centers-of-deparment">
-      <div className="bg-outer-wrapper">
+      <div className="bg-outer-wrapper bg-theprimary mt-24 py-6 md:py-8 rounded-2xl">
         <Container>
-          <div className="wrapper flex flex-col gap-6 md:gap-8 pt-24">
-            <Headline size="sm" as="h5" className="text-gray-400 pb-2 ">
+          <div className="wrapper flex flex-col gap-6 md:gap-8">
+            <Headline size="sm" as="h5" className="text-white">
               {t("centersOfDepartments")}
             </Headline>
 
