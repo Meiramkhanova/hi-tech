@@ -9,7 +9,7 @@ function ItDevelopment() {
 
       <Cases />
 
-      <DiscussProject id="cases-section" />
+      <DiscussProject id="development" />
     </>
   );
 }

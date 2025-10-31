@@ -13,6 +13,7 @@ interface TechItemProps {
   iconOrder?: number;
   boldDesc?: string;
   strapiIcon?: StrapiIcon;
+  className?: string;
 }
 
 function TechItem({
@@ -23,9 +24,15 @@ function TechItem({
   iconOrder,
   boldDesc,
   strapiIcon,
+  className,
 }: TechItemProps) {
   return (
-    <div className="tech-item border rounded-2xl p-6 grid grid-cols-1 2xl:grid-cols-[1fr_auto] items-center gap-6 md:gap-8">
+    <div
+      className={cn(
+        "tech-item border grid grid-cols-1 2xl:grid-cols-[1fr_auto]",
+        "items-center gap-6 md:gap-8 rounded-2xl p-6",
+        className
+      )}>
       <div
         className={cn(
           "left-side text-xl",

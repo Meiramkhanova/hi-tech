@@ -3,11 +3,11 @@
 import Button from "@/shared/ui/Button";
 import { useTranslations } from "next-intl";
 
-function ScrollButton() {
+function ScrollButton({ elId }: { elId: string }) {
   const t = useTranslations("ItDevelopmentPage");
 
   const handleScroll = () => {
-    const el = document.getElementById("cases-section");
+    const el = document.getElementById(elId);
     el?.scrollIntoView({ behavior: "smooth" });
   };
 

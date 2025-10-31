@@ -258,5 +258,39 @@
     "cases": "Cases",
     "wanna discuss project": "Want to discuss a project?",
     "formDesc": "Tell us about your task — we’ll offer a solution based on our experience in developing IT products for large companies."
+},
+"CareerCenterPage": {
+  "sectionTitle": "AI institute Career Center",
+  "sectionDesc": "We help students and graduates find jobs, internships, and build careers in leading companies in Kazakhstan and abroad.",
+  "sendRequest": "Submit a request",
+  "infoItem1Title": "Resume and career plan consultations",
+  "infoItem1Desc": "We help you create a strong resume and build a personal development plan to stand out among candidates.",
+  "infoItem2Title": "Interview preparation",
+  "infoItem2Desc": "We conduct mock interviews, provide feedback, and teach you to confidently answer tough employer questions.",
+  "infoItem3Title": "Access to partner vacancies and internships",
+  "infoItem3Desc": "We provide access to a database of job openings and internships from leading Kazakhstani and international companies.",
+  "infoItem4Title": "Career events and networking",
+  "infoItem4Desc": "We organize job fairs, masterclasses, and meetings with employers to help students discover new opportunities.",
+  "internationalTeam": "international team",
+  "formTitle": "Take your first career step with AI institute",
+  "graduation":"graduation"
+},
+"MentoringPage": {
+  "sectionTitle": "Mentoring from AI institute experts",
+  "sectionDesc1": "Individual guidance from practitioners working in leading companies and startups.",
+  "sectionDesc2": "We help students and young professionals build careers, launch projects, and find real opportunities for growth.",
+  "sendRequest": "Submit a request",
+  "forWhom": "For whom",
+  "student": "Students",
+  "startups": "Startups",
+  "companies": "Companies",
+  "youngSpecialists": "Young professionals",
+  "ourExperts": "Our experts",
+  "formTitle": "Start your journey with an AI institute mentor"
+},
+"SciencePage": {
+  "sectionTitle": "Scientific research",
+  "sectionDesc": "The institute’s fundamental and applied projects — from artificial intelligence to macroeconomics."
 }
+
 }

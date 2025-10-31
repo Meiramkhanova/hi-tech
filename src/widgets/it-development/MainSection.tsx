@@ -45,7 +45,7 @@ async function MainSection() {
             <div className="desc-btn flex flex-col gap-6 md:gap-8">
               <div className="desc text-gray-400">{t("sectionDesc")}</div>
 
-              <ScrollButton />
+              <ScrollButton elId="development" />
             </div>
           </div>
 

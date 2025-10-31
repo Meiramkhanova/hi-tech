@@ -40,7 +40,7 @@ async function Cases() {
                     </div>
                   </div>
 
-                  {item?.images.map((image) => (
+                  {item?.images.slice(0, 3).map((image) => (
                     <Image
                       src={getStrapiMedia(image.url)}
                       alt="case-image"
