@@ -1,5 +1,4 @@
 import AiLittleIcon from "@/shared/icons/AiLittleIcon";
-import Image from "next/image";
 import Link from "next/link";
 
 function Logo() {

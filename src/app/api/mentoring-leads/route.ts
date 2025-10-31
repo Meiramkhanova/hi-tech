@@ -1,4 +1,3 @@
-import { LeadFormDataWithLab } from "@/entities/lab-registration/lead";
 import { MentoringFormData } from "@/entities/mentoring-register/lead";
 import { NextResponse } from "next/server";
 import { randomUUID } from "node:crypto";

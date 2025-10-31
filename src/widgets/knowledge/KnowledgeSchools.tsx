@@ -1,6 +1,5 @@
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
-import { SchoolOfDepartmentItem } from "@/entities/tabContent/TabContent.t";
 import KnowledgeSchoolsSwiper from "./components/KnowledgeSchoolsSwiper";
 import { getTranslations } from "next-intl/server";
 import { getKnowledgePageData } from "@/entities/knowledgepage/knowledge.service";

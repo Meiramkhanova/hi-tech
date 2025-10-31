@@ -29,7 +29,9 @@ async function OneSchoolItem({ slug, schoolName, desc }: OneSchoolItemProps) {
                 {t("schoolMoreInfoText")}
               </div>
 
-              <Button>{t("schoolMoreInfoBtn")}</Button>
+              <Button href={`${slug}/schools/${slug}`}>
+                {t("schoolMoreInfoBtn")}
+              </Button>
             </div>
           </div>
 

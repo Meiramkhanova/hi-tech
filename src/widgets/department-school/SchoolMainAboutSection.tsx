@@ -23,7 +23,7 @@ function SchoolMainAboutSection({
 
           <div className="right-main-section h-full md:pb-12">
             <Image
-              src={getStrapiMedia(image.url)}
+              src={getStrapiMedia(image?.url)}
               alt="narxoz-lab"
               width={672}
               height={672}
