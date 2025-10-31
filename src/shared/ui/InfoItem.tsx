@@ -53,7 +53,7 @@ function InfoItem({
   return (
     <div
       className={cn(
-        "info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-fit 2xl:min-w-[24.5rem] bg-white",
+        "info-item border rounded-2xl p-6 flex flex-col gap-9 h-full w-full 2xl:min-w-[24.5rem] bg-white",
         className,
         isTitleGreen && "pb-12 w-full"
       )}>

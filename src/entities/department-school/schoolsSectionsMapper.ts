@@ -4,6 +4,7 @@ import MissionProductInfo from "@/shared/ui/MissionProductInfo";
 import CenterTitleOrderItemsSection from "@/widgets/department-center/CenterTitleOrderItemsSection";
 import QuantitativeRiskManagementSection from "@/widgets/department-school/QuantitativeRiskManagementSection";
 import CreditAnalysis from "@/widgets/department-school/CreditAnalysisSection";
+import ExampleProjects from "@/widgets/department-school/ExampleProjectsSection";
 
 type SectionsMap = {
   [K in DepartmentSchoolSection["__component"]]: React.ComponentType<
@@ -43,6 +44,12 @@ export const departmentSchoolSectionsMapper: SectionsMap = {
     Extract<
       DepartmentSchoolSection,
       { __component: "sections.credit-analysis" }
+    >
+  >,
+  "sections.example-projects": ExampleProjects as React.ComponentType<
+    Extract<
+      DepartmentSchoolSection,
+      { __component: "sections.example-projects" }
     >
   >,
 };

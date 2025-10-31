@@ -49,6 +49,8 @@ function MainSection({ icon, name, title, image }: MainSectionProps) {
                 Программы и проекты
               </Button>
             </div> */}
+
+            <div />
           </div>
 
           <div className="right-wrapper w-full">

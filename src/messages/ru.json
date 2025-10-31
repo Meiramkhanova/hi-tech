@@ -212,7 +212,8 @@
     "finance":"Финансы",
     "risk management":"Риск-менеджмент",
     "quantitative modeling":"Количественное моделирование",
-    "Underwriting":"Андеррайтинг"
+    "Underwriting":"Андеррайтинг",
+    "exampleProjects":"Примеры программ"
   },
   "slugPage":{
     "enroll":"Поступить",
@@ -273,7 +274,8 @@
     "infoItem4Desc":"Организуем ярмарки вакансий, мастер-классы и встречи с работодателями, чтобы студенты находили новые возможности",
     "internationalTeam":"международная команда",
     "formTitle":"Сделай первый шаг к карьере вместе с AI institute",
-    "graduation":"выпуск"
+    "graduation":"выпуск",
+    "MainsectionBtn":"Оставить заявку"
   },
   "MentoringPage":{
     "sectionTitle":"Менторинг от экспертов AI institute",
@@ -286,7 +288,8 @@
     "companies":"Компании",
     "youngSpecialists":"Молодые специалисты",
     "ourExperts":"Наши эксперты",
-    "formTitle":"Начни свой путь с наставником AI institute"
+    "formTitle":"Начни свой путь с наставником AI institute",
+    "MainsectionBtn":"Оставить заявку"
   },
   "SciencePage":{
     "sectionTitle":"Научные исследования",

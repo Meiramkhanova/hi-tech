@@ -40,12 +40,24 @@ export interface CreditAnalysis {
   underwritingDesc: string;
 }
 
+export interface ExampleProjectItem {
+  id: number;
+  title: string;
+  description: string;
+}
+export interface ExampleProjects {
+  __component: "sections.example-projects";
+  id: number;
+  example_projects: ExampleProjectItem[];
+}
+
 export type DepartmentSchoolSection =
   | SchoolMainSection
   | MisstionProductInfo
   | MainActivities
   | QuantitativeRiskManagement
-  | CreditAnalysis;
+  | CreditAnalysis
+  | ExampleProjects;
 
 interface DepartmentSchoolData extends StrapiBase {
   slug: string;

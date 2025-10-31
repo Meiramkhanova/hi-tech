@@ -212,7 +212,8 @@
     "finance": "Finance",
     "risk management": "Risk Management",
     "quantitative modeling": "Quantitative Modeling",
-    "underwriting": "Underwriting"
+    "underwriting": "Underwriting",
+    "exampleProjects":"Example projects"
   },
   "slugPage": {
     "enroll": "Enroll",
@@ -273,7 +274,8 @@
   "infoItem4Desc": "We organize job fairs, masterclasses, and meetings with employers to help students discover new opportunities.",
   "internationalTeam": "international team",
   "formTitle": "Take your first career step with AI institute",
-  "graduation":"graduation"
+  "graduation":"graduation",
+  "MainsectionBtn": "Submit a request"
 },
 "MentoringPage": {
   "sectionTitle": "Mentoring from AI institute experts",
@@ -286,7 +288,8 @@
   "companies": "Companies",
   "youngSpecialists": "Young professionals",
   "ourExperts": "Our experts",
-  "formTitle": "Start your journey with an AI institute mentor"
+  "formTitle": "Start your journey with an AI institute mentor",
+  "MainsectionBtn": "Submit a request"
 },
 "SciencePage": {
   "sectionTitle": "Scientific research",

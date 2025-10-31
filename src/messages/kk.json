@@ -213,7 +213,8 @@
     "finance": "Қаржы",
     "risk management": "Тәуекелдерді басқару",
     "quantitative modeling": "Сандық модельдеу",
-    "underwriting": "Андеррайтинг"
+    "underwriting": "Андеррайтинг",
+     "exampleProjects":"Жоба үлгілері"
   },
   "slugPage": {
     "enroll": "Оқуға түсу",
@@ -274,7 +275,8 @@
   "infoItem4Desc": "Студенттер жаңа мүмкіндіктер табуы үшін бос жұмыс орындары жәрмеңкелерін, мастер-класстар мен жұмыс берушілермен кездесулер ұйымдастырамыз.",
   "internationalTeam": "халықаралық команда",
   "formTitle": "AI institute-пен бірге мансап жолындағы алғашқы қадамыңды жаса",
-  "graduation": "бітірілді"
+  "graduation": "бітірілді",
+  "MainsectionBtn": "Өтініш қалдыру"
 },
 "MentoringPage": {
   "sectionTitle": "AI institute сарапшыларынан менторинг",
@@ -287,7 +289,8 @@
   "companies": "Компанияларға",
   "youngSpecialists": "Жас мамандарға",
   "ourExperts": "Біздің сарапшылар",
-  "formTitle": "AI institute менторымен өз жолыңды баста"
+  "formTitle": "AI institute менторымен өз жолыңды баста",
+  "MainsectionBtn": "Өтініш қалдыру"
 },
 "SciencePage": {
   "sectionTitle": "Ғылыми зерттеулер",

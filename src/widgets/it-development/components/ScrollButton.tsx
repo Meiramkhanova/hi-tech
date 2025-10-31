@@ -4,7 +4,7 @@ import Button from "@/shared/ui/Button";
 import { useTranslations } from "next-intl";
 
 function ScrollButton({ elId }: { elId: string }) {
-  const t = useTranslations("ItDevelopmentPage");
+  const t = useTranslations("MentoringPage");
 
   const handleScroll = () => {
     const el = document.getElementById(elId);
@@ -13,7 +13,7 @@ function ScrollButton({ elId }: { elId: string }) {
 
   return (
     <Button onClick={handleScroll} className="w-full sm:w-fit">
-      {t("discussProject")}
+      {t("MainsectionBtn")}
     </Button>
   );
 }
