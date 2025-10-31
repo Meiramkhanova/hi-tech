@@ -21,6 +21,7 @@ export default function LeadForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadSchema),
@@ -48,6 +49,7 @@ export default function LeadForm() {
 
       if (res.ok) {
         setSubmitted(true);
+        reset();
       } else {
         setErrorMessage(result?.message || t("ErrorMsg"));
       }

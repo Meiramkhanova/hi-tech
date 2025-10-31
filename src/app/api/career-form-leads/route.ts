@@ -23,10 +23,10 @@ export async function POST(req: Request) {
   try {
     const body: DeveloperFormData = await req.json();
 
-    log("info", "it-developers:incoming", {
+    log("info", "career-form-leads:incoming", {
       requestId,
       method: "POST",
-      endpoint: "/api/it-developers",
+      endpoint: "/api/career-form-leads",
       payload: {
         name: body?.name,
         email: body?.email,
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
       },
     });
 
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/it-developers`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/career-form-leads`;
     const strapiRes = await fetch(url, {
       method: "POST",
       headers: {
@@ -67,10 +67,10 @@ export async function POST(req: Request) {
         }
       }
 
-      log("error", "it-developers:strapi_error", {
+      log("error", "career-form-leads:strapi_error", {
         requestId,
         method: "POST",
-        endpoint: "/api/it-developers",
+        endpoint: "/api/career-form-leads",
         upstreamUrl: url,
         upstreamStatus: strapiRes.status,
         upstreamBody: data,
@@ -80,20 +80,20 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, message }, { status: 400 });
     }
 
-    log("info", "it-developers:success", {
+    log("info", "career-form-leads:success", {
       requestId,
       method: "POST",
-      endpoint: "/api/it-developers",
+      endpoint: "/api/career-form-leads",
       upstreamStatus: strapiRes.status,
       durationMs: Date.now() - startedAt,
     });
 
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    log("error", "it-developers:unhandled_error", {
+    log("error", "lead:unhandled_error", {
       requestId,
       method: "POST",
-      endpoint: "/api/it-developers",
+      endpoint: "/api/career-form-leads",
       error:
         error instanceof Error
           ? { name: error.name, message: error.message, stack: error.stack }

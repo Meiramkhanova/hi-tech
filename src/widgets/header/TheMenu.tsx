@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import LanguageSelector from "./LanguageSelector";
 import NavLinks from "@/shared/ui/NavLinks";
+import AiLittleIcon from "@/shared/icons/AiLittleIcon";
 
 function TheMenu() {
   const [open, setOpen] = useState(false);
@@ -34,21 +35,15 @@ function TheMenu() {
         )}>
         <div className="menu-top-bottom flex flex-col gap-6">
           <div className="logo-close flex items-center justify-between w-full">
-            <div className="logo-name flex items-center gap-2">
+            <div className="logo-name flex items-center gap-4">
               <Link
                 href="/"
-                className="logo flex items-center justify-center shrink-0">
-                <Image
-                  src="/assets/logo-primary.png"
-                  alt="logo"
-                  width={62}
-                  height={62}
-                  className="size-14 object-cover"
-                />
+                className="logo bg-theprimary size-14 rounded-2xl flex items-center justify-center shrink-0">
+                <AiLittleIcon />
               </Link>
 
               <div className="institute-title text-theprimary uppercase font-medium text-2xl 2xl:hidden">
-                Hi-Tech <br /> Institute
+                Ai <br /> Institute
               </div>
             </div>
 

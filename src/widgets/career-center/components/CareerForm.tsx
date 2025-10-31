@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-function ItDevelopmentForm() {
+function CareerForm() {
   const t = useTranslations("Forms");
 
   const [submitted, setSubmitted] = useState(false);
@@ -36,7 +36,7 @@ function ItDevelopmentForm() {
         ...data,
       };
 
-      const res = await fetch("/api/it-developers", {
+      const res = await fetch("/api/career-form-leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -159,4 +159,4 @@ function ItDevelopmentForm() {
   );
 }
 
-export default ItDevelopmentForm;
+export default CareerForm;
