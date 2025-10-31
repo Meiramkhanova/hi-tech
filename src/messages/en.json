@@ -240,5 +240,23 @@
   "KnowledgePage": {
       "schools": "Schools",
       "studentLabs": "Student Laboratories"
+  },
+  "ItDevelopmentPage": {
+    "sectionTitle": "IT development for market leaders",
+    "sectionDesc": "We create digital products for businesses — from mobile applications to complex AI systems.",
+    "discussProject": "Discuss the project",
+    "experienceAndCase": "Experience and cases",
+    "agileAndSpeed": "Agile and speed",
+    "teamOfExperts": "Team of experts",
+    "innovationAndTech": "Innovation and technology",
+    "cases": "Cases",
+    "wanna discuss project": "Want to discuss a project?",
+    "formDesc": "Tell us about your task — we’ll offer a solution based on our experience in developing IT products for large companies."
+},
+  "Form": {
+    "name": "Name",
+    "telephone": "Phone",
+    "textareaDesc": "Your question or message",
+    "discussProject": "Discuss the project"
   }
 }

@@ -18,6 +18,7 @@ const singlePageMap: Record<string, string> = {
   "": "homepage",
   laboratories: "laboratorypage",
   knowledge: "knowledgepage",
+  "it-development": "it-development-page",
 };
 
 // function norm(s: string) {

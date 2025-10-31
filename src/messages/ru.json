@@ -240,5 +240,23 @@
   "KnowledgePage":{
     "schools":"Школы",
     "studentLabs":"Студенческие лаборатории"
+  },
+  "ItDevelopmentPage":{
+    "sectionTitle":"IT-разработка для лидеров рынка",
+    "sectionDesc":"Мы создаём цифровые продукты для бизнеса — от мобильных приложений до сложных AI-систем.",
+    "discussProject":"Обсудить проект",
+    "experienceAndCase":"Опыт и кейсы",
+    "agileAndSpeed":"Agile и скорость",
+    "teamOfExperts":"Команда экспертов",
+    "innovationAndTech":"Инновации и технологии",
+    "cases":"Кейсы",
+    "wanna discuss project":"Хотите обсудить проект?",
+    "formDesc":"Расскажите нам о своей задаче — мы предложим решение, исходя из опыта реализации IT-продуктов для крупных компаний."
+  },
+  "Form":{
+    "name":"Имя",
+    "telephone":"Телефон",
+    "textareaDesc":"Ваш вопрос или сообщение",
+    "discussProject":"Обсудить проект"
   }
 }

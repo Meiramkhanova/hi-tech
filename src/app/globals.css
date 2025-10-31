@@ -162,3 +162,7 @@
 .ltr {
   direction: ltr;
 }
+
+html {
+  scroll-behavior: smooth;
+}
