@@ -1,6 +1,9 @@
 "use client";
 
-import { CareerFormData, careerSchema } from "@/entities/career-register/lead";
+import {
+  MentoringFormData,
+  mentoringSchema,
+} from "@/entities/mentoring-register/lead";
 import Button from "@/shared/ui/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2 } from "lucide-react";
@@ -8,7 +11,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-function CareerForm() {
+function MentoringForm() {
   const t = useTranslations("Forms");
 
   const [submitted, setSubmitted] = useState(false);
@@ -20,11 +23,11 @@ function CareerForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<CareerFormData>({
-    resolver: zodResolver(careerSchema),
+  } = useForm<MentoringFormData>({
+    resolver: zodResolver(mentoringSchema),
   });
 
-  const onSubmit = async (data: CareerFormData) => {
+  const onSubmit = async (data: MentoringFormData) => {
     setErrorMessage("");
     setIsLoading(true);
 
@@ -33,7 +36,7 @@ function CareerForm() {
         ...data,
       };
 
-      const res = await fetch("/api/career-form-leads", {
+      const res = await fetch("/api/mentoring-leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -156,4 +159,4 @@ function CareerForm() {
   );
 }
 
-export default CareerForm;
+export default MentoringForm;

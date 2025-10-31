@@ -1,4 +1,5 @@
-import { CareerFormData } from "@/entities/career-register/lead";
+import { LeadFormDataWithLab } from "@/entities/lab-registration/lead";
+import { MentoringFormData } from "@/entities/mentoring-register/lead";
 import { NextResponse } from "next/server";
 import { randomUUID } from "node:crypto";
 
@@ -21,21 +22,20 @@ export async function POST(req: Request) {
   const requestId = randomUUID();
   const startedAt = Date.now();
   try {
-    const body: CareerFormData = await req.json();
+    const body: MentoringFormData = await req.json();
 
-    log("info", "career-form-leads:incoming", {
+    log("info", "mentoring-leads:incoming", {
       requestId,
       method: "POST",
-      endpoint: "/api/career-form-leads",
+      endpoint: "/api/mentoring-leads",
       payload: {
         name: body?.name,
         email: body?.email,
         phone: body?.phone,
-        message: body?.message,
       },
     });
 
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/career-form-leads`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/mentoring-leads`;
     const strapiRes = await fetch(url, {
       method: "POST",
       headers: {
@@ -47,7 +47,6 @@ export async function POST(req: Request) {
           name: body.name,
           email: body.email,
           phone: body.phone,
-          message: body?.message,
         },
       }),
     });
@@ -67,10 +66,10 @@ export async function POST(req: Request) {
         }
       }
 
-      log("error", "career-form-leads:strapi_error", {
+      log("error", "mentoring-leads:strapi_error", {
         requestId,
         method: "POST",
-        endpoint: "/api/career-form-leads",
+        endpoint: "/api/mentoring-leads",
         upstreamUrl: url,
         upstreamStatus: strapiRes.status,
         upstreamBody: data,
@@ -80,20 +79,20 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, message }, { status: 400 });
     }
 
-    log("info", "career-form-leads:success", {
+    log("info", "mentoring-leads:success", {
       requestId,
       method: "POST",
-      endpoint: "/api/career-form-leads",
+      endpoint: "/api/mentoring-leads",
       upstreamStatus: strapiRes.status,
       durationMs: Date.now() - startedAt,
     });
 
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    log("error", "lead:unhandled_error", {
+    log("error", "mentoring-leads:unhandled_error", {
       requestId,
       method: "POST",
-      endpoint: "/api/career-form-leads",
+      endpoint: "/api/mentoring-leads",
       error:
         error instanceof Error
           ? { name: error.name, message: error.message, stack: error.stack }

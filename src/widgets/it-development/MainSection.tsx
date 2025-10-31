@@ -2,7 +2,6 @@ import Compass from "@/shared/icons/Compass";
 import Profile from "@/shared/icons/Profile";
 import Settings from "@/shared/icons/Settings";
 import Speed from "@/shared/icons/Speed";
-import Button from "@/shared/ui/Button";
 import Container from "@/shared/ui/Container";
 import { Headline } from "@/shared/ui/Headline";
 import ItemIconTitle from "@/shared/ui/ItemIconTitle";
