@@ -163,7 +163,7 @@
     "faqItem4Title": "What will I get in the end?",
     "faqItem4Desc": "A project portfolio, real skills, and a certificate."
   },
-  "LabRegistrsationForm": {
+  "Forms": {
     "ErrorMsg": "Failed to submit the request. Please try again later.",
     "NetworkErrMsg": "Network error. Check your internet connection and try again.",
     "sending": "Sending...",
@@ -171,10 +171,16 @@
     "fullName": "Full name",
     "telephone": "Phone",
     "LeadSuccess": {
-  "thanksForRequest": "Thank you for your request!",
-  "callLater": "We will contact you soon.",
-  "doNotMiss": "Follow us on social media so you don’t miss anything."
-}
+      "thanksForRequest": "Thank you for your request!",
+      "callLater": "We will contact you soon.",
+      "doNotMiss": "Follow us on social media so you don’t miss anything."
+      },
+    "name": "Name",
+    "textareaDesc": "Your question or message",
+    "discussProject": "Discuss the project",
+    "thanksForRequest": "Thank you for your request!",
+    "contactLater": "We have received your request and will contact you soon.",
+    "sendRequestAgain": "Submit again"
   },
   "Header": {
     "search":"search",
@@ -252,11 +258,5 @@
     "cases": "Cases",
     "wanna discuss project": "Want to discuss a project?",
     "formDesc": "Tell us about your task — we’ll offer a solution based on our experience in developing IT products for large companies."
-},
-  "Form": {
-    "name": "Name",
-    "telephone": "Phone",
-    "textareaDesc": "Your question or message",
-    "discussProject": "Discuss the project"
-  }
+}
 }

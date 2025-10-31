@@ -26,7 +26,7 @@ export default function LeadForm() {
     resolver: zodResolver(leadSchema),
   });
 
-  const t = useTranslations("LabRegistrsationForm");
+  const t = useTranslations("Forms");
 
   const onSubmit = async (data: LeadFormData) => {
     setErrorMessage("");
@@ -76,6 +76,7 @@ export default function LeadForm() {
             placeholder={t("fullName")}
             className="w-full bg-gray-100 h-14 flex items-center rounded-2xl pl-6 md:pl-8"
           />
+
           {errors.name && (
             <p className="text-red-600 pt-0.5">{errors.name.message}</p>
           )}
@@ -89,6 +90,7 @@ export default function LeadForm() {
               placeholder="Email"
               className="w-full bg-gray-100 h-14 flex items-center rounded-2xl pl-6 md:pl-8"
             />
+
             {errors.email && (
               <p className="text-red-600 pt-0.5">{errors.email.message}</p>
             )}
@@ -101,6 +103,7 @@ export default function LeadForm() {
               placeholder={t("telephone")}
               className="w-full bg-gray-100 h-14 flex items-center rounded-2xl pl-6 md:pl-8"
             />
+
             {errors.phone && (
               <p className="text-red-600 pt-0.5">{errors.phone.message}</p>
             )}

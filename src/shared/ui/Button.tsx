@@ -4,8 +4,8 @@ import type { ButtonHTMLAttributes } from "react";
 import { cn } from "../utils/cn";
 import Link from "next/link";
 
-type Variant = "primary" | "secondary" | "outlined";
-type Size = "sm" | "md" | "lg";
+type Variant = "primary" | "secondary" | "outlined" | "form";
+type Size = "sm" | "base" | "md" | "lg";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -33,9 +33,11 @@ export default function Button({
       "bg-transparent border border-white hover:bg-thesecondary hover:border-thesecondary text-white",
     outlined:
       "bg-white border border-thesecondary text-thesecondary hover:bg-thesecondary hover:text-white",
+    form: "w-full sm:w-fit bg-white border border-theprimary text-theprimary font-medium",
   };
 
   const sizes: Record<Size, string> = {
+    base: "py-2.5 px-6",
     sm: "px-4 py-2.5",
     md: "px-6 h-14",
     lg: "px-10 py-4",
