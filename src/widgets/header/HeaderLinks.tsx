@@ -1,6 +1,29 @@
 import { cn } from "@/shared/utils/cn";
 import NavLinks from "../../shared/ui/NavLinks";
 
+const links = [
+  {
+    title: "Главная",
+    url: "/",
+  },
+  {
+    title: "Об институте",
+    url: "/about",
+  },
+  {
+    title: "Аналитика",
+    url: "/analytics",
+  },
+  {
+    title: "Образование",
+    url: "/knowledge",
+  },
+  {
+    title: "Эксперты",
+    url: "/experts",
+  },
+];
+
 function HeaderLinks() {
   return (
     <div

@@ -27,7 +27,7 @@ function SchoolMainAboutSection({
               alt="narxoz-lab"
               width={672}
               height={672}
-              className="h-[21rem] md:h-[35rem]  xl:size-full rounded-2xl object-cover"
+              className="h-[21rem] md:h-[35rem] rounded-2xl object-cover"
             />
           </div>
         </div>
