@@ -1,6 +1,6 @@
 services:
   app:
-    image: blinkker/hi-tech:dev
+    image: adinamei/hi-tech
     # ports:
     # - "3000:3000"
     environment:
